@@ -6,7 +6,7 @@ permalink: /Project/
 ## 🚀 Projects
 
 ### 1) Voyager Shopping Cart
-![Voyager Shopping Cart](https://via.placeholder.com/1200x400.png?text=Voyager+Shopping+Cart)  
+![Voyager Shopping Cart](/images/voyager-shopping-cart.png) 
 [**Voyager Shopping Cart**](https://github.com/Trunkg0d/Voyager-shopping-cart)  
 A full-stack e-commerce platform for shopping cart functionality. Built with Ruby on Rails, ReactJS, and PostgreSQL. Includes features like product listing, cart functionality, and user authentication.
 
