@@ -1,41 +1,55 @@
 ---
 layout: default
-title: Project
-permalink: /Project/
+title: Projects
+permalink: /projects/
 ---
-## 🚀 Projects
 
-## 1) Voyager Shopping Cart
-![Voyager Shopping Cart](/images/voyager-shopping-cart.png)  
-[**Voyager Shopping Cart**](https://github.com/Trunkg0d/Voyager-shopping-cart)  
-A full-stack e-commerce platform for shopping cart functionality. Built with Ruby on Rails, ReactJS, and PostgreSQL. Includes features like product listing, cart functionality, and user authentication.
+## Projects
 
-<br><br>
+### 1. Voyager Shopping Cart
 
-## 2) Neural Machine Translation
-![Neural Machine Translation](/images/neural-machine-translation.png)  
-[**Neural Machine Translation**](https://github.com/Trunkg0d/Neural-Machine-Translation)  
-A deep learning project for neural machine translation (NMT) to translate text between different languages using RNN-based architecture.
+![Voyager Shopping Cart](/images/voyager-shopping-cart.png)
+
+**GitHub:** [Trunkg0d/Voyager-shopping-cart](https://github.com/Trunkg0d/Voyager-shopping-cart)
+
+**Description:** Full-stack e-commerce platform with product listings, cart management, and user authentication. Built using Ruby on Rails, ReactJS, and PostgreSQL.
 
 <br><br>
 
-## 3) Image Transform Web
-![Image Transform Web](/images/image-transform-web.png)  
-[**Image Transform Web**](https://github.com/Trunkg0d/Image_Transform_Web)  
-A web application for transforming images, including color changes, shape creation, smoothing, and edge detection. Built with Flask and Python.
+### 2. Neural Machine Translation
+
+![Neural Machine Translation](/images/neural-machine-translation.png)
+
+**GitHub:** [Trunkg0d/Neural-Machine-Translation](https://github.com/Trunkg0d/Neural-Machine-Translation)
+
+**Description:** Neural Machine Translation system for English to Portuguese, employing a Seq2Seq model with attention mechanism.
 
 <br><br>
 
-## 4) Text Similarities Tool
-![Text Similarities Tool](images/text-similarities-tool.png)  
-[**Text Similarities Tool**](https://github.com/Trunkg0d/Text_Similarities_Tool)  
-A tool to identify text similarities in a local corpus, using a Siamese network model and pretrained models for fine-tuning. Developed using PyTorch, Hugging Face, and Streamlit.
+### 3. Image Transform Web
+
+![Image Transform Web](/images/image-transform-web.png)
+
+**GitHub:** [Trunkg0d/Image_Transform_Web](https://github.com/Trunkg0d/Image_Transform_Web)
+
+**Description:** Web application for image manipulation, including color adjustments, shape transformations, smoothing, and edge detection. Built with Flask and Python.
 
 <br><br>
 
-## 5) Medical Image Segmentation
-![Medical Image Segmentation](images/medical-image-segmentation.png)  
-[**Medical Image Segmentation**](https://github.com/Trunkg0d/Medical-Image-Segmentation)  
-A deep learning project focused on medical image segmentation for analyzing medical images, such as CT scans and MRIs, to detect and segment abnormalities.
+### 4. Text Similarities Tool
+
+![Text Similarities Tool](images/text-similarities-tool.png)
+
+**GitHub:** [Trunkg0d/Text_Similarities_Tool](https://github.com/Trunkg0d/Text_Similarities_Tool)
+
+**Description:** Tool for identifying text similarities in a local corpus using Siamese networks, fine-tuned with pre-trained models. Developed with PyTorch, Hugging Face, and Streamlit.
 
 <br><br>
+
+### 5. Medical Image Segmentation
+
+![Medical Image Segmentation](images/medical-image-segmentation.png)
+
+**GitHub:** [Trunkg0d/Medical-Image-Segmentation](https://github.com/Trunkg0d/Medical-Image-Segmentation)
+
+**Description:** Deep learning project for medical image segmentation, analyzing CT and MRI scans to detect and segment abnormalities.
