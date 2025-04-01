@@ -49,7 +49,7 @@ $$A(D \setminus D_{forget})$$
 
 <div align="center">
     <figure>
-        <img src="/images/images/machine-unlearning/naive_retraining_and_machine_unlearning.png" alt="Naive Retraining" width="700">
+        <img src="/images/machine-unlearning/naive_retraining_and_machine_unlearning.png" alt="Naive Retraining" width="700">
         <figcaption> Minh họa quá trình Naive Retraining - Huấn luyện lại mô hình từ đầu sau khi loại bỏ dữ liệu.</figcaption>
     </figure>
 </div>
