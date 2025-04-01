@@ -9,9 +9,9 @@ title: Welcome to Trunk's Blog
   <a href="mailto:trungsanglong@gmail.com">Email</a> | <a href="https://github.com/Trunkg0d">GitHub</a>
 </div>
 
-**CV Me**
+**Resume Me**
 
-I'm enthusiastic CV leveraging technology to solve interesting problems. My journey in IT has allowed me to gain experience in various fields, from developing web applications to exploring the intricacies of AI. I've also had the opportunity to participate in AI and Web development contests and hackathons, with some success. My goal is to contribute meaningfully to the fields of Artificial Intelligence or Data Science.
+I'm enthusiastic Resume leveraging technology to solve interesting problems. My journey in IT has allowed me to gain experience in various fields, from developing web applications to exploring the intricacies of AI. I've also had the opportunity to participate in AI and Web development contests and hackathons, with some success. My goal is to contribute meaningfully to the fields of Artificial Intelligence or Data Science.
 
 **Experience**
 
@@ -50,7 +50,7 @@ I'm enthusiastic CV leveraging technology to solve interesting problems. My jour
 * **Machine Learning:** Experienced in developing and implementing supervised and unsupervised learning algorithms with libraries like Scikit-learn, NumPy, and Pandas.
 * **Deep Learning:** Designed and trained Deep Neural Networks using TensorFlow and PyTorch.
 * **Natural Language Processing:** Proficient in text classification, sentiment analysis, machine translation, auto-correct, RAG, and chatbot development.
-* **Computer Vision:** Knowledge of image and video processing, including object detection, segmentation, and basic tracking using OpenCV (C++ and Python).
+* **Computer Vision:** Knowledge of image and video processing, including object detection, segmentation, and basic tracking using OpenResume (C++ and Python).
 * **Software:** Ruby on Rails, Bootstrap, FastAPI, Flask, Docker, and related technologies.
 
 **Projects**
