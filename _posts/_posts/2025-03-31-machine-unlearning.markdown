@@ -1,6 +1,8 @@
 ---
 title: "Machine Unlearning: Khi AI 'quên' đi những gì đã học"
 date: 2025-03-31
+layout: post
+categories: jekyll update
 ---
 
 <h2>1. Giới thiệu</h2>
