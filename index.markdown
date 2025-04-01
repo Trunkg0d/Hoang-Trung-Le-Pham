@@ -21,19 +21,4 @@ I'm enthusiastic about leveraging technology to solve interesting problems. My j
 - **Natural Language Processing (NLP)**: Investigating text generation, retrieval-augmented generation (RAG), and semantic understanding.  
 - **Computer Vision**: Object detection, image segmentation, and generative AI applications.  
 
-## 🎓 Education
-
-- **BSc in Artificial Intelligence** - University of Science, VNUHCM  
-  - **GPA:** 9.11/10 (as of Dec 2024)  
-  - **Scholarships:** Multiple awards for academic excellence
-
-## 🛠 Skills
-
-- **Programming:** Python, Ruby, C++, SQL  
-- **Machine Learning:** Scikit-learn, NumPy, Pandas  
-- **Deep Learning:** TensorFlow, PyTorch  
-- **Natural Language Processing:** Chatbots, RAG, Sentiment Analysis, Text Similarity  
-- **Computer Vision:** OpenCV, Object Detection, Image Processing  
-- **Software & Web:** Ruby on Rails, Flask, FastAPI, Docker 
-
 💡 *Thank you for visiting my blog! I hope you find valuable insights, research, and projects here. Feel free to explore and connect with me!* 🚀
