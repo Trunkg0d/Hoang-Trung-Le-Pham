@@ -140,7 +140,7 @@ Approximate Unlearning bao gồm nhiều phương pháp khác nhau, mỗi phươ
 
 <div align="center">
     <figure>
-        <img src="images/machine-unlearning/sisa.png" alt="SISA Framework" width="700">
+        <img src="D:\blog\_posts\images\machine-unlearning\sisa.png" alt="SISA Framework" width="700">
         <figcaption> SISA Framework.</figcaption>
     </figure>
 </div>
