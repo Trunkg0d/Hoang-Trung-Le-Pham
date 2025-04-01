@@ -36,6 +36,9 @@
 
     <main class="page-content" aria-label="Content">
       <div class="wrapper">
+        {% if page.url == '/' %}
+          <h2 style="text-align: center; font-weight: bold;">Posts</h2>
+        {% endif %}
         {{ content }}
       </div>
     </main>
