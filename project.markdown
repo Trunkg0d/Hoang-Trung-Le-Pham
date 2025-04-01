@@ -13,7 +13,7 @@ A full-stack e-commerce platform for shopping cart functionality. Built with Rub
 ---
 
 ### 2) Neural Machine Translation
-![Neural Machine Translation](https://via.placeholder.com/1200x400.png?text=Neural+Machine+Translation)  
+![Neural Machine Translation](/images/neural-machine-translation.png)  
 [**Neural Machine Translation**](https://github.com/Trunkg0d/Neural-Machine-Translation)  
 A deep learning project for neural machine translation (NMT) to translate text between different languages using RNN-based architecture.
 
