@@ -5,6 +5,8 @@ date: 2025-03-31
 categories: jekyll update
 ---
 
+<img src="/assets/images/machine-unlearning/ml-vs-mu.png" alt="ML vs MU" width="700">
+
 ## 1. Giới thiệu
 
 Trong kỷ nguyên của Trí tuệ Nhân tạo (AI), các mô hình học máy ngày càng trở nên mạnh mẽ và được ứng dụng rộng rãi trong nhiều lĩnh vực của đời sống. Tuy nhiên, đi kèm với sự phát triển này là những lo ngại về quyền riêng tư và đạo đức liên quan đến việc thu thập và sử dụng dữ liệu cá nhân.

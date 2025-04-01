@@ -59,4 +59,4 @@ defaults:
       layout: "posts"
 
 include:
-  - images
+  - assets
