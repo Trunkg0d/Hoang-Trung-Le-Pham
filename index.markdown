@@ -9,9 +9,9 @@ title: Welcome to Trunk's Blog
   <a href="mailto:trungsanglong@gmail.com">Email</a> | <a href="https://github.com/Trunkg0d">GitHub</a>
 </div>
 
-**About Me**
+**CV Me**
 
-I'm enthusiastic about leveraging technology to solve interesting problems. My journey in IT has allowed me to gain experience in various fields, from developing web applications to exploring the intricacies of AI. I've also had the opportunity to participate in AI and Web development contests and hackathons, with some success. My goal is to contribute meaningfully to the fields of Artificial Intelligence or Data Science.
+I'm enthusiastic CV leveraging technology to solve interesting problems. My journey in IT has allowed me to gain experience in various fields, from developing web applications to exploring the intricacies of AI. I've also had the opportunity to participate in AI and Web development contests and hackathons, with some success. My goal is to contribute meaningfully to the fields of Artificial Intelligence or Data Science.
 
 **Experience**
 
