@@ -1,5 +1,5 @@
 ---
-title: Welcome to Trunk's Blog
+title: Homepage
 ---
 
 <div align="center">
