@@ -10,11 +10,11 @@ permalink: /Resume/
   <a href="mailto:trungsanglong@gmail.com">Email</a> | <a href="https://github.com/Trunkg0d">GitHub</a>
 </div>
 
-## 📌 About Me
+**About Me**
 
 I'm enthusiastic about leveraging technology to solve interesting problems. My journey in IT has allowed me to gain experience in various fields, from developing web applications to exploring the intricacies of AI. I've also had the opportunity to participate in AI and Web development contests and hackathons, with some success. My goal is to contribute meaningfully to the fields of Artificial Intelligence or Data Science.
 
-## 💼 Experience
+**Experience**
 
 * **AI Research Intern** - IEC Research Group (Aug 2024 - Present)
     * Conducting research on Layer Attack techniques in Model AI Security, including Bit-flip attack and Dropout attack.
@@ -39,13 +39,13 @@ I'm enthusiastic about leveraging technology to solve interesting problems. My j
     * Participated in technology presentations.
     * Learned new stacks like Reactjs and FastAPI.
 
-## 🎓 Education
+**Education**
 
 * **BSc in Artificial Intelligence** - University of Science - VNUHCM
     * GPA: 9.11/10 (last updated on 23 Dec 2024)
     * Won a school scholarship for multiple semesters
 
-## 🛠 Skills
+**Skills**
 
 * **Programming Languages:** Python, Ruby, C++, SQL.
 * **Machine Learning:** Experienced in developing and implementing supervised and unsupervised learning algorithms with libraries like Scikit-learn, NumPy, and Pandas.
@@ -54,7 +54,7 @@ I'm enthusiastic about leveraging technology to solve interesting problems. My j
 * **Computer Vision:** Knowledge of image and video processing, including object detection, segmentation, and basic tracking using OpenCV (C++ and Python).
 * **Software:** Ruby on Rails, Bootstrap, FastAPI, Flask, Docker, and related technologies.
 
-## 🔬 Projects
+**Projects**
 
 * **Rumor Detection Based on Graph Neural Network (Research):** Researcher.
     * Conducted research on Rumor Detection and Source Rumor Detection.
@@ -74,7 +74,7 @@ I'm enthusiastic about leveraging technology to solve interesting problems. My j
     * Technologies: Ruby on Rails (Backend), HTML, CSS, Bootstrap (Frontend), Docker (setup/deployment to Heroku).
     * GitHub: [https://github.com/Trunkg0d/Voyager-shopping-cart](https://github.com/Trunkg0d/Voyager-shopping-cart)
 
-## 📜 Certifications
+**Online Courses & Certifications**
 
 * Specialization in Natural Language Processing (4 courses) - Coursera
 * Getting started with TensorFlow 2 - Coursera
@@ -82,7 +82,7 @@ I'm enthusiastic about leveraging technology to solve interesting problems. My j
 * Data Analysis with Python - Coursera
 * Ruby on Rails Training Course - Voyager IT Inc.
 
-## 🌍 Languages
+**Languages**
 
 * English (Toeic certificate in 4 skills)
 * Vietnamese (Native)
