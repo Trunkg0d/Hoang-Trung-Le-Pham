@@ -5,8 +5,7 @@ permalink: /Resume/
 ---
 
 <div align="center">
-  <img src="profile.jpg" alt="Le Pham Hoang Trung" width="150px">
-  <h1>Hello, I'm Le Pham Hoang Trung</h1>
+  <h1>Le Pham Hoang Trung</h1>
   <p>AI Research Intern | AI, Data Science, and Web Development</p>
   <a href="mailto:trungsanglong@gmail.com">Email</a> | <a href="https://github.com/Trunkg0d">GitHub</a>
 </div>
