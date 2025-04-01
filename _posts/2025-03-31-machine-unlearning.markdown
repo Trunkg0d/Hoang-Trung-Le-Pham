@@ -1,4 +1,3 @@
-
 ---
 layout: post
 title: "Machine Unlearning: Khi AI 'quên' đi những gì đã học"
@@ -138,6 +137,13 @@ Approximate Unlearning bao gồm nhiều phương pháp khác nhau, mỗi phươ
 * **Phương pháp dựa trên giải thuật SVD (Singular Value Decomposition):** Phân tích ma trận dữ liệu để ước lượng và loại bỏ ảnh hưởng của $D_{forget}$.
 
 **Công thức chung (ví dụ về SISA):**
+
+<div align="center">
+    <figure>
+        <img src="../images/machine-unlearning/sisa.png" alt="SISA Framework" width="700">
+        <figcaption> SISA Framework.</figcaption>
+    </figure>
+</div>
 
 Công thức sau minh họa cách SISA hoạt động:
 
