@@ -13,7 +13,7 @@ Hãy tưởng tượng một mô hình AI được đào tạo trên dữ liệu
 
 <div align="center">
     <figure>
-        <img src="../images/machine-unlearning/ml-vs-mu.png" alt="ML vs MU" width="700">
+        <img src="/images/machine-unlearning/ml-vs-mu.png" alt="ML vs MU" width="700">
         <figcaption> Machine Learning và Machine Unlearning.</figcaption>
     </figure>
 </div>
@@ -49,7 +49,7 @@ $$A(D \setminus D_{forget})$$
 
 <div align="center">
     <figure>
-        <img src="../images/machine-unlearning/naive_retraining_and_machine_unlearning.png" alt="Naive Retraining" width="700">
+        <img src="/images/machine-unlearning/naive_retraining_and_machine_unlearning.png" alt="Naive Retraining" width="700">
         <figcaption> Minh họa quá trình Naive Retraining - Huấn luyện lại mô hình từ đầu sau khi loại bỏ dữ liệu.</figcaption>
     </figure>
 </div>
@@ -140,7 +140,7 @@ Approximate Unlearning bao gồm nhiều phương pháp khác nhau, mỗi phươ
 
 <div align="center">
     <figure>
-        <img src="../images/machine-unlearning/sisa.png" alt="SISA Framework" width="700">
+        <img src="/images/machine-unlearning/sisa.png" alt="SISA Framework" width="700">
         <figcaption> SISA Framework.</figcaption>
     </figure>
 </div>
