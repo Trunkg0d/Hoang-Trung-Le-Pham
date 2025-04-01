@@ -87,4 +87,4 @@ I'm enthusiastic about leveraging technology to solve interesting problems. My j
 * English (Toeic certificate in 4 skills)
 * Vietnamese (Native)
 
-Thank you for visiting my blog! Feel free to explore my projects and get in touch.
+💡 *Thank you for visiting my blog! I hope you find valuable insights, research, and projects here. Feel free to explore and connect with me!* 🚀

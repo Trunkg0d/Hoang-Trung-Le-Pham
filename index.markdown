@@ -22,3 +22,4 @@ I'm enthusiastic about leveraging technology to solve interesting problems. My j
 - **Computer Vision**: Object detection, image segmentation, and generative AI applications.  
 
 💡 *Thank you for visiting my blog! I hope you find valuable insights, research, and projects here. Feel free to explore and connect with me!* 🚀
+<h2 style="text-align: center; font-weight: bold;">Posts</h2>
