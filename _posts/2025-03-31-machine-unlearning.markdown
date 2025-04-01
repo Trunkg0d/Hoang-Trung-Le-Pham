@@ -30,7 +30,9 @@ Trước khi đi vào các phương pháp cụ thể, việc định nghĩa rõ 
 
 <h4>b.1. Exact Unlearning</h4>
 <p>Đây là phương pháp lý tưởng, nhưng khó thực hiện nhất. Mục tiêu là tạo ra một mô hình $M'$ sao cho nó tương đương với mô hình được huấn luyện trực tiếp trên $D_{retain}$. Công thức lý tưởng như sau:</p>
-$$M' = Train(D_{retain})$$
+<div align="center">
+  $$ M' = Train(D_{retain}) $$
+</div>
 <p>trong đó, $Train(D_{retain})$ là hàm huấn luyện mô hình trên tập dữ liệu $D_{retain}$. Tuy nhiên, cách này gặp các khó khăn đó là:</p>
 <ul>
 <li>Tính toán lại toàn bộ mô hình từ $D_{retain}$ có thể tốn kém, đặc biệt đối với các mô hình lớn.</li>
@@ -56,7 +58,9 @@ $$M' = Train(D_{retain})$$
 </li>
 </ul>
 <p>Công thức chung (ví dụ về SISA):</p>
-$$M' = Aggregate(Train(Shard_1), Train(Shard_2), ..., Train(Shard_n))$$
+<div align="center">
+  $$M' = Aggregate(Train(Shard_1), Train(Shard_2), ..., Train(Shard_n))$$
+</div>
 <p>trong đó, $Aggregate()$ là hàm tổng hợp các mô hình con.</p>
 
 <h2>3. Đánh giá Machine Unlearning</h2>
