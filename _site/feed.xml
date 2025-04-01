@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.4.1">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2025-04-01T13:10:49+07:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">Trunk’s Blog</title><subtitle>Welcome to my personal blog, where I share my journey in AI, Data Science, and Web Development. Here, you&apos;ll find insights from my research, technical projects,  and hands-on experience. I hope my work inspires and helps you on your tech journey! 🚀</subtitle><entry><title type="html">Machine Unlearning: Khi AI ‘quên’ đi những gì đã học</title><link href="http://localhost:4000/jekyll/update/2025/03/31/machine-unlearning.html" rel="alternate" type="text/html" title="Machine Unlearning: Khi AI ‘quên’ đi những gì đã học" /><published>2025-03-31T00:00:00+07:00</published><updated>2025-03-31T00:00:00+07:00</updated><id>http://localhost:4000/jekyll/update/2025/03/31/machine-unlearning</id><content type="html" xml:base="http://localhost:4000/jekyll/update/2025/03/31/machine-unlearning.html"><![CDATA[<h2>1. Giới thiệu</h2>
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.4.1">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2025-04-01T13:38:58+07:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">Trunk’s Blog</title><subtitle>Welcome to my personal blog, where I share my journey in AI, Data Science, and Web Development. Here, you&apos;ll find insights from my research, technical projects,  and hands-on experience. I hope my work inspires and helps you on your tech journey! 🚀</subtitle><entry><title type="html">Machine Unlearning: Khi AI ‘quên’ đi những gì đã học</title><link href="http://localhost:4000/jekyll/update/2025/03/31/machine-unlearning.html" rel="alternate" type="text/html" title="Machine Unlearning: Khi AI ‘quên’ đi những gì đã học" /><published>2025-03-31T00:00:00+07:00</published><updated>2025-03-31T00:00:00+07:00</updated><id>http://localhost:4000/jekyll/update/2025/03/31/machine-unlearning</id><content type="html" xml:base="http://localhost:4000/jekyll/update/2025/03/31/machine-unlearning.html"><![CDATA[<h2>1. Giới thiệu</h2>
 <p>Trong kỷ nguyên của Trí tuệ Nhân tạo (AI), các mô hình học máy ngày càng trở nên mạnh mẽ và được ứng dụng rộng rãi trong nhiều lĩnh vực của đời sống. Tuy nhiên, đi kèm với sự phát triển này là những lo ngại về quyền riêng tư và đạo đức liên quan đến việc thu thập và sử dụng dữ liệu cá nhân.</p>
 
 <p>Hãy tưởng tượng một mô hình AI được đào tạo trên dữ liệu của hàng triệu người dùng, bao gồm cả những thông tin nhạy cảm như lịch sử tìm kiếm, vị trí và thông tin tài chính. Nếu một người dùng muốn xóa dữ liệu của họ khỏi mô hình này, liệu điều đó có khả thi? Kiểu như bạn từng "lỡ" dạy AI nhận diện món phở, xong nó nhận diện nhầm tô bún riêu nhà kế bên? Hoặc "lỡ" cho AI xem hết ảnh "dìm hàng" của bạn, giờ nó đem đi "tám chuyện" với AI khác? Làm thế nào chúng ta có thể đảm bảo rằng AI "quên" đi những gì đã học, đồng thời duy trì hiệu suất của mô hình?</p>
@@ -23,7 +23,9 @@
 
 <h4>b.1. Exact Unlearning</h4>
 <p>Đây là phương pháp lý tưởng, nhưng khó thực hiện nhất. Mục tiêu là tạo ra một mô hình $M'$ sao cho nó tương đương với mô hình được huấn luyện trực tiếp trên $D_{retain}$. Công thức lý tưởng như sau:</p>
-<p>\(M' = Train(D_{retain})\)</p>
+<div align="center">
+  $$ M' = Train(D_{retain}) $$
+</div>
 <p>trong đó, $Train(D_{retain})$ là hàm huấn luyện mô hình trên tập dữ liệu $D_{retain}$. Tuy nhiên, cách này gặp các khó khăn đó là:</p>
 <ul>
 <li>Tính toán lại toàn bộ mô hình từ $D_{retain}$ có thể tốn kém, đặc biệt đối với các mô hình lớn.</li>
@@ -49,7 +51,9 @@
 </li>
 </ul>
 <p>Công thức chung (ví dụ về SISA):</p>
-<p>\(M' = Aggregate(Train(Shard_1), Train(Shard_2), ..., Train(Shard_n))\)</p>
+<div align="center">
+  $$M' = Aggregate(Train(Shard_1), Train(Shard_2), ..., Train(Shard_n))$$
+</div>
 <p>trong đó, $Aggregate()$ là hàm tổng hợp các mô hình con.</p>
 
 <h2>3. Đánh giá Machine Unlearning</h2>
