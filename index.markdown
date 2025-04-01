@@ -1,4 +1,4 @@
-<!-- ---
+---
 title: Welcome to Trunk's Blog
 ---
 
@@ -86,4 +86,4 @@ I'm enthusiastic about leveraging technology to solve interesting problems. My j
 * English (Toeic certificate in 4 skills)
 * Vietnamese (Native)
 
-Thank you for visiting my blog! Feel free to explore my projects and get in touch. -->
+Thank you for visiting my blog! Feel free to explore my projects and get in touch.
