@@ -1,97 +1,360 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.4.1">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2025-04-01T15:00:54+07:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">Trunk’s Blog</title><subtitle>Welcome to my personal blog, where I share my journey in AI, Data Science, and Web Development. Here, you&apos;ll find insights from my research, technical projects,  and hands-on experience. I hope my work inspires and helps you on your tech journey! 🚀</subtitle><entry><title type="html">Machine Unlearning: Khi AI ‘quên’ đi những gì đã học</title><link href="http://localhost:4000/jekyll/update/2025/03/31/machine-unlearning.html" rel="alternate" type="text/html" title="Machine Unlearning: Khi AI ‘quên’ đi những gì đã học" /><published>2025-03-31T00:00:00+07:00</published><updated>2025-03-31T00:00:00+07:00</updated><id>http://localhost:4000/jekyll/update/2025/03/31/machine-unlearning</id><content type="html" xml:base="http://localhost:4000/jekyll/update/2025/03/31/machine-unlearning.html"><![CDATA[<h2>1. Giới thiệu</h2>
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.4.1">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2025-04-01T22:30:58+07:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">Trunk’s Blog</title><subtitle>Welcome to my personal blog, where I share my journey in AI, Data Science, and Web Development. Here, you&apos;ll find insights from my research, technical projects,  and hands-on experience. I hope my work inspires and helps you on your tech journey! 🚀</subtitle><entry><title type="html">Machine Unlearning: Khi AI ‘quên’ đi những gì đã học</title><link href="http://localhost:4000/jekyll/update/2025/03/31/machine-unlearning.html" rel="alternate" type="text/html" title="Machine Unlearning: Khi AI ‘quên’ đi những gì đã học" /><published>2025-03-31T00:00:00+07:00</published><updated>2025-03-31T00:00:00+07:00</updated><id>http://localhost:4000/jekyll/update/2025/03/31/machine-unlearning</id><content type="html" xml:base="http://localhost:4000/jekyll/update/2025/03/31/machine-unlearning.html"><![CDATA[<h2 id="1-giới-thiệu">1. Giới thiệu</h2>
+
 <p>Trong kỷ nguyên của Trí tuệ Nhân tạo (AI), các mô hình học máy ngày càng trở nên mạnh mẽ và được ứng dụng rộng rãi trong nhiều lĩnh vực của đời sống. Tuy nhiên, đi kèm với sự phát triển này là những lo ngại về quyền riêng tư và đạo đức liên quan đến việc thu thập và sử dụng dữ liệu cá nhân.</p>
 
-<p>Hãy tưởng tượng một mô hình AI được đào tạo trên dữ liệu của hàng triệu người dùng, bao gồm cả những thông tin nhạy cảm như lịch sử tìm kiếm, vị trí và thông tin tài chính. Nếu một người dùng muốn xóa dữ liệu của họ khỏi mô hình này, liệu điều đó có khả thi? Kiểu như bạn từng "lỡ" dạy AI nhận diện món phở, xong nó nhận diện nhầm tô bún riêu nhà kế bên? Hoặc "lỡ" cho AI xem hết ảnh "dìm hàng" của bạn, giờ nó đem đi "tám chuyện" với AI khác? Làm thế nào chúng ta có thể đảm bảo rằng AI "quên" đi những gì đã học, đồng thời duy trì hiệu suất của mô hình?</p>
+<p>Hãy tưởng tượng một mô hình AI được đào tạo trên dữ liệu của hàng triệu người dùng, bao gồm cả những thông tin nhạy cảm như lịch sử tìm kiếm, vị trí và thông tin tài chính. Nếu một người dùng muốn xóa dữ liệu của họ khỏi mô hình này, liệu điều đó có khả thi? Kiểu như bạn từng “lỡ” dạy AI nhận diện món phở, xong nó nhận diện nhầm tô bún riêu nhà kế bên? Hoặc “lỡ” cho AI xem hết ảnh “dìm hàng” của bạn, giờ nó đem đi “tám chuyện” với AI khác? Làm thế nào chúng ta có thể đảm bảo rằng AI “quên” đi những gì đã học, đồng thời duy trì hiệu suất của mô hình?</p>
 
-<p>Đây chính là lúc Machine Unlearning xuất hiện, như một "cục tẩy" cho AI. Machine Unlearning là một lĩnh vực nghiên cứu mới nổi, tập trung vào việc phát triển các phương pháp cho phép các mô hình học máy loại bỏ thông tin cụ thể khỏi quá trình đào tạo. Nói một cách đơn giản, Machine Unlearning giúp AI "quên" đi những dữ liệu không còn cần thiết hoặc không phù hợp, từ đó bảo vệ quyền riêng tư của người dùng và giải quyết các vấn đề đạo đức liên quan đến việc sử dụng AI. Kiểu như, khi bạn muốn AI "quên" đi mấy tấm hình "dìm hàng" kia, machine unlearning sẽ giúp AI "xoá kí ức" nhẹ nhàng.</p>
+<div align="center">
+    <figure>
+        <img src="/images/machine-unlearning/ml-vs-mu.png" alt="ML vs MU" width="700" />
+        <figcaption> Machine Learning và Machine Unlearning.</figcaption>
+    </figure>
+</div>
+
+<p>Đây chính là lúc Machine Unlearning xuất hiện, như một “cục tẩy” cho AI. Machine Unlearning là một lĩnh vực nghiên cứu mới nổi, tập trung vào việc phát triển các phương pháp cho phép các mô hình học máy loại bỏ thông tin cụ thể khỏi quá trình đào tạo. Nói một cách đơn giản, Machine Unlearning giúp AI “quên” đi những dữ liệu không còn cần thiết hoặc không phù hợp, từ đó bảo vệ quyền riêng tư của người dùng và giải quyết các vấn đề đạo đức liên quan đến việc sử dụng AI. Kiểu như, khi bạn muốn AI “quên” đi mấy tấm hình “dìm hàng” kia, machine unlearning sẽ giúp AI “xoá kí ức” nhẹ nhàng.</p>
 
 <p>Trong bài blog này, chúng ta sẽ cùng nhau khám phá sâu hơn về Machine Unlearning, bao gồm các phương pháp, thách thức và ứng dụng tiềm năng của nó. Hãy cùng nhau tìm hiểu về tương lai của việc kiểm soát dữ liệu trong kỷ nguyên AI!</p>
 
-<h2>2. Các phương pháp Machine Unlearning</h2>
-<p>Phần này sẽ đi sâu vào các kỹ thuật và phương pháp giúp AI “quên” đi dữ liệu không mong muốn. Từ việc định nghĩa các tập dữ liệu liên quan đến việc quên, đến việc phân loại các phương pháp unlearning, bạn sẽ khám phá cách mà các nhà nghiên cứu đang giải quyết vấn đề này.</p>
+<h2 id="2-các-phương-pháp-machine-unlearning">2. Các phương pháp Machine Unlearning</h2>
 
-<h3>a. Định nghĩa các tập dữ liệu</h3>
+<h3 id="21-định-nghĩa-các-tập-dữ-liệu">2.1. Định nghĩa các tập dữ liệu</h3>
+
 <p>Trước khi đi vào các phương pháp cụ thể, việc định nghĩa rõ ràng các tập dữ liệu liên quan là bước đầu tiên và quan trọng. Điều này giúp chúng ta có một khung làm việc rõ ràng và chính xác trong quá trình Machine Unlearning.</p>
+
 <ul>
-<li>$D$: Tập dữ liệu gốc, dùng để huấn luyện mô hình ban đầu</li>
-<li>$D_{retain}$: Tập dữ liệu còn lại, sau khi loại bỏ dữ liệu cần quên</li>
-<li>$D_{forget}$: Tập dữ liệu cần quên, sẽ được loại bỏ ảnh hưởng khỏi mô hình</li>
+  <li>$D$: Tập dữ liệu gốc, dùng để huấn luyện mô hình ban đầu.</li>
+  <li>$D_{retain}$: Tập dữ liệu còn lại, sau khi loại bỏ dữ liệu cần quên.</li>
+  <li>$D_{forget}$: Tập dữ liệu cần quên, sẽ được loại bỏ ảnh hưởng khỏi mô hình.</li>
 </ul>
 
-<h3>b. Phân loại</h3>
-<p>Ở đây, chúng ta sẽ phân tích và so sánh hai phương pháp chính trong Machine Unlearning: Exact Unlearning và Approximate Unlearning. Mỗi phương pháp có những ưu và nhược điểm riêng, phù hợp với các tình huống và yêu cầu khác nhau.</p>
+<h3 id="22-định-nghĩa-machine-unlearning">2.2. Định nghĩa Machine Unlearning</h3>
 
-<h4>b.1. Exact Unlearning</h4>
-<p>Đây là phương pháp lý tưởng, nhưng khó thực hiện nhất. Mục tiêu là tạo ra một mô hình $M'$ sao cho nó tương đương với mô hình được huấn luyện trực tiếp trên $D_{retain}$. Công thức lý tưởng như sau:</p>
+<p>Theo bài báo <a href="#xu2024">[Xu et al., 2024]</a>, Machine Unlearning (Học máy Bỏ học) là quá trình loại bỏ ảnh hưởng của các điểm dữ liệu huấn luyện cụ thể khỏi một mô hình học máy đã được huấn luyện. Cụ thể, một mô hình với bộ tham số $\mathbf{w}^*$ được huấn luyện trên tập dữ liệu $D$ sử dụng thuật toán $A$, và tập dữ liệu con $D_{forget}$, một phần của $D$, cần được loại bỏ. Thuật toán Học máy quên dữ liệu $U(A(D), D, D_{forget})$ nhằm mục đích xây dựng được mô hình mới với bộ tham số $\mathbf{w}^-$ bằng cách loại bỏ ảnh hưởng của $D_{forget}$ trong khi vẫn giữ nguyên hiệu suất của mô hình trên $D \setminus D_{forget}$.</p>
+
+<h3 id="23-naive-retraining-huấn-luyện-lại-ngây-thơ">2.3. Naive Retraining (Huấn luyện lại ngây thơ)</h3>
+
+<p>Naive Retraining là phương pháp cơ bản nhất, liên quan đến việc loại bỏ điểm dữ liệu không mong muốn khỏi tập dữ liệu huấn luyện và huấn luyện lại mô hình từ đầu. Phương pháp này thường được sử dụng làm cơ sở để đánh giá các kỹ thuật unlearning phức tạp hơn.</p>
+
+<h4 id="định-nghĩa-1">Định nghĩa 1</h4>
+
+<p>Cho một thuật toán học máy $A(\cdot)$, tập dữ liệu huấn luyện $D$, và một tập dữ liệu huấn luyện $D_{forget}$ cần loại bỏ, naive retraining bao gồm việc huấn luyện lại trên tập dữ liệu đã sửa đổi $D \setminus D_{forget}$. Về mặt toán học, nó có thể được biểu diễn như sau:</p>
+
+\[A(D \setminus D_{forget})\]
+
 <div align="center">
-  $$ M' = Train(D_{retain}) $$
+    <figure>
+        <img src="/assets/images/machine-unlearning/naive_retraining_and_machine_unlearning.png" alt="Naive Retraining" width="700" />
+        <figcaption> Minh họa quá trình Naive Retraining - Huấn luyện lại mô hình từ đầu sau khi loại bỏ dữ liệu.</figcaption>
+    </figure>
 </div>
-<p>trong đó, $Train(D_{retain})$ là hàm huấn luyện mô hình trên tập dữ liệu $D_{retain}$. Tuy nhiên, cách này gặp các khó khăn đó là:</p>
-<ul>
-<li>Tính toán lại toàn bộ mô hình từ $D_{retain}$ có thể tốn kém, đặc biệt đối với các mô hình lớn.</li>
-<li>Trong một số trường hợp, việc tính toán lại chính xác là không khả thi.</li>
-</ul>
 
-<h4>b.2. Approximate Unlearning</h4>
-<p>Phương pháp này cố gắng giảm thiểu ảnh hưởng của $D_{forget}$ mà không cần tính toán lại toàn bộ mô hình. Các phương pháp thường gặp của dạng này bao gồm:</p>
-<ul>
-<li><strong>Sử dụng Score function:</strong> Việc đánh giá độ ảnh hưởng của 1 điểm dữ liệu lên kết quả của mô hình. Các điểm dữ liệu nào có ảnh hưởng càng lớn thì sẽ cần điều chỉnh trọng số (weight) của Model trên các điểm dữ liệu đó càng nhiều.</li>
-<li><strong>Phương pháp SISA (Sharded, Isolated, Sliced, Aggregated):</strong>
-<ul>
-<li>Chia $D$ thành nhiều "shards" nhỏ</li>
-<li>Huấn luyện các mô hình con trên từng shard</li>
-<li>Khi cần quên dữ liệu, chỉ cần huấn luyện lại các mô hình con liên quan</li>
-<li>Tổng hợp các mô hình con để tạo ra mô hình cuối cùng</li>
-</ul>
-</li>
-<li><strong>Phương pháp dựa trên giải thuật SVD (Singular Value Decomposition):</strong>
-<ul>
-<li>Sử dụng phân rã giá trị đơn lẻ để phân tích ma trận dữ liệu, và phân tích độ ảnh hưởng của từng giá trị đến kết quả cuối cùng.</li>
-</ul>
-</li>
-</ul>
-<p>Công thức chung (ví dụ về SISA):</p>
+<h3 id="24-phân-loại-các-phương-pháp-unlearning">2.4. Phân loại các phương pháp Unlearning</h3>
+
+<p>Các phương pháp Machine Unlearning có thể được phân loại thành hai hướng tiếp cận chính: Exact Unlearning và Approximate Unlearning. Mỗi phương pháp có những ưu và nhược điểm riêng, phù hợp với các tình huống và yêu cầu khác nhau.</p>
+
+<h4 id="a-exact-unlearning-unlearning-chính-xác">a. Exact Unlearning (Unlearning chính xác)</h4>
+
+<p>Exact Unlearning là phương pháp Machine Unlearning lý tưởng, hướng tới việc tạo ra một mô hình $M’$ có phân phối xác suất hoàn toàn giống với mô hình được huấn luyện trực tiếp trên tập dữ liệu còn lại $D_{retain}$. Nói cách khác, $M’$ phải tương đương với mô hình được tạo ra từ $Train(D_{retain})$, trong đó $Train(\cdot)$ là thuật toán huấn luyện được sử dụng.</p>
+
+<p><strong>Định nghĩa:</strong></p>
+
+<p>Cho một mô hình gốc $M$ được huấn luyện trên tập dữ liệu $D$ với phân phối $P_D(x, y)$, và một tập dữ liệu $D_{forget}$ cần được loại bỏ. Exact Unlearning tìm cách tạo ra mô hình $M’$ với phân phối $P_{D_{retain}}(x, y)$, sao cho:</p>
+
+\[P_{M'}(x, y) = P_{Train(D_{retain})}(x, y)\]
+
+<p><strong>Công thức lý tưởng:</strong></p>
+
+<p>Mục tiêu là đạt được một mô hình $M’$ sao cho:</p>
+
 <div align="center">
-  $$M' = Aggregate(Train(Shard_1), Train(Shard_2), ..., Train(Shard_n))$$
+    $$ M' = Train(D_{retain}) $$
 </div>
-<p>trong đó, $Aggregate()$ là hàm tổng hợp các mô hình con.</p>
 
-<h2>3. Đánh giá Machine Unlearning</h2>
+<p>trong đó, $Train(D_{retain})$ là hàm huấn luyện mô hình trên tập dữ liệu $D_{retain}$.</p>
+
+<p><strong>Độ đo:</strong></p>
+
+<p>Để đánh giá mức độ thành công của Exact Unlearning, chúng ta có thể sử dụng các độ đo dựa trên sự khác biệt phân phối, chẳng hạn như:</p>
+
+<ul>
+  <li><strong>Khoảng cách Kullback-Leibler (KL divergence):</strong></li>
+</ul>
+
+\[D_{KL}(P_{M'} || P_{Train(D_{retain})}) = 0\]
+
+<ul>
+  <li><strong>Khoảng cách Wasserstein:</strong></li>
+</ul>
+
+\[W(P_{M'}, P_{Train(D_{retain})}) = 0\]
+
+<p>Các độ đo này đánh giá sự khác biệt giữa phân phối của mô hình sau khi unlearning ($P_{M’}$) và phân phối của mô hình được huấn luyện lại từ $D_{retain}$ ($P_{Train(D_{retain})}$). Giá trị càng nhỏ, quá trình Exact Unlearning càng thành công.</p>
+
+<p><strong>Khó khăn:</strong></p>
+
+<p>Tuy nhiên, việc đạt được Exact Unlearning thường gặp các khó khăn sau:</p>
+
+<ul>
+  <li><strong>Tính toán tốn kém:</strong> Huấn luyện lại toàn bộ mô hình từ $D_{retain}$ có thể rất tốn kém, đặc biệt đối với các mô hình lớn và phức tạp.</li>
+  <li><strong>Tính khả thi:</strong> Trong một số trường hợp, việc tính toán lại chính xác phân phối là không khả thi hoặc không thể thực hiện được trong thời gian hợp lý.</li>
+</ul>
+
+<h4 id="b-approximate-unlearning-unlearning-xấp-xỉ">b. Approximate Unlearning (Unlearning xấp xỉ)</h4>
+
+<p>Approximate Unlearning là một hướng tiếp cận thực tế hơn so với Exact Unlearning, nhằm mục đích giảm thiểu ảnh hưởng của $D_{forget}$ lên mô hình mà không cần phải huấn luyện lại từ đầu trên $D_{retain}$. Thay vì tạo ra một mô hình có phân phối hoàn toàn giống $Train(D_{retain})$, Approximate Unlearning tập trung vào việc tạo ra một mô hình có phân phối gần giống nhất có thể, đồng thời giảm thiểu chi phí tính toán.</p>
+
+<p><strong>Định nghĩa:</strong></p>
+
+<p>Cho một mô hình gốc $M$ được huấn luyện trên tập dữ liệu $D$ với phân phối $P_D(x, y)$, và một tập dữ liệu $D_{forget}$ cần được loại bỏ. Approximate Unlearning tìm cách tạo ra mô hình $M’$ sao cho phân phối $P_{M’}(x, y)$ càng gần với phân phối $P_{Train(D_{retain})}(x, y)$ càng tốt, với chi phí tính toán chấp nhận được.</p>
+
+<p><strong>Mục tiêu:</strong></p>
+
+<p>Tối thiểu hóa sự khác biệt giữa phân phối của mô hình sau unlearning ($P_{M’}$) và phân phối của mô hình được huấn luyện lại từ $D_{retain}$ ($P_{Train(D_{retain})}$), đồng thời giảm thiểu chi phí tính toán.</p>
+
+<p><strong>Độ đo:</strong></p>
+
+<p>Tương tự như Exact Unlearning, chúng ta có thể sử dụng các độ đo dựa trên sự khác biệt phân phối để đánh giá hiệu quả của Approximate Unlearning với tham số ngưỡng (threshold) $\epsilon$:</p>
+
+<ul>
+  <li>
+    <p><strong>Khoảng cách Kullback-Leibler (KL divergence):</strong></p>
+
+\[D_{KL}(P_{M'} || P_{Train(D_{retain})}) \leq \epsilon\]
+  </li>
+  <li>
+    <p><strong>Khoảng cách Wasserstein:</strong></p>
+
+\[W(P_{M'}, P_{Train(D_{retain})}) \leq \epsilon\]
+  </li>
+</ul>
+
+<p>Ngoài ra, chúng ta cần xem xét thêm các độ đo về chi phí tính toán, chẳng hạn như thời gian unlearning và chi phí phần cứng.</p>
+
+<p><strong>Các phương pháp phổ biến:</strong></p>
+
+<p>Approximate Unlearning bao gồm nhiều phương pháp khác nhau, mỗi phương pháp có cách tiếp cận riêng để giảm thiểu chi phí tính toán. Một số phương pháp phổ biến bao gồm:</p>
+
+<ul>
+  <li><strong>Sử dụng Score function:</strong> Ước lượng và giảm thiểu ảnh hưởng của các điểm dữ liệu trong $D_{forget}$ bằng cách điều chỉnh trọng số của mô hình.</li>
+  <li><strong>Phương pháp SISA (Sharded, Isolated, Sliced, Aggregated):</strong>
+    <ul>
+      <li>SISA là một kỹ thuật Approximate Unlearning hiệu quả, trong đó dữ liệu được chia thành nhiều “shards” (phần nhỏ), mô hình được huấn luyện trên từng shard, và quá trình unlearning chỉ cần huấn luyện lại các mô hình trên các shard bị ảnh hưởng bởi $D_{forget}$.</li>
+      <li>Điều này giúp tránh việc huấn luyện lại toàn bộ mô hình, tiết kiệm đáng kể chi phí.</li>
+    </ul>
+  </li>
+  <li><strong>Phương pháp dựa trên giải thuật SVD (Singular Value Decomposition):</strong> Phân tích ma trận dữ liệu để ước lượng và loại bỏ ảnh hưởng của $D_{forget}$.</li>
+</ul>
+
+<p><strong>Công thức chung (ví dụ về SISA):</strong></p>
+
+<div align="center">
+    <figure>
+        <img src="/images/machine-unlearning/sisa.png" alt="SISA Framework" width="700" />
+        <figcaption> SISA Framework.</figcaption>
+    </figure>
+</div>
+
+<p>Công thức sau minh họa cách SISA hoạt động:</p>
+
+<div align="center">
+    $$M' = Aggregate(Train(Shard_1), Train(Shard_2), ..., Train(Shard_n))$$
+</div>
+
+<p>trong đó, $Aggregate()$ là hàm tổng hợp các mô hình con được huấn luyện trên các shard.</p>
+
+<h2 id="3-đánh-giá-machine-unlearning">3. Đánh giá Machine Unlearning</h2>
+
 <p>Sau khi đã triển khai các phương pháp unlearning, việc đánh giá hiệu quả của chúng là bước không thể thiếu. Phần này sẽ trình bày các tiêu chí và phương pháp đánh giá để đảm bảo rằng quá trình unlearning diễn ra thành công và an toàn. Các tiêu chí đánh giá có thể được phân thành các nhóm sau:</p>
 
-<h3>a. Hiệu suất mô hình (Performance)</h3>
+<h3 id="31-hiệu-suất-mô-hình-performance">3.1. Hiệu suất mô hình (Performance)</h3>
 
-<h4>a.1. Độ chính xác (Accuracy)</h4>
+<h4 id="a-độ-chính-xác-accuracy">a. Độ chính xác (Accuracy)</h4>
+
 <ul>
-<li><strong>Trên tập dữ liệu quên (Forget Set):</strong>
-<ul>
-<li>Đánh giá sự giảm độ chính xác trên tập dữ liệu này để xác định mức độ "quên" của mô hình.</li>
-<li>So sánh độ chính xác của mô hình sau unlearning với mô hình được huấn luyện lại trên tập dữ liệu quên (retrained model) để đảm bảo tính nhất quán.</li>
-</ul>
-</li>
-<li><strong>Trên tập dữ liệu giữ lại (Retain Set):</strong>
-<ul>
-<li>Đảm bảo rằng mô hình sau unlearning vẫn duy trì hiệu suất trên tập dữ liệu này.</li>
-<li>So sánh độ chính xác của mô hình sau unlearning với mô hình gốc để đánh giá sự chênh lệch.</li>
-</ul>
-</li>
-<li><strong>Trên tập dữ liệu kiểm tra (Test Set):</strong>
-<ul>
-<li>Đảm bảo rằng mô hình sau unlearning vẫn có hiệu suất tốt trên tập dữ liệu kiểm tra, để đánh giá khả năng tổng quát hóa của mô hình.</li>
-</ul>
-</li>
+  <li><strong>Trên tập dữ liệu quên (Forget Set):</strong>
+    <ul>
+      <li>Đánh giá sự giảm độ chính xác trên tập dữ liệu này để xác định mức độ “quên” của mô hình.</li>
+      <li>So sánh độ chính xác của mô hình sau unlearning với mô hình được huấn luyện lại trên tập dữ liệu quên (retrained model) để đảm bảo tính nhất quán.</li>
+    </ul>
+  </li>
+  <li><strong>Trên tập dữ liệu giữ lại (Retain Set):</strong>
+    <ul>
+      <li>Đảm bảo rằng mô hình sau unlearning vẫn duy trì hiệu suất trên tập dữ liệu này.</li>
+      <li>So sánh độ chính xác của mô hình sau unlearning với mô hình gốc để đánh giá sự chênh lệch.</li>
+    </ul>
+  </li>
+  <li><strong>Trên tập dữ liệu kiểm tra (Test Set):</strong>
+    <ul>
+      <li>Đảm bảo rằng mô hình sau unlearning vẫn có hiệu suất tốt trên tập dữ liệu kiểm tra, để đánh giá khả năng tổng quát hóa của mô hình.</li>
+    </ul>
+  </li>
 </ul>
 
-<h4>a.2. Thời gian Unlearn (Unlearn Time)</h4>
+<h4 id="b-thời-gian-unlearn-unlearn-time">b. Thời gian Unlearn (Unlearn Time)</h4>
+
 <p>Đo lường thời gian cần thiết để thực hiện quá trình unlearning.</p>
 
-<h4>a.3. Thời gian Học lại (Relearn Time)</h4>
-<p>Đo lường thời gian (hoặc số epoch) cần thiết để mô hình "học lại" thông tin đã quên bằng cách huấn luyện lại trên tập dữ liệu quên.</p>
+<h4 id="c-thời-gian-học-lại-relearn-time">c. Thời gian Học lại (Relearn Time)</h4>
 
-<h3>b. Bảo mật và Rò rỉ thông tin (Security and Information Leakage)</h3>
+<p>Đo lường thời gian (hoặc số epoch) cần thiết để mô hình “học lại” thông tin đã quên bằng cách huấn luyện lại trên tập dữ liệu quên.</p>
 
-<h4>b.1. Các phương pháp tấn công (Attack-based Evaluation)</h4>
+<h3 id="32-bảo-mật-và-rò-rỉ-thông-tin-security-and-information-leakage">3.2. Bảo mật và Rò rỉ thông tin (Security and Information Leakage)</h3>
+
+<h4 id="a-các-phương-pháp-tấn-công-attack-based-evaluation">a. Các phương pháp tấn công (Attack-based Evaluation)</h4>
+
 <ul>
-<li>Sử dụng các phương pháp tấn công như Membership Inference Attack (MIA) hoặc Inversion Attack để đánh giá mức độ rò rỉ thông tin không mong muốn.</li>
-<li>So sánh mức độ rò rỉ thông tin giữa mô hình trước và sau unlearning.</li>
-</ul>]]></content><author><name></name></author><category term="jekyll" /><category term="update" /><summary type="html"><![CDATA[1. Giới thiệu Trong kỷ nguyên của Trí tuệ Nhân tạo (AI), các mô hình học máy ngày càng trở nên mạnh mẽ và được ứng dụng rộng rãi trong nhiều lĩnh vực của đời sống. Tuy nhiên, đi kèm với sự phát triển này là những lo ngại về quyền riêng tư và đạo đức liên quan đến việc thu thập và sử dụng dữ liệu cá nhân.]]></summary></entry></feed>
+  <li>Sử dụng các phương pháp tấn công như Membership Inference Attack (MIA) hoặc Inversion Attack để đánh giá mức độ rò rỉ thông tin không mong muốn.</li>
+  <li>So sánh mức độ rò rỉ thông tin giữa mô hình trước và sau unlearning.</li>
+</ul>
+
+<h2 id="4-cùng-bắt-tay-vào-code-nào">4. Cùng bắt tay vào code nào!!!</h2>
+<p>Ở phần này, mình sẽ sử dụng lại code hướng dẫn của <strong>NeurIPS 2023 Machine Unlearning Challenge Starting Kit</strong> cho nó legit!!</p>
+<h3 id="41-import-các-thư-viện-cần-thiết">4.1. Import các thư viện cần thiết</h3>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="n">os</span>
+<span class="kn">import</span> <span class="n">requests</span>
+<span class="kn">import</span> <span class="n">numpy</span> <span class="k">as</span> <span class="n">np</span>
+<span class="kn">import</span> <span class="n">matplotlib.pyplot</span> <span class="k">as</span> <span class="n">plt</span>
+<span class="kn">from</span> <span class="n">sklearn</span> <span class="kn">import</span> <span class="n">linear_model</span><span class="p">,</span> <span class="n">model_selection</span>
+<span class="kn">import</span> <span class="n">torch</span>
+<span class="kn">from</span> <span class="n">torch</span> <span class="kn">import</span> <span class="n">nn</span>
+<span class="kn">from</span> <span class="n">torch</span> <span class="kn">import</span> <span class="n">optim</span>
+<span class="kn">from</span> <span class="n">torch.utils.data</span> <span class="kn">import</span> <span class="n">DataLoader</span>
+<span class="kn">import</span> <span class="n">torchvision</span>
+<span class="kn">from</span> <span class="n">torchvision</span> <span class="kn">import</span> <span class="n">transforms</span>
+<span class="kn">from</span> <span class="n">torchvision.utils</span> <span class="kn">import</span> <span class="n">make_grid</span>
+<span class="kn">from</span> <span class="n">torchvision.models</span> <span class="kn">import</span> <span class="n">resnet18</span>
+<span class="n">DEVICE</span> <span class="o">=</span> <span class="sh">"</span><span class="s">cuda</span><span class="sh">"</span>  <span class="k">if</span> <span class="n">torch</span><span class="p">.</span><span class="n">cuda</span><span class="p">.</span><span class="nf">is_available</span><span class="p">()</span>  <span class="k">else</span>  <span class="sh">"</span><span class="s">cpu</span><span class="sh">"</span>
+<span class="nf">print</span><span class="p">(</span><span class="sh">"</span><span class="s">Running on device:</span><span class="sh">"</span><span class="p">,</span> <span class="n">DEVICE</span><span class="p">.</span><span class="nf">upper</span><span class="p">())</span>
+
+<span class="c1"># manual random seed is used for dataset partitioning
+# to ensure reproducible results across runs
+</span><span class="n">RNG</span> <span class="o">=</span> <span class="n">torch</span><span class="p">.</span><span class="nc">Generator</span><span class="p">().</span><span class="nf">manual_seed</span><span class="p">(</span><span class="mi">42</span><span class="p">)</span>
+</code></pre></div></div>
+<p>Phần này đơn giản, không có gì phải giải thích, nếu không hiểu thì bạn có thể coi lại các phần về Machine Learning cơ bản và đọc tài liệu của PyTorch.</p>
+<h3 id="42-tải-dữ-liệu-và-mô-hình-đã-được-huấn-luyện">4.2. Tải dữ liệu và mô hình đã được huấn luyện</h3>
+<p>Ở phần này, thì code mẫu người ta sẽ sử dụng dataset là <strong>CIFAR-10</strong> và pre-trained model là <strong>ResNet18</strong> (đương nhiên cũng đã được train trên CIFAR10 sẵn, load weight thôi). Các công việc bao gồm:</p>
+<h4 id="a-tải-dữ-liệu">a. Tải dữ liệu</h4>
+
+<ul>
+  <li><strong>Tải và tiền xử lý dữ liệu CIFAR-10:</strong> Đoạn code tải bộ dữ liệu CIFAR-10, chia nó thành các tập train, test, và validation, đồng thời áp dụng các phép biến đổi (normalize) lên dữ liệu.</li>
+  <li><strong>Tạo tập “forget” và “retain”:</strong> Code tải các index của tập “forget” từ một file, sau đó sử dụng các index này để chia tập train ban đầu thành hai tập con: “forget” (dữ liệu cần quên) và “retain” (dữ liệu cần giữ lại).</li>
+  <li><strong>Tạo DataLoader cho các tập dữ liệu:</strong> Cuối cùng, code tạo các DataLoader để dễ dàng load dữ liệu theo batch trong quá trình huấn luyện và đánh giá mô hình.</li>
+</ul>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># download and pre-process CIFAR10
+</span><span class="n">normalize</span> <span class="o">=</span> <span class="n">transforms</span><span class="p">.</span><span class="nc">Compose</span><span class="p">([</span>
+    <span class="n">transforms</span><span class="p">.</span><span class="nc">ToTensor</span><span class="p">(),</span>
+    <span class="n">transforms</span><span class="p">.</span><span class="nc">Normalize</span><span class="p">((</span><span class="mf">0.4914</span><span class="p">,</span> <span class="mf">0.4822</span><span class="p">,</span> <span class="mf">0.4465</span><span class="p">),</span> <span class="p">(</span><span class="mf">0.2023</span><span class="p">,</span> <span class="mf">0.1994</span><span class="p">,</span> <span class="mf">0.2010</span><span class="p">)),</span>
+<span class="p">])</span>
+
+<span class="n">train_set</span> <span class="o">=</span> <span class="n">torchvision</span><span class="p">.</span><span class="n">datasets</span><span class="p">.</span><span class="nc">CIFAR10</span><span class="p">(</span>
+    <span class="n">root</span><span class="o">=</span><span class="sh">"</span><span class="s">./data</span><span class="sh">"</span><span class="p">,</span> <span class="n">train</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span> <span class="n">download</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span> <span class="n">transform</span><span class="o">=</span><span class="n">normalize</span>
+<span class="p">)</span>
+<span class="n">train_loader</span> <span class="o">=</span> <span class="nc">DataLoader</span><span class="p">(</span><span class="n">train_set</span><span class="p">,</span> <span class="n">batch_size</span><span class="o">=</span><span class="mi">128</span><span class="p">,</span> <span class="n">shuffle</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span> <span class="n">num_workers</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+
+<span class="c1"># we split held out data into test and validation set
+</span><span class="n">held_out</span> <span class="o">=</span> <span class="n">torchvision</span><span class="p">.</span><span class="n">datasets</span><span class="p">.</span><span class="nc">CIFAR10</span><span class="p">(</span>
+    <span class="n">root</span><span class="o">=</span><span class="sh">"</span><span class="s">./data</span><span class="sh">"</span><span class="p">,</span> <span class="n">train</span><span class="o">=</span><span class="bp">False</span><span class="p">,</span> <span class="n">download</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span> <span class="n">transform</span><span class="o">=</span><span class="n">normalize</span>
+<span class="p">)</span>
+<span class="n">test_set</span><span class="p">,</span> <span class="n">val_set</span> <span class="o">=</span> <span class="n">torch</span><span class="p">.</span><span class="n">utils</span><span class="p">.</span><span class="n">data</span><span class="p">.</span><span class="nf">random_split</span><span class="p">(</span><span class="n">held_out</span><span class="p">,</span> <span class="p">[</span><span class="mf">0.5</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">],</span> <span class="n">generator</span><span class="o">=</span><span class="n">RNG</span><span class="p">)</span>
+<span class="n">test_loader</span> <span class="o">=</span> <span class="nc">DataLoader</span><span class="p">(</span><span class="n">test_set</span><span class="p">,</span> <span class="n">batch_size</span><span class="o">=</span><span class="mi">128</span><span class="p">,</span> <span class="n">shuffle</span><span class="o">=</span><span class="bp">False</span><span class="p">,</span> <span class="n">num_workers</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">val_loader</span> <span class="o">=</span> <span class="nc">DataLoader</span><span class="p">(</span><span class="n">val_set</span><span class="p">,</span> <span class="n">batch_size</span><span class="o">=</span><span class="mi">128</span><span class="p">,</span> <span class="n">shuffle</span><span class="o">=</span><span class="bp">False</span><span class="p">,</span> <span class="n">num_workers</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+
+<span class="c1"># download the forget and retain index split
+</span><span class="n">local_path</span> <span class="o">=</span> <span class="sh">"</span><span class="s">forget_idx.npy</span><span class="sh">"</span>
+<span class="k">if</span> <span class="ow">not</span> <span class="n">os</span><span class="p">.</span><span class="n">path</span><span class="p">.</span><span class="nf">exists</span><span class="p">(</span><span class="n">local_path</span><span class="p">):</span>
+    <span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="p">.</span><span class="nf">get</span><span class="p">(</span>
+        <span class="sh">"</span><span class="s">https://storage.googleapis.com/unlearning-challenge/</span><span class="sh">"</span> <span class="o">+</span> <span class="n">local_path</span>
+    <span class="p">)</span>
+    <span class="nf">open</span><span class="p">(</span><span class="n">local_path</span><span class="p">,</span> <span class="sh">"</span><span class="s">wb</span><span class="sh">"</span><span class="p">).</span><span class="nf">write</span><span class="p">(</span><span class="n">response</span><span class="p">.</span><span class="n">content</span><span class="p">)</span>
+<span class="n">forget_idx</span> <span class="o">=</span> <span class="n">np</span><span class="p">.</span><span class="nf">load</span><span class="p">(</span><span class="n">local_path</span><span class="p">)</span>
+
+<span class="c1"># construct indices of retain from those of the forget set
+</span><span class="n">forget_mask</span> <span class="o">=</span> <span class="n">np</span><span class="p">.</span><span class="nf">zeros</span><span class="p">(</span><span class="nf">len</span><span class="p">(</span><span class="n">train_set</span><span class="p">.</span><span class="n">targets</span><span class="p">),</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">bool</span><span class="p">)</span>
+<span class="n">forget_mask</span><span class="p">[</span><span class="n">forget_idx</span><span class="p">]</span> <span class="o">=</span> <span class="bp">True</span>
+<span class="n">retain_idx</span> <span class="o">=</span> <span class="n">np</span><span class="p">.</span><span class="nf">arange</span><span class="p">(</span><span class="n">forget_mask</span><span class="p">.</span><span class="n">size</span><span class="p">)[</span><span class="o">~</span><span class="n">forget_mask</span><span class="p">]</span>
+
+<span class="c1"># split train set into a forget and a retain set
+</span><span class="n">forget_set</span> <span class="o">=</span> <span class="n">torch</span><span class="p">.</span><span class="n">utils</span><span class="p">.</span><span class="n">data</span><span class="p">.</span><span class="nc">Subset</span><span class="p">(</span><span class="n">train_set</span><span class="p">,</span> <span class="n">forget_idx</span><span class="p">)</span>
+<span class="n">retain_set</span> <span class="o">=</span> <span class="n">torch</span><span class="p">.</span><span class="n">utils</span><span class="p">.</span><span class="n">data</span><span class="p">.</span><span class="nc">Subset</span><span class="p">(</span><span class="n">train_set</span><span class="p">,</span> <span class="n">retain_idx</span><span class="p">)</span>
+
+<span class="n">forget_loader</span> <span class="o">=</span> <span class="n">torch</span><span class="p">.</span><span class="n">utils</span><span class="p">.</span><span class="n">data</span><span class="p">.</span><span class="nc">DataLoader</span><span class="p">(</span>
+    <span class="n">forget_set</span><span class="p">,</span> <span class="n">batch_size</span><span class="o">=</span><span class="mi">128</span><span class="p">,</span> <span class="n">shuffle</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span> <span class="n">num_workers</span><span class="o">=</span><span class="mi">2</span>
+<span class="p">)</span>
+<span class="n">retain_loader</span> <span class="o">=</span> <span class="n">torch</span><span class="p">.</span><span class="n">utils</span><span class="p">.</span><span class="n">data</span><span class="p">.</span><span class="nc">DataLoader</span><span class="p">(</span>
+    <span class="n">retain_set</span><span class="p">,</span> <span class="n">batch_size</span><span class="o">=</span><span class="mi">128</span><span class="p">,</span> <span class="n">shuffle</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span> <span class="n">num_workers</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">generator</span><span class="o">=</span><span class="n">RNG</span>
+<span class="p">)</span>
+</code></pre></div></div>
+<p>Tải xong rồi thì làm gì nựa, đương nhiên là show dữ liệu ra rồi</p>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># a temporary data loader without normalization, just to show the images
+</span><span class="n">tmp_dl</span> <span class="o">=</span> <span class="nc">DataLoader</span><span class="p">(</span>
+	<span class="n">torchvision</span><span class="p">.</span><span class="n">datasets</span><span class="p">.</span><span class="nc">CIFAR10</span><span class="p">(</span>
+		<span class="n">root</span><span class="o">=</span><span class="sh">"</span><span class="s">./data</span><span class="sh">"</span><span class="p">,</span> <span class="n">train</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span> <span class="n">download</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span> <span class="n">transform</span><span class="o">=</span><span class="n">transforms</span><span class="p">.</span><span class="nc">ToTensor</span><span class="p">()</span>
+	<span class="p">),</span>
+	<span class="n">batch_size</span><span class="o">=</span><span class="mi">16</span> <span class="o">*</span> <span class="mi">5</span><span class="p">,</span>
+	<span class="n">shuffle</span><span class="o">=</span><span class="bp">False</span><span class="p">,</span>
+	<span class="p">)</span>
+
+<span class="n">images</span><span class="p">,</span> <span class="n">labels</span> <span class="o">=</span> <span class="nf">next</span><span class="p">(</span><span class="nf">iter</span><span class="p">(</span><span class="n">tmp_dl</span><span class="p">))</span>
+
+<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="p">.</span><span class="nf">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span>  <span class="mi">6</span><span class="p">))</span>
+<span class="n">plt</span><span class="p">.</span><span class="nf">title</span><span class="p">(</span><span class="sh">"</span><span class="s">Sample images from CIFAR10 dataset</span><span class="sh">"</span><span class="p">)</span>
+<span class="n">ax</span><span class="p">.</span><span class="nf">set_xticks</span><span class="p">([])</span>
+<span class="n">ax</span><span class="p">.</span><span class="nf">set_yticks</span><span class="p">([])</span>
+<span class="n">ax</span><span class="p">.</span><span class="nf">imshow</span><span class="p">(</span><span class="nf">make_grid</span><span class="p">(</span><span class="n">images</span><span class="p">,</span> <span class="n">nrow</span><span class="o">=</span><span class="mi">16</span><span class="p">).</span><span class="nf">permute</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span>  <span class="mi">2</span><span class="p">,</span>  <span class="mi">0</span><span class="p">))</span>
+<span class="n">plt</span><span class="p">.</span><span class="nf">show</span><span class="p">()</span>
+</code></pre></div></div>
+
+<h4 id="b-tải-mô-hình-đã-được-huấn-luyện">b. Tải mô hình đã được huấn luyện</h4>
+<p>Phần này nó cho bộ trọng số ở đâu thì cứ tải ở đó thôi (hoặc nếu bạn thuộc loại trâu bò thì có thể huấn luyện lại)</p>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># download pre-trained weights
+</span><span class="n">local_path</span> <span class="o">=</span> <span class="sh">"</span><span class="s">weights_resnet18_cifar10.pth</span><span class="sh">"</span>
+<span class="k">if</span>  <span class="ow">not</span> <span class="n">os</span><span class="p">.</span><span class="n">path</span><span class="p">.</span><span class="nf">exists</span><span class="p">(</span><span class="n">local_path</span><span class="p">):</span>
+	<span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="p">.</span><span class="nf">get</span><span class="p">(</span>
+	<span class="sh">"</span><span class="s">https://storage.googleapis.com/unlearning-challenge/weights_resnet18_cifar10.pth</span><span class="sh">"</span>
+<span class="p">)</span>
+
+<span class="nf">open</span><span class="p">(</span><span class="n">local_path</span><span class="p">,</span>  <span class="sh">"</span><span class="s">wb</span><span class="sh">"</span><span class="p">).</span><span class="nf">write</span><span class="p">(</span><span class="n">response</span><span class="p">.</span><span class="n">content</span><span class="p">)</span>
+<span class="n">weights_pretrained</span> <span class="o">=</span> <span class="n">torch</span><span class="p">.</span><span class="nf">load</span><span class="p">(</span><span class="n">local_path</span><span class="p">,</span> <span class="n">map_location</span><span class="o">=</span><span class="n">DEVICE</span><span class="p">)</span>
+
+<span class="c1"># load model with pre-trained weights
+</span><span class="n">model</span> <span class="o">=</span> <span class="nf">resnet18</span><span class="p">(</span><span class="n">weights</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span> <span class="n">num_classes</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
+<span class="n">model</span><span class="p">.</span><span class="nf">load_state_dict</span><span class="p">(</span><span class="n">weights_pretrained</span><span class="p">)</span>
+<span class="n">model</span><span class="p">.</span><span class="nf">to</span><span class="p">(</span><span class="n">DEVICE</span><span class="p">)</span>
+<span class="n">model</span><span class="p">.</span><span class="nf">eval</span><span class="p">();</span>
+</code></pre></div></div>
+<p>Kế tiếp, trong code mẫu người ta cũng định nghĩa cả hàm tính <strong>accuracy</strong> (mặc dù theo mình thấy thì xài có sẵn cũng được)</p>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">def</span>  <span class="nf">accuracy</span><span class="p">(</span><span class="n">net</span><span class="p">,</span> <span class="n">loader</span><span class="p">):</span>
+	<span class="sh">"""</span><span class="s">Return accuracy on a dataset given by the data loader.</span><span class="sh">"""</span>
+	<span class="n">correct</span> <span class="o">=</span> <span class="mi">0</span>
+	<span class="n">total</span> <span class="o">=</span> <span class="mi">0</span>
+	<span class="k">for</span> <span class="n">inputs</span><span class="p">,</span> <span class="n">targets</span> <span class="ow">in</span> <span class="n">loader</span><span class="p">:</span>
+		<span class="n">inputs</span><span class="p">,</span> <span class="n">targets</span> <span class="o">=</span> <span class="n">inputs</span><span class="p">.</span><span class="nf">to</span><span class="p">(</span><span class="n">DEVICE</span><span class="p">),</span> <span class="n">targets</span><span class="p">.</span><span class="nf">to</span><span class="p">(</span><span class="n">DEVICE</span><span class="p">)</span>
+		<span class="n">outputs</span> <span class="o">=</span> <span class="nf">net</span><span class="p">(</span><span class="n">inputs</span><span class="p">)</span>
+		<span class="n">_</span><span class="p">,</span> <span class="n">predicted</span> <span class="o">=</span> <span class="n">outputs</span><span class="p">.</span><span class="nf">max</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+		<span class="n">total</span> <span class="o">+=</span> <span class="n">targets</span><span class="p">.</span><span class="nf">size</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+		<span class="n">correct</span> <span class="o">+=</span> <span class="n">predicted</span><span class="p">.</span><span class="nf">eq</span><span class="p">(</span><span class="n">targets</span><span class="p">).</span><span class="nf">sum</span><span class="p">().</span><span class="nf">item</span><span class="p">()</span>
+	<span class="k">return</span> <span class="n">correct</span> <span class="o">/</span> <span class="n">total</span>
+
+<span class="nf">print</span><span class="p">(</span><span class="sa">f</span><span class="sh">"</span><span class="s">Train set accuracy: </span><span class="si">{</span><span class="mf">100.0</span> <span class="o">*</span> <span class="nf">accuracy</span><span class="p">(</span><span class="n">model</span><span class="p">,</span> <span class="n">train_loader</span><span class="p">)</span><span class="si">:</span><span class="mf">0.1</span><span class="n">f</span><span class="si">}</span><span class="s">%</span><span class="sh">"</span><span class="p">)</span>
+<span class="nf">print</span><span class="p">(</span><span class="sa">f</span><span class="sh">"</span><span class="s">Test set accuracy: </span><span class="si">{</span><span class="mf">100.0</span> <span class="o">*</span> <span class="nf">accuracy</span><span class="p">(</span><span class="n">model</span><span class="p">,</span> <span class="n">test_loader</span><span class="p">)</span><span class="si">:</span><span class="mf">0.1</span><span class="n">f</span><span class="si">}</span><span class="s">%</span><span class="sh">"</span><span class="p">)</span>
+</code></pre></div></div>
+<h3 id="43-thuật-toán-unlearning">4.3. Thuật toán Unlearning</h3>
+<p>Trong phần này, chúng ta sẽ đi sâu vào việc xây dựng thuật toán Unlearning. Như các bạn đã biết, ở phần trước, chúng ta đã chia tập dữ liệu huấn luyện gốc thành hai mảnh: tập <strong>retain</strong> (dữ liệu mà chúng ta muốn giữ lại trong mô hình) và tập <strong>forget</strong> (dữ liệu mà chúng ta muốn mô hình quên đi). Thông thường, trong thực tế, tập <strong>retain</strong> sẽ chiếm phần lớn hơn nhiều so với tập <strong>forget</strong>. Để đơn giản hóa ví dụ, chúng ta sẽ giả sử tỉ lệ chia là 90% cho <strong>retain</strong> và 10% cho <strong>forget</strong>. Mục tiêu cốt lõi của bất kỳ thuật toán Unlearning nào là tạo ra một mô hình mới, sao cho nó càng giống càng tốt với một mô hình lý tưởng, tức là mô hình chỉ được huấn luyện duy nhất trên tập <strong>retain</strong> mà không hề “nhìn thấy” bất kỳ dữ liệu nào trong tập <strong>forget</strong>. Nói một cách dễ hiểu, chúng ta muốn “tẩy” đi những gì mà mô hình đã học được từ tập <strong>forget</strong>.</p>
+
+<p>Để minh họa cho khái niệm này, chúng ta sẽ bắt đầu với một thuật toán Unlearning cơ bản, được gọi là “Unlearning bằng tinh chỉnh” (Unlearning by Fine-tuning). Ý tưởng của thuật toán này rất đơn giản: chúng ta lấy mô hình đã được huấn luyện sẵn và tiếp tục huấn luyện nó trên tập <strong>retain</strong> trong một số vòng lặp (epoch). Mặc dù dễ thực hiện, thuật toán tinh chỉnh thường không phải là lựa chọn tối ưu. Nó có thể tốn kém về mặt tính toán và không đảm bảo hiệu quả tốt nhất khi đánh giá bằng các tiêu chí phức tạp hơn, nhưng, như câu nói <strong><em>Ai cũng phải bắt đầu từ đâu đó</em></strong> (không nhớ của ai, cứ chém thôi) thì đây là một thuật toán tốt để bắt đầu.</p>
+
+<p>Thuật toán này nhìn chung khá đơn giản, đúng hơn là cái flow chứ cũng không toán tiếc gì, cốt lõi bao gồm:</p>
+
+<ul>
+  <li><strong>Tinh chỉnh mô hình:</strong> Tiếp tục huấn luyện mô hình đã được huấn luyện trước đó (pre-trained model) trên tập dữ liệu <strong>retain</strong>.</li>
+  <li><strong>Bỏ qua dữ liệu “forget”:</strong> Không sử dụng tập dữ liệu <strong>forget</strong> hoặc <strong>validation</strong> trong quá trình này.</li>
+  <li><strong>Mục tiêu:</strong> Cố gắng làm cho mô hình “quên” đi thông tin từ tập <strong>forget</strong> bằng cách điều chỉnh tham số của pre-trained model trên tập <strong>retain</strong>.</li>
+</ul>
+
+<h2 id="tài-liệu-tham-khảo">Tài liệu tham khảo</h2>
+<ul>
+  <li><a id="xu2024"></a> <strong>Xu, J., Wu, Z., Wang, C., &amp; Jia, X. (2024).</strong> “Machine Unlearning: Solutions and Challenges.”<br />
+<em>IEEE Transactions on Emerging Topics in Computational Intelligence</em>, 8(3), 2150–2168.<br />
+DOI: <a href="http://dx.doi.org/10.1109/TETCI.2024.3379240">10.1109/TETCI.2024.3379240</a></li>
+</ul>]]></content><author><name></name></author><category term="jekyll" /><category term="update" /><summary type="html"><![CDATA[1. Giới thiệu]]></summary></entry></feed>
