@@ -16,21 +16,21 @@ I'm enthusiastic about leveraging technology to solve interesting problems. My j
 
 ## 💼 Experience
 
-* **AI Research Intern** - IEC Research Group (Aug 2024 - Present)
+* **AI Research Intern** - **IEC Research Group** (*Aug 2024 - Present*)
     * Conducting research on Layer Attack techniques in Model AI Security, including Bit-flip attack and Dropout attack.
     * Authoring a research paper for submission to a conference.
     * Guiding and assisting students in writing papers and pursuing new research directions focused on model inversion and machine unlearning.
-* **AI Researcher on Rumor Detection** - IEC Research Group (Jan 2023 - Aug 2024)
+* **AI Researcher on Rumor Detection** - **IEC Research Group** (*Jan 2023 - Aug 2024*)
     * Conducted research on Rumor Detection, reviewing literature and implementing state-of-the-art approaches.
     * Developed a novel trend model using Graph Neural Network (GNN) for improved accuracy and robustness in rumor detection.
     * Collaborated to validate model performance, analyze results, and refine the approach.
     * Currently preparing a research paper for publication in a reputable venue.
-* **Teaching Assistant** - MindX Technology School (Jun 2022 - Apr 2023)
+* **Teaching Assistant** - **MindX Technology School** (*Jun 2022 - Apr 2023*)
     * Assisted classes of 7+ students, developing teaching and game programming skills.
     * Technologies used: Scratch, Gamemaker Studio.
     * Supported the main teacher with instruction, grading, and lab exercises.
     * Helped 15 students achieve excellent results.
-* **Ruby on Rails Developer Intern** - Voyager IT Inc. (Nov 2022 - Jan 2023)
+* **Ruby on Rails Developer Intern** - **Voyager IT Inc.** (*Nov 2022 - Jan 2023*)
     * Worked as a Web Developer Intern on company web projects.
     * Technologies used: Ruby on Rails, Reactjs, PostgreSQL, and Docker.
     * Developed Rails APIs and project documentation.
@@ -41,7 +41,7 @@ I'm enthusiastic about leveraging technology to solve interesting problems. My j
 
 ## 🎓 Education
 
-* **BSc in Artificial Intelligence** - University of Science - VNUHCM
+* **BSc in Artificial Intelligence** - **University of Science - VNUHCM**
     * GPA: 9.11/10 (last updated on 23 Dec 2024)
     * Won a school scholarship for multiple semesters
 
