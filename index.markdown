@@ -1,88 +1,89 @@
 ---
-# Feel free to add content and custom Front Matter to this file.
-# To modify the layout, see https://jekyllrb.com/docs/themes/#overriding-theme-defaults
-
-layout: home
+title: Welcome to Trunk's Blog
 ---
 
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="utf-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Welcome to Trunk's Blog</title>
-  <meta name="generator" content="Jekyll v4.4.1" />
-  <meta property="og:title" content="Welcome to Trunk's Blog" />
-  <meta property="og:locale" content="en_US" />
-  <meta name="description" content="AI Research Intern | AI, Data Science, and Web Development" />
-  <meta property="og:description" content="AI Research Intern | AI, Data Science, and Web Development" />
-  <link rel="canonical" href="http://localhost:4000/" />
-  <meta property="og:url" content="http://localhost:4000/" />
-  <meta property="og:site_name" content="Welcome to Trunk's Blog" />
-  <meta property="og:type" content="website" />
-  <meta name="twitter:card" content="summary" />
-  <meta property="twitter:title" content="Welcome to Trunk's Blog" />
-  <link rel="stylesheet" href="/assets/main.css">
-  <link type="application/atom+xml" rel="alternate" href="http://localhost:4000/feed.xml" title="Welcome to Trunk's Blog" />
-</head>
-<body>
-<header class="site-header" role="banner">
-  <div class="wrapper">
-    <a class="site-title" rel="author" href="/">Welcome to Trunk's Blog</a>
-    <nav class="site-nav">
-      <input type="checkbox" id="nav-trigger" class="nav-trigger" />
-      <label for="nav-trigger">
-        <span class="menu-icon">
-          <svg viewBox="0 0 18 15" width="18px" height="15px">
-            <path d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484s0.665-1.484,1.484-1.484h15.032C17.335,0,18,0.665,18,1.484z M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516s0.665-1.484,1.484-1.484h15.032C17.335,6.031,18,6.696,18,7.516z M18,13.516C18,14.335,17.335,15,16.516,15H1.484C0.665,15,0,14.335,0,13.516s0.665-1.483,1.484-1.483h15.032C17.335,12.031,18,12.695,18,13.516z"/>
-          </svg>
-        </span>
-      </label>
-      <div class="trigger">
-        <a class="page-link" href="/about/">About</a>
-      </div>
-    </nav>
-  </div>
-</header>
-<main class="page-content" aria-label="Content">
-  <div class="wrapper">
-    <div align="center">
-      <img src="profile.jpg" alt="Le Pham Hoang Trung" width="150px">
-      <h1>Hello, I'm Le Pham Hoang Trung</h1>
-      <p>AI Research Intern | AI, Data Science, and Web Development</p>
-      <a href="mailto:trungsanglong@gmail.com">Email</a> | <a href="https://github.com/Trunkg0d">GitHub</a>
-    </div>
-    <h2 class="post-list-heading">Posts</h2>
-    <ul class="post-list">
-      <li><span class="post-meta">Apr 1, 2025</span>
-        <h3>
-          <a class="post-link" href="/jekyll/update/2025/04/01/welcome-to-jekyll.html">
-            Welcome to Jekyll!
-          </a>
-        </h3>
-      </li>
-    </ul>
-    <p class="rss-subscribe">subscribe <a href="/feed.xml">via RSS</a></p>
-  </div>
-</main>
-<footer class="site-footer h-card">
-  <div class="wrapper">
-    <h2 class="footer-heading">Welcome to Trunk's Blog</h2>
-    <div class="footer-col-wrapper">
-      <div class="footer-col footer-col-1">
-        <ul class="contact-list">
-          <li class="p-name">Le Pham Hoang Trung</li>
-          <li><a class="u-email" href="mailto:trungsanglong@gmail.com">trungsanglong@gmail.com</a></li>
-        </ul>
-      </div>
-      <div class="footer-col footer-col-2">
-        <ul class="social-media-list">
-          <li><a href="https://github.com/Trunkg0d">GitHub</a></li>
-        </ul>
-      </div>
-    </div>
-  </div>
-</footer>
-</body>
-</html>
+<div align="center">
+  <img src="profile.jpg" alt="Le Pham Hoang Trung" width="150px">
+  <h1>Hello, I'm Le Pham Hoang Trung</h1>
+  <p>AI Research Intern | AI, Data Science, and Web Development</p>
+  <a href="mailto:trungsanglong@gmail.com">Email</a> | <a href="https://github.com/Trunkg0d">GitHub</a>
+</div>
+
+**About Me**
+
+I'm enthusiastic about leveraging technology to solve interesting problems. My journey in IT has allowed me to gain experience in various fields, from developing web applications to exploring the intricacies of AI. I've also had the opportunity to participate in AI and Web development contests and hackathons, with some success. My goal is to contribute meaningfully to the fields of Artificial Intelligence or Data Science.
+
+**Experience**
+
+* **AI Research Intern** - IEC Research Group (Aug 2024 - Present)
+    * Conducting research on Layer Attack techniques in Model AI Security, including Bit-flip attack and Dropout attack.
+    * Authoring a research paper for submission to a conference.
+    * Guiding and assisting students in writing papers and pursuing new research directions focused on model inversion and machine unlearning.
+* **AI Researcher on Rumor Detection** - IEC Research Group (Jan 2023 - Aug 2024)
+    * Conducted research on Rumor Detection, reviewing literature and implementing state-of-the-art approaches.
+    * Developed a novel trend model using Graph Neural Network (GNN) for improved accuracy and robustness in rumor detection.
+    * Collaborated to validate model performance, analyze results, and refine the approach.
+    * Currently preparing a research paper for publication in a reputable venue.
+* **Teaching Assistant** - MindX Technology School (Jun 2022 - Apr 2023)
+    * Assisted classes of 7+ students, developing teaching and game programming skills.
+    * Technologies used: Scratch, Gamemaker Studio.
+    * Supported the main teacher with instruction, grading, and lab exercises.
+    * Helped 15 students achieve excellent results.
+* **Ruby on Rails Developer Intern** - Voyager IT Inc. (Nov 2022 - Jan 2023)
+    * Worked as a Web Developer Intern on company web projects.
+    * Technologies used: Ruby on Rails, Reactjs, PostgreSQL, and Docker.
+    * Developed Rails APIs and project documentation.
+    * Built templates for Ruby + Postgres + Docker + Nginx.
+    * Developed SNS Login and Authentication projects.
+    * Participated in technology presentations.
+    * Learned new stacks like Reactjs and FastAPI.
+
+**Education**
+
+* **BSc in Artificial Intelligence** - University of Science - VNUHCM
+    * GPA: 9.11/10 (last updated on 23 Dec 2024)
+    * Won a school scholarship for multiple semesters
+
+**Skills**
+
+* **Programming Languages:** Python, Ruby, C++, SQL.
+* **Machine Learning:** Experienced in developing and implementing supervised and unsupervised learning algorithms with libraries like Scikit-learn, NumPy, and Pandas.
+* **Deep Learning:** Designed and trained Deep Neural Networks using TensorFlow and PyTorch.
+* **Natural Language Processing:** Proficient in text classification, sentiment analysis, machine translation, auto-correct, RAG, and chatbot development.
+* **Computer Vision:** Knowledge of image and video processing, including object detection, segmentation, and basic tracking using OpenCV (C++ and Python).
+* **Software:** Ruby on Rails, Bootstrap, FastAPI, Flask, Docker, and related technologies.
+
+**Projects**
+
+* **Rumor Detection Based on Graph Neural Network (Research):** Researcher.
+    * Conducted research on Rumor Detection and Source Rumor Detection.
+    * Proficient in data processing and research paper analysis.
+    * Built models for Rumor Detection and Early Rumor Detection using semantic text and temporal propagation features.
+    * Manuscript in preparation: "MTIS: A Multiview Framework for Rumor Detection Using Temporal, Interactive, and Semantic Features" (Intended for Future Generation Computer Systems).
+* **Image Transform Web (Computer Vision):** Web Developer.
+    * Website for image color changes, shape creation, smoothing, and edge detection.
+    * Technologies: Python, Flask.
+    * GitHub: [https://github.com/Trunkg0d/Image\_Transform\_Web](https://github.com/Trunkg0d/Image_Transform_Web)
+* **Tool to Identify Text Similarities in Local Corpus (Natural Language Processing):** AI Engineer and Team Leader.
+    * Developed a tool to identify similar sentences in a text corpus, with similarity highlighting and percentage display.
+    * Implemented using Siamese Network Model and fine-tuning pretrained models.
+    * Technologies: Python, PyTorch, Hugging Face model, Streamlit, PyQT5.
+    * GitHub: [https://github.com/Trunkg0d/Text\_Similarities\_Tool](https://github.com/Trunkg0d/Text_Similarities_Tool)
+* **Voyager E-Commerce Web (Software):** Fullstack developer for an online shoe-shopping site (internship project).
+    * Technologies: Ruby on Rails (Backend), HTML, CSS, Bootstrap (Frontend), Docker (setup/deployment to Heroku).
+    * GitHub: [https://github.com/Trunkg0d/Voyager-shopping-cart](https://github.com/Trunkg0d/Voyager-shopping-cart)
+
+**Online Courses & Certifications**
+
+* Specialization in Natural Language Processing (4 courses) - Coursera
+* Getting started with TensorFlow 2 - Coursera
+* Python Project for Data Science - Coursera
+* Data Analysis with Python - Coursera
+* Ruby on Rails Training Course - Voyager IT Inc.
+
+**Languages**
+
+* English (Toeic certificate in 4 skills)
+* Vietnamese (Native)
+
+Thank you for visiting my blog! Feel free to explore my projects and get in touch.
