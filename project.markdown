@@ -4,8 +4,6 @@ title: Projects
 permalink: /projects/
 ---
 
-
-
 ### 1. Voyager Shopping Cart
 
 ![Voyager Shopping Cart](/images/voyager-shopping-cart.png)
@@ -14,7 +12,9 @@ permalink: /projects/
 
 **Description:** Full-stack e-commerce platform with product listings, cart management, and user authentication. Built using Ruby on Rails, ReactJS, and PostgreSQL.
 
-<hr>
+<br>
+<hr style="border-top: 3px solid black;">
+<br>
 
 ### 2. Neural Machine Translation
 
@@ -24,7 +24,9 @@ permalink: /projects/
 
 **Description:** Neural Machine Translation system for English to Portuguese, employing a Seq2Seq model with attention mechanism.
 
-<hr>
+<br>
+<hr style="border-top: 3px solid black;">
+<br>
 
 ### 3. Image Transform Web
 
@@ -34,7 +36,9 @@ permalink: /projects/
 
 **Description:** Web application for image manipulation, including color adjustments, shape transformations, smoothing, and edge detection. Built with Flask and Python.
 
-<hr>
+<br>
+<hr style="border-top: 3px solid black;">
+<br>
 
 ### 4. Text Similarities Tool
 
@@ -44,7 +48,9 @@ permalink: /projects/
 
 **Description:** Tool for identifying text similarities in a local corpus using Siamese networks, fine-tuned with pre-trained models. Developed with PyTorch, Hugging Face, and Streamlit.
 
-<hr>
+<br>
+<hr style="border-top: 3px solid black;">
+<br>
 
 ### 5. Medical Image Segmentation
 
