@@ -23,8 +23,8 @@ email: trungsanglong@gmail.com
 description: >- # this means to ignore newlines until "baseurl:"
   Welcome to my personal blog, where I share my journey in AI, Data Science, and Web Development. Here, you'll find insights from my research, technical projects, 
   and hands-on experience. I hope my work inspires and helps you on your tech journey! 🚀
-baseurl: "/" # the subpath of your site, e.g. /blog
-url: "" # the base hostname & protocol for your site, e.g. http://example.com
+baseurl: "/Hoang-Trung-Le-Pham" # the subpath of your site, e.g. /blog
+url: "https://trunkg0d.github.io" # the base hostname & protocol for your site, e.g. http://example.com
 twitter_username: Trunkg0d
 github_username:  Trunkg0d
 
