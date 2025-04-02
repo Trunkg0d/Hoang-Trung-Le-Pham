@@ -1,5 +1,5 @@
 ---
-layout: post
+layout: default
 title: "Machine Unlearning: Khi AI 'quên' đi những gì đã học"
 date: 2025-03-31
 categories: jekyll update
