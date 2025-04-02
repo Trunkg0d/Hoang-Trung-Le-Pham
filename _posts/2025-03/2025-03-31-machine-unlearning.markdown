@@ -8,7 +8,7 @@ categories: jekyll update
 ![Test](/assets/images/machine-unlearning/ml-vs-mu.png)
 ![Test](../_site/assets/images/machine-unlearning/ml-vs-mu.png)
 
-<img src="/_site/assets/images/machine-unlearning/ml-vs-mu.png">
+<img src="ml-vs-mu.png">
 
 
 ## 1. Giới thiệu
