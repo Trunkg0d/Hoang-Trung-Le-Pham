@@ -96,7 +96,7 @@ graph TD
 
 #### a. Model Inversion Attack với Machine Unlearning
 #### b. Model Inversion Attack as an evaluation metric for MU
-#### c. MUasadefense against Gradient inversion attack
+#### c. MU as a defense against Gradient inversion attack
 
 
 ## 3. Kết luận
