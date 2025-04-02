@@ -5,14 +5,11 @@ date: 2025-04-02
 categories: jekyll update
 ---
 ## 1. Giới thiệu
-
 Chào mừng bạn đến với một cuộc phiêu lưu thú vị vào "thế giới ngầm" của Trí tuệ Nhân tạo! Hôm nay, chúng ta sẽ cùng nhau khám phá một cuộc chiến đầy cam go, nơi những bộ não AI cố gắng "quên đi" quá khứ, còn những kẻ tấn công lại rình rập để "lật mặt" những bí mật mà chúng đã "chôn giấu".
 
 Câu chuyện bắt đầu với sự phát triển chóng mặt của học máy. AI ngày càng trở nên mạnh mẽ, "học" được những điều đáng kinh ngạc từ lượng dữ liệu khổng lồ. Nhưng điều gì sẽ xảy ra khi chúng ta muốn AI "quên đi" một phần thông tin nào đó? Ví dụ, khi một người dùng muốn xóa dữ liệu cá nhân của họ khỏi mô hình AI, hoặc khi chúng ta cần loại bỏ những thông tin độc hại hoặc sai lệch?
 
-{% assign unlearning_post_url = "{% post_url 2025-03-31-machine-unlearning %}" | relative_url %}
-
-Đây chính là lúc Machine Unlearning (nếu bạn không biết gì về Machine Unlearning thì có thể đọc blog trước tại [{{ unlearning_post_url }}]({{ unlearning_post_url }}) ) bước ra sân khấu. Nó giống như một "công cụ tẩy" cho AI, giúp chúng ta "xóa" đi những gì không mong muốn. Tuy nhiên, mọi thứ không hề đơn giản. Vẫn luôn có những kẻ "rình mò" cố gắng "lật mặt" những thông tin mà AI đã cố gắng "quên". Đó chính là Inversion Attacks (Tấn công Đảo Ngược).
+Đây chính là lúc Machine Unlearning (nếu bạn không biết gì về Machine Unlearning thì có thể đọc blog trước tại <a href="https://trunkg0d.github.io/Hoang-Trung-Le-Pham/jekyll/update/2025/03/31/machine-unlearning.html">đây</a>) bước ra sân khấu. Nó giống như một "công cụ tẩy" cho AI, giúp chúng ta "xóa" đi những gì không mong muốn. Tuy nhiên, mọi thứ không hề đơn giản. Vẫn luôn có những kẻ "rình mò" cố gắng "lật mặt" những thông tin mà AI đã cố gắng "quên". Đó chính là Inversion Attacks (Tấn công Đảo Ngược).
 
 Trong bài viết này, chúng ta sẽ đi sâu vào mối quan hệ phức tạp giữa Machine Unlearning và Inversion Attacks. Ta sẽ khám phá:
 
