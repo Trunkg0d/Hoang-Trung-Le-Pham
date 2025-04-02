@@ -9,15 +9,15 @@ Chào mừng bạn đến với một cuộc phiêu lưu thú vị vào "thế g
 
 Câu chuyện bắt đầu với sự phát triển chóng mặt của học máy. AI ngày càng trở nên mạnh mẽ, "học" được những điều đáng kinh ngạc từ lượng dữ liệu khổng lồ. Nhưng điều gì sẽ xảy ra khi chúng ta muốn AI "quên đi" một phần thông tin nào đó? Ví dụ, khi một người dùng muốn xóa dữ liệu cá nhân của họ khỏi mô hình AI, hoặc khi chúng ta cần loại bỏ những thông tin độc hại hoặc sai lệch?
 
-Đây chính là lúc Machine Unlearning (nếu bạn không biết gì về Machine Unlearning thì có thể đọc blog trước tại) bước ra sân khấu. Nó giống như một "công cụ tẩy" cho AI, giúp chúng ta "xóa" đi những gì không mong muốn. Tuy nhiên, mọi thứ không hề đơn giản. Vẫn luôn có những kẻ "rình mò" cố gắng "lật mặt" những thông tin mà AI đã cố gắng "quên". Đó chính là Inversion Attacks (Tấn công Đảo Ngược).
+Đây chính là lúc Machine Unlearning (nếu bạn không biết gì về Machine Unlearning thì có thể đọc blog trước tại [{% post_url 2025-03-31-machine-unlearning %}]({% post_url 2025-03-31-machine-unlearning %})) bước ra sân khấu. Nó giống như một "công cụ tẩy" cho AI, giúp chúng ta "xóa" đi những gì không mong muốn. Tuy nhiên, mọi thứ không hề đơn giản. Vẫn luôn có những kẻ "rình mò" cố gắng "lật mặt" những thông tin mà AI đã cố gắng "quên". Đó chính là Inversion Attacks (Tấn công Đảo Ngược).
 
-Trong bài viết này, chúng ta sẽ đi sâu vào mối quan hệ phức tạp giữa Machine Unlearning và Inversion Attacks. Chúng ta sẽ khám phá:
+Trong bài viết này, chúng ta sẽ đi sâu vào mối quan hệ phức tạp giữa Machine Unlearning và Inversion Attacks. Ta sẽ khám phá:
 
 * Inversion Attacks là gì và tại sao chúng lại nguy hiểm đến vậy?
 * Làm thế nào Inversion Attacks có thể "phá đám" Machine Unlearning, khiến AI "quên" không triệt để?
 * Machine Unlearning có thể được sử dụng như thế nào để bảo vệ AI khỏi Inversion Attacks?
 
-Hãy cùng nhau bước vào cuộc chiến "mèo vờn chuột" đầy hấp dẫn này, nơi quyền riêng tư và bảo mật dữ liệu đang bị thử thách hơn bao giờ hết!
+Hãy cùng nhau bước vào cuộc chiến "mèo vờn chuột" đầy hấp dẫn này, nơi quyền riêng tư và bảo mật dữ liệu đang bị thử thách hơn bao giờ hết!!
 
 ## 2. Inversion Attacks và Machine Unlearning
 ### 2.1. Inversion Attacks
