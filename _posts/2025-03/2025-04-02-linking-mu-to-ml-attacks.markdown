@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Liệu có thể dùng Machine Unlearning trong Machine Learning Attacks?
+title: Khi Machine Unlearning trong Machine Learning Attacks?
 date: 2025-04-02
 categories: jekyll update
 ---
