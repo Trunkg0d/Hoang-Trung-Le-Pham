@@ -41,7 +41,7 @@ Theo bài báo [[Xu et al., 2024]](#xu2024), Machine Unlearning (Học máy Bỏ
 
 Naive Retraining là phương pháp cơ bản nhất, liên quan đến việc loại bỏ điểm dữ liệu không mong muốn khỏi tập dữ liệu huấn luyện và huấn luyện lại mô hình từ đầu. Phương pháp này thường được sử dụng làm cơ sở để đánh giá các kỹ thuật unlearning phức tạp hơn.
 
-#### Định nghĩa 1
+**Định nghĩa 1:**
 
 Cho một thuật toán học máy $A(\cdot)$, tập dữ liệu huấn luyện $D$, và một tập dữ liệu huấn luyện $D_{forget}$ cần loại bỏ, naive retraining bao gồm việc huấn luyện lại trên tập dữ liệu đã sửa đổi $D \setminus D_{forget}$. Về mặt toán học, nó có thể được biểu diễn như sau:
 
@@ -63,7 +63,7 @@ Các phương pháp Machine Unlearning có thể được phân loại thành ha
 
 Exact Unlearning là phương pháp Machine Unlearning lý tưởng, hướng tới việc tạo ra một mô hình $M'$ có phân phối xác suất hoàn toàn giống với mô hình được huấn luyện trực tiếp trên tập dữ liệu còn lại $D_{retain}$. Nói cách khác, $M'$ phải tương đương với mô hình được tạo ra từ $Train(D_{retain})$, trong đó $Train(\cdot)$ là thuật toán huấn luyện được sử dụng.
 
-**Định nghĩa:**
+**Định nghĩa 2:**
 
 Cho một mô hình gốc $M$ được huấn luyện trên tập dữ liệu $D$ với phân phối $P_D(x, y)$, và một tập dữ liệu $D_{forget}$ cần được loại bỏ. Exact Unlearning tìm cách tạo ra mô hình $M'$ với phân phối $P_{D_{retain}}(x, y)$, sao cho:
 
@@ -104,7 +104,7 @@ Tuy nhiên, việc đạt được Exact Unlearning thường gặp các khó kh
 
 Approximate Unlearning là một hướng tiếp cận thực tế hơn so với Exact Unlearning, nhằm mục đích giảm thiểu ảnh hưởng của $D_{forget}$ lên mô hình mà không cần phải huấn luyện lại từ đầu trên $D_{retain}$. Thay vì tạo ra một mô hình có phân phối hoàn toàn giống $Train(D_{retain})$, Approximate Unlearning tập trung vào việc tạo ra một mô hình có phân phối gần giống nhất có thể, đồng thời giảm thiểu chi phí tính toán.
 
-**Định nghĩa:**
+**Định nghĩa 3:**
 
 Cho một mô hình gốc $M$ được huấn luyện trên tập dữ liệu $D$ với phân phối $P_D(x, y)$, và một tập dữ liệu $D_{forget}$ cần được loại bỏ. Approximate Unlearning tìm cách tạo ra mô hình $M'$ sao cho phân phối $P_{M'}(x, y)$ càng gần với phân phối $P_{Train(D_{retain})}(x, y)$ càng tốt, với chi phí tính toán chấp nhận được.
 
