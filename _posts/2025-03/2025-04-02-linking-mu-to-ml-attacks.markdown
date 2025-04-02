@@ -92,9 +92,14 @@ Sau khi nghiên cứu các tài liệu liên quan đến Machine Unlearning và 
 </div>
 
 #### a. Model Inversion Attack với Machine Unlearning
-#### b. Model Inversion Attack as an evaluation metric for MU
-#### c. MU as a defense against Gradient inversion attack
+Trong công trình nghiên cứu [[Hu et al., 2024]](#hu2024), nhóm tác giả trình bày một cơ chế unlearning inversion attacks như một mối đe doạ quyền riêng tư mới nhắm vào Machine Unlearning trong DNN. Các cuộc tấn công này tiết lộ những thông tin nhạy cảm về dữ liệu unlearned thông qua hai phương pháp chính: rò rỉ đặc trưng (feature leakage) và rò rỉ nhãn (label leakage). Trong feature leakage, kẻ tấn công có quyền truy cập white-box vào cả mô hình gốc và mô hình unlearned sử dụng các kỹ thuật đảo ngược gradient để tái tạo các đặc trưng của mẫu unlearned từ những thay đổi trong tham số mô hình. Ngược lại, trong label leakage, kẻ tấn công có quyền truy cập black-box tạo ra các mẫu thăm dò để đánh giá sự khác biệt trong dự đoán giữa mô hình gốc và mô hình unlearned, cho phép chúng suy ra nhãn của dữ liệu unlearned. Thông qua các thực nghiệm, họ đã chứng minh được các lỗ hổng này bằng phương pháp Machine Unlearning.
 
+#### b. Model Inversion Attack as an evaluation metric for MU
+Nghiên cứu của [[Graves et al., 2020]](#graves2020) đã tập trung vào việc "thử thách" khả năng chống chịu của các phương pháp "quên đi" thông tin (unlearning) trước những cuộc tấn công "lật mặt" mô hình (Model Inversion Attacks). Thay vì chỉ sử dụng các cuộc tấn công "lật mặt" thông thường, họ đã "nâng cấp" nó một chút để kiểm tra kỹ lưỡng hơn. Đặc biệt, Graves et al. đưa ra khái niệm "unlearning mất trí nhớ" (amnesiac unlearning), trong đó AI được dạy quên đi một số thông tin, nhưng kẻ tấn công lại không biết chính xác thông tin đó là gì. Nghiên cứu này coi như một cuộc tấn công "lật mặt" là thành công nếu kẻ tấn công có thể "mò mẫm" và suy ra được ý nghĩa của các nhóm dữ liệu khác nhau (các "lớp") từ mô hình AI.
+
+
+#### c. MU as a defense against Gradient inversion attack
+Công trình của [[Gao et al., 2024]](#GAO2024) tập trung vào việc sử dụng các phương pháp "quên đi" thông tin dựa trên thống kê (statistical Machine Unlearning) trong môi trường học liên kết (Federated Learning). Mục tiêu chính là tạo ra một "chiến thuật" phòng thủ chống lại các cuộc tấn công "lật mặt" độ dốc (gradient inversion attacks), lấy cảm hứng từ các nguyên tắc của statistical Machine Unlearning. Để làm được điều này, các tác giả đề xuất "chuyển hướng" từ việc xử lý dữ liệu cá nhân sang xử lý các "bản tóm tắt" thống kê của dữ liệu. Cách tiếp cận này tạo ra một "tầng trừu tượng" giúp bảo vệ quyền riêng tư và cho phép "quên" đi dữ liệu một cách chọn lọc. Cụ thể, phương pháp này "phá vỡ" quá trình biến đổi từ dữ liệu thô thành "hướng dẫn học tập" (gradients) bằng cách thay thế chúng bằng các "hướng dẫn học tập" được tính toán từ thông tin thống kê. Đồng thời, họ sử dụng các mô hình "thầy-trò" được huấn luyện với các hàm mất mát kép để "đánh lạc hướng" những kẻ tấn công (trong trường hợp các máy chủ tò mò nhưng trung thực).
 
 ## 3. Kết luận
 
@@ -111,3 +116,9 @@ Sau khi nghiên cứu các tài liệu liên quan đến Machine Unlearning và 
 
 - <a id="wang2024"></a> **Wang, W., Tian, Z., Zhang, C., & Yu, S. (2024).** "Machine Unlearning: A Comprehensive Survey." 
   arXiv preprint arXiv:2405.07406. [https://arxiv.org/abs/2405.07406](https://arxiv.org/abs/2405.07406)
+
+- <a id="hu2024"></a> **Hu, H., Wang, S., Dong, T., & Xue, M. (2024).** "Learn What You Want to Unlearn: Unlearning Inversion Attacks against Machine Unlearning." arXiv preprint arXiv:2404.03233. [https://arxiv.org/abs/2404.03233](https://arxiv.org/abs/2404.03233)
+
+- <a id="graves2020"></a> **Graves, L., Nagisetty, V., & Ganesh, V. (2020).** "Amnesiac Machine Learning." arXiv preprint arXiv:2010.10981. [https://arxiv.org/abs/2010.10981](https://arxiv.org/abs/2010.10981)
+
+- <a id="GAO2024"></a> **Gao, K., Zhu, T., Ye, D., & Zhou, W. (2024).** Defending against gradient inversion attacks in federated learning via statistical machine unlearning. *Knowledge-Based Systems*, *299*, 111983. [https://doi.org/10.1016/j.knosys.2024.111983](https://doi.org/10.1016/j.knosys.2024.111983)
