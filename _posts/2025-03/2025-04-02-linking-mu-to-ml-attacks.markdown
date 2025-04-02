@@ -83,6 +83,7 @@ Sau khi nghiên cứu các tài liệu liên quan đến Machine Unlearning và 
 - Model Inversion Attack gây khó khăn cho Machine Unlearning;
 - Model Inversion Attack có thể được sử dụng làm "thước đo" độ hiệu quả của Machine Unlearning;
 - Machine Unlearning được sử dụng như một biện pháp phòng thủ chống lại Gradient Inversion Attack
+
 ```mermaid
 graph TD
     A[MU and Inversion Attack] --> B[Model Inversion Attack];
