@@ -84,15 +84,12 @@ Sau khi nghiên cứu các tài liệu liên quan đến Machine Unlearning và 
 - Model Inversion Attack có thể được sử dụng làm "thước đo" độ hiệu quả của Machine Unlearning;
 - Machine Unlearning được sử dụng như một biện pháp phòng thủ chống lại Gradient Inversion Attack
 
-```mermaid
-graph TD
-    A[MU and Inversion Attack] --> B[Model Inversion Attack];
-    A --> C[Gradient Inversion Attack];
-    B --> D[MU Framework Evaluation</font>];
-    B --> E[Attack to MU];
-    C --> F[MU Defense based on MU];
-
-```
+<div align="center">
+    <figure>
+        <img src="{{site.baseurl}}/images/machine-unlearning/mu-vs-inversion-attacks.png" alt="MU and Inversion Attacks" width="700">
+        <figcaption><b>Phân loại Machine Unlearning và Inversion Attacks.</b></figcaption>
+    </figure>
+</div>
 
 #### a. Model Inversion Attack với Machine Unlearning
 #### b. Model Inversion Attack as an evaluation metric for MU
