@@ -1,4 +1,4 @@
-<!-- ---
+---
 layout: post
 title: Machine Unlearning trong ngữ cảnh Machine Learning Attacks
 date: 2025-04-02
@@ -32,7 +32,7 @@ categories: jekyll update
 
 
 ### 2.4. Inversion Attacks
-Inversion Attacks, hay còn gọi là Tấn công Đảo Ngược, là một trong những mối đe dọa đáng lo ngại đối với quyền riêng tư trong lĩnh vực Trí tuệ Nhân Tạo. Chúng ta có thể chia chúng thành hai loại chính:
+<!-- Inversion Attacks, hay còn gọi là Tấn công Đảo Ngược, là một trong những mối đe dọa đáng lo ngại đối với quyền riêng tư trong lĩnh vực Trí tuệ Nhân Tạo. Chúng ta có thể chia chúng thành hai loại chính:
 
 * **Model Inversion Attacks:** Những cuộc tấn công "lật mặt" mô hình.
 * **Gradient Inversion Attacks:** Những cuộc tấn công "lật mặt" thông qua độ dốc.
@@ -99,7 +99,7 @@ Nghiên cứu của [[Graves et al., 2020]](#graves2020) đã tập trung vào v
 
 
 #### c. MU as a defense against Gradient inversion attack
-Công trình của [[Gao et al., 2024]](#GAO2024) tập trung vào việc sử dụng các phương pháp "quên đi" thông tin dựa trên thống kê (statistical Machine Unlearning) trong môi trường học liên kết (Federated Learning). Mục tiêu chính là tạo ra một "chiến thuật" phòng thủ chống lại các cuộc tấn công "lật mặt" độ dốc (gradient inversion attacks), lấy cảm hứng từ các nguyên tắc của statistical Machine Unlearning. Để làm được điều này, các tác giả đề xuất "chuyển hướng" từ việc xử lý dữ liệu cá nhân sang xử lý các "bản tóm tắt" thống kê của dữ liệu. Cách tiếp cận này tạo ra một "tầng trừu tượng" giúp bảo vệ quyền riêng tư và cho phép "quên" đi dữ liệu một cách chọn lọc. Cụ thể, phương pháp này "phá vỡ" quá trình biến đổi từ dữ liệu thô thành "hướng dẫn học tập" (gradients) bằng cách thay thế chúng bằng các "hướng dẫn học tập" được tính toán từ thông tin thống kê. Đồng thời, họ sử dụng các mô hình "thầy-trò" được huấn luyện với các hàm mất mát kép để "đánh lạc hướng" những kẻ tấn công (trong trường hợp các máy chủ tò mò nhưng trung thực).
+Công trình của [[Gao et al., 2024]](#GAO2024) tập trung vào việc sử dụng các phương pháp "quên đi" thông tin dựa trên thống kê (statistical Machine Unlearning) trong môi trường học liên kết (Federated Learning). Mục tiêu chính là tạo ra một "chiến thuật" phòng thủ chống lại các cuộc tấn công "lật mặt" độ dốc (gradient inversion attacks), lấy cảm hứng từ các nguyên tắc của statistical Machine Unlearning. Để làm được điều này, các tác giả đề xuất "chuyển hướng" từ việc xử lý dữ liệu cá nhân sang xử lý các "bản tóm tắt" thống kê của dữ liệu. Cách tiếp cận này tạo ra một "tầng trừu tượng" giúp bảo vệ quyền riêng tư và cho phép "quên" đi dữ liệu một cách chọn lọc. Cụ thể, phương pháp này "phá vỡ" quá trình biến đổi từ dữ liệu thô thành "hướng dẫn học tập" (gradients) bằng cách thay thế chúng bằng các "hướng dẫn học tập" được tính toán từ thông tin thống kê. Đồng thời, họ sử dụng các mô hình "thầy-trò" được huấn luyện với các hàm mất mát kép để "đánh lạc hướng" những kẻ tấn công (trong trường hợp các máy chủ tò mò nhưng trung thực). -->
 
 ## 3. Kết luận
 
@@ -121,4 +121,4 @@ Công trình của [[Gao et al., 2024]](#GAO2024) tập trung vào việc sử d
 
 - <a id="graves2020"></a> **Graves, L., Nagisetty, V., & Ganesh, V. (2020).** "Amnesiac Machine Learning." arXiv preprint arXiv:2010.10981. [https://arxiv.org/abs/2010.10981](https://arxiv.org/abs/2010.10981)
 
-- <a id="GAO2024"></a> **Gao, K., Zhu, T., Ye, D., & Zhou, W. (2024).** Defending against gradient inversion attacks in federated learning via statistical machine unlearning. *Knowledge-Based Systems*, *299*, 111983. [https://doi.org/10.1016/j.knosys.2024.111983](https://doi.org/10.1016/j.knosys.2024.111983) -->
+- <a id="GAO2024"></a> **Gao, K., Zhu, T., Ye, D., & Zhou, W. (2024).** Defending against gradient inversion attacks in federated learning via statistical machine unlearning. *Knowledge-Based Systems*, *299*, 111983. [https://doi.org/10.1016/j.knosys.2024.111983](https://doi.org/10.1016/j.knosys.2024.111983)
