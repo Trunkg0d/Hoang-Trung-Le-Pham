@@ -5,7 +5,7 @@ date: 2025-03-31
 categories: jekyll update
 ---
 
-<img src="images/machine-unlearning/ml-vs-mu.png">
+<img src="/images/machine-unlearning/ml-vs-mu.png">
 
 ## 1. Giới thiệu
 
