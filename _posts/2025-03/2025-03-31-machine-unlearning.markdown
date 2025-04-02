@@ -1,3 +1,4 @@
+
 ---
 layout: post
 title: "Machine Unlearning: Khi AI 'quên' đi những gì đã học"
@@ -187,7 +188,7 @@ Sau khi đã triển khai các phương pháp unlearning, việc đánh giá hi�
 
 
 ## 4. Cùng bắt tay vào code nào!!!
-Ở phần này, mình sẽ sử dụng lại code hướng dẫn của **NeurIPS 2023 Machine Unlearning Challenge Starting Kit** cho nó legit!!
+Ở phần này, mình sẽ sử dụng lại code hướng dẫn của **NeurIPS 2023 Machine Unlearning Challenge Starting Kit** [[Google Colab Notebook]](unlearning-challenge-2023) cho nó legit!!
 ### 4.1. Import các thư viện cần thiết
 ```python
 import os
@@ -332,8 +333,209 @@ Thuật toán này nhìn chung khá đơn giản, đúng hơn là cái flow ch�
 - **Bỏ qua dữ liệu "forget":** Không sử dụng tập dữ liệu **forget** hoặc **validation** trong quá trình này.
 - **Mục tiêu:** Cố gắng làm cho mô hình "quên" đi thông tin từ tập **forget** bằng cách điều chỉnh tham số của pre-trained model trên tập **retain**.
 
+```python
+def unlearning(net, retain, forget, validation):
+    """Unlearning by fine-tuning.
+
+    Fine-tuning is a very simple algorithm that trains using only
+    the retain set.
+
+    Args:
+      net : nn.Module.
+        pre-trained model to use as base of unlearning.
+      retain : torch.utils.data.DataLoader.
+        Dataset loader for access to the retain set. This is the subset
+        of the training set that we don't want to forget.
+      forget : torch.utils.data.DataLoader.
+        Dataset loader for access to the forget set. This is the subset
+        of the training set that we want to forget. This method doesn't
+        make use of the forget set.
+      validation : torch.utils.data.DataLoader.
+        Dataset loader for access to the validation set. This method doesn't
+        make use of the validation set.
+    Returns:
+      net : updated model
+    """
+    epochs = 5
+
+    criterion = nn.CrossEntropyLoss()
+    optimizer = optim.SGD(net.parameters(), lr=0.1, momentum=0.9, weight_decay=5e-4)
+    scheduler = torch.optim.lr_scheduler.CosineAnnealingLR(optimizer, T_max=epochs)
+    net.train()
+
+    for _ in range(epochs):
+        for inputs, targets in retain:
+            inputs, targets = inputs.to(DEVICE), targets.to(DEVICE)
+            optimizer.zero_grad()
+            outputs = net(inputs)
+            loss = criterion(outputs, targets)
+            loss.backward()
+            optimizer.step()
+        scheduler.step()
+
+    net.eval()
+    return net
+```
+Ok rồi, thực hiện unlearning thôi!!
+```python
+ft_model = resnet18(weights=None, num_classes=10)
+ft_model.load_state_dict(weights_pretrained)
+ft_model.to(DEVICE)
+
+# Execute the unlearing routine. This might take a few minutes.
+# If run on colab, be sure to be running it on  an instance with GPUs
+ft_model = unlearning(ft_model, retain_loader, forget_loader, test_loader)
+```
+Accuracy của mô hình sau khi unlearning là:
+```cmd
+Retain set accuracy: 98.3%
+Test set accuracy: 84.0%
+```
+### 4.4. Evaluation
+Trong phần này, họ đánh giá thuật toán unlearning bằng một metric tên là MIA (Membership Inference Attack). Mục tiêu chính của việc sử dụng MIA trong đánh giá machine unlearning là xác định xem mô hình sau khi unlearn có thực sự quên thông tin đó hay không. Nếu mô hình vẫn "nhớ" thông tin về dữ liệu đã loại bỏ, MIA có thể phân biệt được dữ liệu nào đã được sử dụng để huấn luyện mô hình (dữ liệu thành viên) và dữ liệu nào không (dữ liệu không phải thành viên).
+```python
+def compute_losses(net, loader):
+    """Auxiliary function to compute per-sample losses"""
+
+    criterion = nn.CrossEntropyLoss(reduction="none")
+    all_losses = []
+
+    for inputs, targets in loader:
+        inputs, targets = inputs.to(DEVICE), targets.to(DEVICE)
+
+        logits = net(inputs)
+        losses = criterion(logits, targets).numpy(force=True)
+        for l in losses:
+            all_losses.append(l)
+
+    return np.array(all_losses)
+
+train_losses = compute_losses(model, train_loader)
+test_losses = compute_losses(model, test_loader)
+
+def simple_mia(sample_loss, members, n_splits=10, random_state=0):
+    """Computes cross-validation score of a membership inference attack.
+
+    Args:
+      sample_loss : array_like of shape (n,).
+        objective function evaluated on n samples.
+      members : array_like of shape (n,),
+        whether a sample was used for training.
+      n_splits: int
+        number of splits to use in the cross-validation.
+    Returns:
+      scores : array_like of size (n_splits,)
+    """
+
+    unique_members = np.unique(members)
+    if not np.all(unique_members == np.array([0, 1])):
+        raise ValueError("members should only have 0 and 1s")
+
+    attack_model = linear_model.LogisticRegression()
+    cv = model_selection.StratifiedShuffleSplit(
+        n_splits=n_splits, random_state=random_state
+    )
+    return model_selection.cross_val_score(
+        attack_model, sample_loss, members, cv=cv, scoring="accuracy"
+    )
+```
+Trong đánh giá machine unlearning bằng MIA, giá trị của MIA sẻ thể hiện mức độ thành công của thuật toán unlearning. Cụ thể:
+
+- **Độ chính xác $\approx$ 0.5 (50%):** Đây là kết quả lý tưởng. Nó cho thấy rằng kẻ tấn công MIA không thể phân biệt được giữa dữ liệu kiểm tra (unseen data, nằm trong tập test) và dữ liệu đã bị unlearn. Điều này có nghĩa là mô hình đã "quên" thông tin về dữ liệu bị unlearn một cách hiệu quả.
+- **Độ chính xác $>$ 0.5 (trên 50%):** Điều này cho thấy rằng kẻ tấn công MIA có thể phân biệt được giữa dữ liệu kiểm tra và dữ liệu bị unlearn. Nói cách khác, mô hình vẫn giữ lại một số thông tin về dữ liệu bị unlearn. Độ chính xác càng cao, mô hình càng "nhớ" nhiều thông tin về dữ liệu bị unlearn, và do đó unlearnning càng kém hiệu quả.
+
+Ok, sau khi hiểu bản chất của thằng MIA, ta sẽ thực hiện:
+
+- Đánh giá MIA trên mô hình gốc (original model) giữa forget set và test set:
+	```python
+	forget_losses = compute_losses(model, forget_loader)
+
+	# Since we have more forget losses than test losses, sub-sample them, to have a class-balanced dataset.
+	np.random.shuffle(forget_losses)
+	forget_losses = forget_losses[: len(test_losses)]
+
+	samples_mia = np.concatenate((test_losses, forget_losses)).reshape((-1, 1))
+	labels_mia = [0] * len(test_losses) + [1] * len(forget_losses)
+
+	mia_scores = simple_mia(samples_mia, labels_mia)
+
+	print(
+	    f"The MIA has an accuracy of {mia_scores.mean():.3f} on forgotten vs unseen images"
+	)
+	```
+	Kết quả output của nhóm tác giả cho thấy độ chính xác của MIA:
+	```cmd
+	The MIA has an accuracy of 0.579 on forgotten vs unseen images
+	```
+- Đánh giá MIA trên mô hình unlearning (unlearned model) giữa forget set và test set:
+	```python
+	ft_forget_losses = compute_losses(ft_model, forget_loader)
+	ft_test_losses = compute_losses(ft_model, test_loader)
+
+	# make sure we have a balanced dataset for the MIA
+	assert len(ft_test_losses) == len(ft_forget_losses)
+
+	ft_samples_mia = np.concatenate((ft_test_losses, ft_forget_losses)).reshape((-1, 1))
+	labels_mia = [0] * len(ft_test_losses) + [1] * len(ft_forget_losses)
+
+	ft_mia_scores = simple_mia(ft_samples_mia, labels_mia)
+
+	print(
+	    f"The MIA has an accuracy of {ft_mia_scores.mean():.3f} on forgotten vs unseen images"
+	)
+	```
+	Kết quả output là:
+	```cmd
+	The MIA has an accuracy of 0.512 on forgotten vs unseen images
+	```
+**Comparison with a re-trained model**
+Tuy nhiên, vì mục tiêu của chúng ta là xấp xỉ mô hình đã được huấn luyện lại chỉ trên tập "retain" (tập giữ lại), chúng ta sẽ coi tiêu chuẩn "vàng" là điểm số đạt được bởi mô hình này. Theo trực giác, ta kỳ vọng độ chính xác của MIA sẽ vào khoảng 0.5, vì đối với một mô hình như vậy, cả tập "forget" (tập quên) và tập "test" (tập kiểm tra) đều là các mẫu chưa từng thấy từ cùng một phân phối. Tuy nhiên, một số yếu tố như sự thay đổi phân phối hoặc sự mất cân bằng lớp có thể khiến con số này thay đổi.
+
+Bây giờ chúng ta sẽ tính toán điểm số này. Đầu tiên, chúng ta sẽ tải xuống trọng số cho một mô hình được huấn luyện độc quyền trên tập "retain" và sau đó tính toán độ chính xác của MIA đơn giản.
+```python
+# tải xuống trọng số của mô hình được huấn luyện độc quyền trên tập "retain"
+local_path = "retrain_weights_resnet18_cifar10.pth"
+if not os.path.exists(local_path):
+    response = requests.get(
+        "https://storage.googleapis.com/unlearning-challenge/" + local_path
+    )
+    open(local_path, "wb").write(response.content)
+
+weights_pretrained = torch.load(local_path, map_location=DEVICE)
+
+# tải mô hình với trọng số được huấn luyện trước
+rt_model = resnet18(weights=None, num_classes=10)
+rt_model.load_state_dict(weights_pretrained)
+rt_model.to(DEVICE)
+rt_model.eval()
+
+# in ra độ chính xác của nó trên tập "retain" và tập "forget"
+print(f"Độ chính xác trên tập Retain: {100.0 * accuracy(rt_model, retain_loader):0.1f}%")
+print(f"Độ chính xác trên tập Forget: {100.0 * accuracy(rt_model, forget_loader):0.1f}%")
+
+#Kết quả đầu ra:
+#Độ chính xác trên tập Retain: 99.5%
+#Độ chính xác trên tập Forget: 88.2%
+```
+Như mong đợi, mô hình được huấn luyện độc quyền trên tập "retain" có độ chính xác cao hơn trên tập "retain" so với tập "forget" (có độ chính xác tương tự như trên tập "test").
+```python
+rt_test_losses = compute_losses(rt_model, test_loader)
+rt_forget_losses = compute_losses(rt_model, forget_loader)
+rt_samples_mia = np.concatenate((rt_test_losses, rt_forget_losses)).reshape((-1, 1))
+labels_mia = [0] * len(rt_test_losses) + [1] * len(rt_forget_losses)
+```
+
+```python
+rt_mia_scores = simple_mia(rt_samples_mia, labels_mia)
+print(
+    f"MIA có độ chính xác là {rt_mia_scores.mean():.3f} trên hình ảnh bị quên so với hình ảnh chưa thấy"
+)
+
+#Kết quả đầu ra:
+#MIA có độ chính xác là 0.502 trên hình ảnh bị quên so với hình ảnh chưa thấy
+```
 
 ## Tài liệu tham khảo
-- <a id="xu2024"></a> **Xu, J., Wu, Z., Wang, C., & Jia, X. (2024).** "Machine Unlearning: Solutions and Challenges."  
-  *IEEE Transactions on Emerging Topics in Computational Intelligence*, 8(3), 2150–2168.  
-  DOI: [10.1109/TETCI.2024.3379240](http://dx.doi.org/10.1109/TETCI.2024.3379240)
+- <a id="xu2024"></a> **Xu, J., Wu, Z., Wang, C., & Jia, X. (2024).** "Machine Unlearning: Solutions and Challenges." IEEE Transactions on Emerging Topics in Computational Intelligence*, 8(3), 2150–2168. DOI: [10.1109/TETCI.2024.3379240](http://dx.doi.org/10.1109/TETCI.2024.3379240)
+ 
+ - <a id="unlearning-challenge-2023"></a> **Unlearning Challenge (NeurIPS 2023).** "Starting Kit: Machine Unlearning on CIFAR-10." [Google Colab Notebook](https://colab.research.google.com/github/unlearning-challenge/starting-kit/blob/main/unlearning-CIFAR10.ipynb)
