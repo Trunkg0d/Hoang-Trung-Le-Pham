@@ -21,7 +21,4 @@ I'm enthusiastic about leveraging technology to solve interesting problems. My j
 - **Natural Language Processing (NLP)**: Investigating text generation, retrieval-augmented generation (RAG), and semantic understanding.  
 - **Computer Vision**: Object detection, image segmentation, and generative AI applications.  
 
-💡 *Thank you for visiting my blog! I hope you find valuable insights, research, and projects here. Feel free to explore and connect with me!* 🚀
-
-<br>
 <hr>
