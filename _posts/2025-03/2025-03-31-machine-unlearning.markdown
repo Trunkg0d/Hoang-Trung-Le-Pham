@@ -6,6 +6,7 @@ categories: jekyll update
 ---
 
 <img src="/images/machine-unlearning/ml-vs-mu.png">
+<img src="{{site.baseurl}}/images/machine-unlearning/ml-vs-mu.png">
 
 ## 1. Giới thiệu
 
