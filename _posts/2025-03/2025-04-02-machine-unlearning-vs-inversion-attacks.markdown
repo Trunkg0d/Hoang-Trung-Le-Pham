@@ -5,10 +5,23 @@ date: 2025-04-02
 categories: jekyll update
 ---
 ## 1. Giới thiệu
+Chào mừng bạn đến với một cuộc phiêu lưu thú vị vào "thế giới ngầm" của Trí tuệ Nhân tạo! Hôm nay, chúng ta sẽ cùng nhau khám phá một cuộc chiến đầy cam go, nơi những bộ não AI cố gắng "quên đi" quá khứ, còn những kẻ tấn công lại rình rập để "lật mặt" những bí mật mà chúng đã "chôn giấu".
+
+Câu chuyện bắt đầu với sự phát triển chóng mặt của học máy. AI ngày càng trở nên mạnh mẽ, "học" được những điều đáng kinh ngạc từ lượng dữ liệu khổng lồ. Nhưng điều gì sẽ xảy ra khi chúng ta muốn AI "quên đi" một phần thông tin nào đó? Ví dụ, khi một người dùng muốn xóa dữ liệu cá nhân của họ khỏi mô hình AI, hoặc khi chúng ta cần loại bỏ những thông tin độc hại hoặc sai lệch?
+
+Đây chính là lúc Machine Unlearning (nếu bạn không biết gì về Machine Unlearning thì có thể đọc blog trước tại <a href="{% link _posts/2025-03-31-machine-unlearning.mảkdown %}">đây</a>) bước ra sân khấu. Nó giống như một "công cụ tẩy" cho AI, giúp chúng ta "xóa" đi những gì không mong muốn. Tuy nhiên, mọi thứ không hề đơn giản. Vẫn luôn có những kẻ "rình mò" cố gắng "lật mặt" những thông tin mà AI đã cố gắng "quên". Đó chính là Inversion Attacks (Tấn công Đảo Ngược).
+
+Trong bài viết này, chúng ta sẽ đi sâu vào mối quan hệ phức tạp giữa Machine Unlearning và Inversion Attacks. Chúng ta sẽ khám phá:
+
+* Inversion Attacks là gì và tại sao chúng lại nguy hiểm đến vậy?
+* Làm thế nào Inversion Attacks có thể "phá đám" Machine Unlearning, khiến AI "quên" không triệt để?
+* Machine Unlearning có thể được sử dụng như thế nào để bảo vệ AI khỏi Inversion Attacks?
+
+Hãy cùng nhau bước vào cuộc chiến "mèo vờn chuột" đầy hấp dẫn này, nơi quyền riêng tư và bảo mật dữ liệu đang bị thử thách hơn bao giờ hết!
 
 ## 2. Inversion Attacks và Machine Unlearning
 ### 2.1. Inversion Attacks
-Inversion Attacks, hay còn gọi là Tấn công Đảo Ngược, là một trong những mối đe dọa đáng lo ngại đối với quyền riêng tư trong lĩnh vực Trí tuệ Nhân Tạo. Chúng ta có thể chia chúng thành hai loại chính:
+Inversion Attacks, hay còn gọi là Tấn công Đảo Ngược, là một trong những mối đe dọa đáng lo ngại đối với quyền riêng tư trong lĩnh vực Trí tuệ Nhân Tạo. Ta có thể chia chúng thành hai loại chính:
 
 * **Model Inversion Attacks:** Những cuộc tấn công "lật mặt" mô hình.
 * **Gradient Inversion Attacks:** Những cuộc tấn công "lật mặt" thông qua độ dốc.
