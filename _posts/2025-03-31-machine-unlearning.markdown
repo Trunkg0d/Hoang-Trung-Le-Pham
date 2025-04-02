@@ -5,7 +5,7 @@ date: 2025-03-31
 categories: jekyll update
 ---
 
-<img src="/assets/images/machine-unlearning/ml-vs-mu.png" alt="ML vs MU" width="700">
+![Test](/assets/images/machine-unlearning/ml-vs-mu.png)
 
 ## 1. Giới thiệu
 
