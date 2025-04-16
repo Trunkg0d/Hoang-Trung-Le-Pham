@@ -16,7 +16,7 @@ Nghe có vẻ đây là một giải pháp hoàn hảo cho quyền riêng tư? N
 Để hiểu rõ lỗ hổng mà bài báo khai thác, trước tiên chúng ta cần xác định mô hình đe dọa (threat model), bao gồm bối cảnh hoạt động, mục tiêu của kẻ tấn công, và khả năng của chúng.
 
 **Bối cảnh:** Cuộc tấn công thường diễn ra trong môi trường **Học máy như một Dịch vụ (MLaaS - Machine Learning as a Service)**. Trong kịch bản này:
-- **Nhà phát triển mô hình (Model Developer):** Huấn luyện mô hình $(M)$ trên dữ liệu riêng từ (bao gồm cả dữ liệu $D_u$ sau này cần xoá) và tải mô hình lên server.
+- **Nhà phát triển mô hình (Model Developer):** Huấn luyện mô hình $(M)$ trên dữ liệu riêng tư (bao gồm cả dữ liệu $D_u$ sau này cần xoá) và tải mô hình lên server.
 - **Nhà cung cấp dịch vụ MLaaS (Server):** Triển khai mô hình $M$ và cung cấp API cho người dùng. Khi có yêu cầu xoá dữ liệu $D_u$, nhà phát triển tạo ra mô hình đã unlearn $(M_u)$ bằng một phương pháp unlearning nào đó, rồi tải $M_u$ lên server để thay thế $M$.
 - **Người dùng cuối (User):** Tương tác với mô hình (ban đầu là $M$, sau là $M_u$) thông qua API do server cung cấp.
 
