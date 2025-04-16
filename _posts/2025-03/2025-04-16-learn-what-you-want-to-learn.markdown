@@ -22,14 +22,14 @@ Nghe có vẻ đây là một giải pháp hoàn hảo cho quyền riêng tư? N
 
 **Kẻ tấn công và Khả năng:** Bài báo xem xét hai loại kẻ tấn công chính:
 - **Server MLaaS (Honest-but-Curious):**
-  - *Giả định:* Server hoạt động đúng chức năng nhưng có thể tò mò và cố gắng trích xuất thông tin từ các mô hình mà nó quản lý.
-  - *Khả năng:* Có quyền truy cập **White-box** vào cả hai mô hình $M$ và $M_u$ (do nhà phát triển tải lên). Nghĩa là server có thể thấy và phân tích các tham số nội bộ $(\theta \text{ và } \theta_u)$
-  - *Hạn chế:* Giả định server không biết chính xác thuật toán unlearning nào đã được nhà phát triển sử dụng và cũng không có quyền truy cập vào tập dữ liệu huấn luyện gốc đầy đủ
+  - **Giả định:** Server hoạt động đúng chức năng nhưng có thể tò mò và cố gắng trích xuất thông tin từ các mô hình mà nó quản lý.
+  - **Khả năng:** Có quyền truy cập **White-box** vào cả hai mô hình $M$ và $M_u$ (do nhà phát triển tải lên). Nghĩa là server có thể thấy và phân tích các tham số nội bộ $(\theta \text{ và } \theta_u)$
+  - **Hạn chế:** Giả định server không biết chính xác thuật toán unlearning nào đã được nhà phát triển sử dụng và cũng không có quyền truy cập vào tập dữ liệu huấn luyện gốc đầy đủ
 
 - **Người dùng cuối (Malicious User):**
-  - *Giả định:* Một người dùng thông thường của dịch vụ MLaaS nhưng có ý đồ xấu.
-  - *Khả năng:* Chỉ có quyền truy cập **Black-box* thông qua API được cung cấp. Người dùng có thể gửi truy vấn đến mô hình và nhận lại kết quả dự đoán. Quan trọng là, người dùng có thể tương tác với mô hình $M$ trước khi nó bị thay thế và tương tác với mô hình $M_u$ sau khi nó được cập nhật.
-  - *Hạn chế:* Không thể thấy tham số nội bộ của mô hình
+  - **Giả định:** Một người dùng thông thường của dịch vụ MLaaS nhưng có ý đồ xấu.
+  - **Khả năng:** Chỉ có quyền truy cập **Black-box* thông qua API được cung cấp. Người dùng có thể gửi truy vấn đến mô hình và nhận lại kết quả dự đoán. Quan trọng là, người dùng có thể tương tác với mô hình $M$ trước khi nó bị thay thế và tương tác với mô hình $M_u$ sau khi nó được cập nhật.
+  - **Hạn chế:** Không thể thấy tham số nội bộ của mô hình
 
 ### 2.2. Mục tiêu Tấn công và Tiêu chí Thành công (Attack Goals and Success Criteria)
 Mục tiêu tổng quát của kẻ tấn công là trích xuất thông tin nhạy cảm về dữ liệu đã bị xóa $(D_u)$, làm vô hiệu hóa mục đích bảo vệ quyền riêng tư của việc xóa học. Mục tiêu cụ thể và cách đánh giá thành công phụ thuộc vào loại kẻ tấn công và quyền truy cập của họ:
