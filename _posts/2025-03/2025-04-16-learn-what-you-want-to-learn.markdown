@@ -12,13 +12,6 @@ Việc xóa dữ liệu khỏi cơ sở dữ liệu truyền thống tương đ�
 Nghe có vẻ đây là một giải pháp hoàn hảo cho quyền riêng tư? Nhưng liệu quá trình "quên" này có thực sự an toàn? Bài báo **"Learn What You Want to Unlearn: Unlearning Inversion Attacks against Machine Unlearning"**  đã thực hiện một nghiên cứu tiên phong, chỉ ra rằng chính quá trình xóa học lại có thể mở ra một bề mặt tấn công mới, làm lộ thông tin nhạy cảm của chính dữ liệu đáng lẽ phải được "quên" đi. Bài viết này sẽ giải mã ý tưởng cốt lõi và các phương pháp tấn công được đề xuất trong nghiên cứu quan trọng này.
 
 ## 2. Mô hình mối đe doạ (Threat Model)
-<div align="center">
-    <figure>
-        <img src="{{site.baseurl}}/images/machine-unlearning/threat-model.png" alt="MU and Inversion Attacks" width="700">
-        <figcaption><b>Tổng quan về unlearning inversion attacks trong môi trường MLaaS.</b></figcaption>
-    </figure>
-</div>
-
 ### 2.1. Bối cảnh và Kẻ tấn công
 Để hiểu rõ lỗ hổng mà bài báo khai thác, trước tiên chúng ta cần xác định mô hình đe dọa (threat model), bao gồm bối cảnh hoạt động, mục tiêu của kẻ tấn công, và khả năng của chúng.
 
@@ -26,6 +19,13 @@ Nghe có vẻ đây là một giải pháp hoàn hảo cho quyền riêng tư? N
 - **Nhà phát triển mô hình (Model Developer):** Huấn luyện mô hình $(M)$ trên dữ liệu riêng tư (bao gồm cả dữ liệu $D_u$ sau này cần xoá) và tải mô hình lên server.
 - **Nhà cung cấp dịch vụ MLaaS (Server):** Triển khai mô hình $M$ và cung cấp API cho người dùng. Khi có yêu cầu xoá dữ liệu $D_u$, nhà phát triển tạo ra mô hình đã unlearn $(M_u)$ bằng một phương pháp unlearning nào đó, rồi tải $M_u$ lên server để thay thế $M$.
 - **Người dùng cuối (User):** Tương tác với mô hình (ban đầu là $M$, sau là $M_u$) thông qua API do server cung cấp.
+
+<div align="center">
+    <figure>
+        <img src="{{site.baseurl}}/images/machine-unlearning/threat-model.png" alt="MU and Inversion Attacks" width="700">
+        <figcaption><b>Tổng quan về unlearning inversion attacks trong môi trường MLaaS.</b></figcaption>
+    </figure>
+</div>
 
 **Kẻ tấn công và Khả năng:** Bài báo xem xét hai loại kẻ tấn công chính:
 - **Server MLaaS (Honest-but-Curious):**
