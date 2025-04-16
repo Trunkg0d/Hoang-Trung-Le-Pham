@@ -4,25 +4,25 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1"><!-- Begin Jekyll SEO tag v2.8.0 -->
-<title>Machine Unlearning trong ngữ cảnh Machine Learning Attacks | Trunk’s Blog</title>
+<title>Machine Unlearning trong ngữ cảnh Inversion Attacks | Trunk’s Blog</title>
 <meta name="generator" content="Jekyll v4.4.1" />
-<meta property="og:title" content="Machine Unlearning trong ngữ cảnh Machine Learning Attacks" />
+<meta property="og:title" content="Machine Unlearning trong ngữ cảnh Inversion Attacks" />
 <meta property="og:locale" content="en_US" />
-<meta name="description" content="1. Giới thiệu" />
-<meta property="og:description" content="1. Giới thiệu" />
-<link rel="canonical" href="https://trunkg0d.github.io/Hoang-Trung-Le-Pham/jekyll/update/2025/04/02/linking-mu-to-ml-attacks.html" />
-<meta property="og:url" content="https://trunkg0d.github.io/Hoang-Trung-Le-Pham/jekyll/update/2025/04/02/linking-mu-to-ml-attacks.html" />
+<meta name="description" content="1. Giới thiệu Chào mừng bạn đến với một cuộc phiêu lưu thú vị vào “thế giới ngầm” của Trí tuệ Nhân tạo! Hôm nay, chúng ta sẽ cùng nhau khám phá một cuộc chiến đầy cam go, nơi những bộ não AI cố gắng “quên đi” quá khứ, còn những kẻ tấn công lại rình rập để “lật mặt” những bí mật mà chúng đã “chôn giấu”." />
+<meta property="og:description" content="1. Giới thiệu Chào mừng bạn đến với một cuộc phiêu lưu thú vị vào “thế giới ngầm” của Trí tuệ Nhân tạo! Hôm nay, chúng ta sẽ cùng nhau khám phá một cuộc chiến đầy cam go, nơi những bộ não AI cố gắng “quên đi” quá khứ, còn những kẻ tấn công lại rình rập để “lật mặt” những bí mật mà chúng đã “chôn giấu”." />
+<link rel="canonical" href="http://localhost:4000/Hoang-Trung-Le-Pham/jekyll/update/2025/04/02/machine-unlearning-vs-inversion-attacks.html" />
+<meta property="og:url" content="http://localhost:4000/Hoang-Trung-Le-Pham/jekyll/update/2025/04/02/machine-unlearning-vs-inversion-attacks.html" />
 <meta property="og:site_name" content="Trunk’s Blog" />
 <meta property="og:type" content="article" />
 <meta property="article:published_time" content="2025-04-02T00:00:00+07:00" />
 <meta name="twitter:card" content="summary" />
-<meta property="twitter:title" content="Machine Unlearning trong ngữ cảnh Machine Learning Attacks" />
+<meta property="twitter:title" content="Machine Unlearning trong ngữ cảnh Inversion Attacks" />
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"BlogPosting","dateModified":"2025-04-02T00:00:00+07:00","datePublished":"2025-04-02T00:00:00+07:00","description":"1. Giới thiệu","headline":"Machine Unlearning trong ngữ cảnh Machine Learning Attacks","mainEntityOfPage":{"@type":"WebPage","@id":"https://trunkg0d.github.io/Hoang-Trung-Le-Pham/jekyll/update/2025/04/02/linking-mu-to-ml-attacks.html"},"url":"https://trunkg0d.github.io/Hoang-Trung-Le-Pham/jekyll/update/2025/04/02/linking-mu-to-ml-attacks.html"}</script>
+{"@context":"https://schema.org","@type":"BlogPosting","dateModified":"2025-04-02T00:00:00+07:00","datePublished":"2025-04-02T00:00:00+07:00","description":"1. Giới thiệu Chào mừng bạn đến với một cuộc phiêu lưu thú vị vào “thế giới ngầm” của Trí tuệ Nhân tạo! Hôm nay, chúng ta sẽ cùng nhau khám phá một cuộc chiến đầy cam go, nơi những bộ não AI cố gắng “quên đi” quá khứ, còn những kẻ tấn công lại rình rập để “lật mặt” những bí mật mà chúng đã “chôn giấu”.","headline":"Machine Unlearning trong ngữ cảnh Inversion Attacks","mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4000/Hoang-Trung-Le-Pham/jekyll/update/2025/04/02/machine-unlearning-vs-inversion-attacks.html"},"url":"http://localhost:4000/Hoang-Trung-Le-Pham/jekyll/update/2025/04/02/machine-unlearning-vs-inversion-attacks.html"}</script>
 <!-- End Jekyll SEO tag -->
 
     <link rel="stylesheet" href="/Hoang-Trung-Le-Pham/assets/main.css">
-    <!-- <link rel="stylesheet" href="href="/Hoang-Trung-Le-Pham/assets/custom.css"> --><link type="application/atom+xml" rel="alternate" href="https://trunkg0d.github.io/Hoang-Trung-Le-Pham/feed.xml" title="Trunk&apos;s Blog" />
+    <!-- <link rel="stylesheet" href="href="/Hoang-Trung-Le-Pham/assets/custom.css"> --><link type="application/atom+xml" rel="alternate" href="http://localhost:4000/Hoang-Trung-Le-Pham/feed.xml" title="Trunk&apos;s Blog" />
     <script>
       MathJax = {
         tex: {
@@ -60,7 +60,7 @@
         <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
 
   <header class="post-header">
-    <h1 class="post-title p-name" itemprop="name headline">Machine Unlearning trong ngữ cảnh Machine Learning Attacks</h1>
+    <h1 class="post-title p-name" itemprop="name headline">Machine Unlearning trong ngữ cảnh Inversion Attacks</h1>
     <p class="post-meta">
       <time class="dt-published" datetime="2025-04-02T00:00:00+07:00" itemprop="datePublished">Apr 2, 2025
       </time></p>
@@ -68,32 +68,25 @@
 
   <div class="post-content e-content" itemprop="articleBody">
     <h2 id="1-giới-thiệu">1. Giới thiệu</h2>
+<p>Chào mừng bạn đến với một cuộc phiêu lưu thú vị vào “thế giới ngầm” của Trí tuệ Nhân tạo! Hôm nay, chúng ta sẽ cùng nhau khám phá một cuộc chiến đầy cam go, nơi những bộ não AI cố gắng “quên đi” quá khứ, còn những kẻ tấn công lại rình rập để “lật mặt” những bí mật mà chúng đã “chôn giấu”.</p>
 
-<h2 id="2-machine-unlearning-và-security-attacks">2. Machine Unlearning và Security Attacks</h2>
-<h3 id="21-backdoor-attacks">2.1. Backdoor Attacks</h3>
+<p>Câu chuyện bắt đầu với sự phát triển chóng mặt của học máy. AI ngày càng trở nên mạnh mẽ, “học” được những điều đáng kinh ngạc từ lượng dữ liệu khổng lồ. Nhưng điều gì sẽ xảy ra khi chúng ta muốn AI “quên đi” một phần thông tin nào đó? Ví dụ, khi một người dùng muốn xóa dữ liệu cá nhân của họ khỏi mô hình AI, hoặc khi chúng ta cần loại bỏ những thông tin độc hại hoặc sai lệch?</p>
 
-<h4 id="a-backdoor-attack--với-machine-unlearning">a. Backdoor Attack  với Machine Unlearning</h4>
+<p>Đây chính là lúc Machine Unlearning (nếu bạn không biết gì về Machine Unlearning thì có thể đọc blog trước tại <a href="https://trunkg0d.github.io/Hoang-Trung-Le-Pham/jekyll/update/2025/03/31/machine-unlearning.html">đây</a>) bước ra sân khấu. Nó giống như một “công cụ tẩy” cho AI, giúp chúng ta “xóa” đi những gì không mong muốn. Tuy nhiên, mọi thứ không hề đơn giản. Vẫn luôn có những kẻ “rình mò” cố gắng “lật mặt” những thông tin mà AI đã cố gắng “quên”. Đó chính là Inversion Attacks (Tấn công Đảo Ngược).</p>
 
-<h4 id="b-backdoor-defense-dựa-trên-machine-unlearning">b. Backdoor Defense dựa trên Machine Unlearning</h4>
+<p>Trong bài viết này, chúng ta sẽ đi sâu vào mối quan hệ phức tạp giữa Machine Unlearning và Inversion Attacks. Ta sẽ khám phá:</p>
 
-<h4 id="c-đánh-giá-mu-framework-thông-qua-backdoor-based-metrics">c. Đánh giá MU Framework thông qua Backdoor-based metrics</h4>
+<ul>
+  <li>Inversion Attacks là gì và tại sao chúng lại nguy hiểm đến vậy?</li>
+  <li>Làm thế nào Inversion Attacks có thể “phá đám” Machine Unlearning, khiến AI “quên” không triệt để?</li>
+  <li>Machine Unlearning có thể được sử dụng như thế nào để bảo vệ AI khỏi Inversion Attacks?</li>
+</ul>
 
-<h4 id="d-backdoor-in-mu-verification-frameworks">d. Backdoor in MU Verification frameworks</h4>
+<p>Hãy cùng nhau bước vào cuộc chiến “mèo vờn chuột” đầy hấp dẫn này, nơi quyền riêng tư và bảo mật dữ liệu đang bị thử thách hơn bao giờ hết!!</p>
 
-<h3 id="22-membership-inference-attack">2.2. Membership Inference Attack</h3>
-
-<h4 id="a-membership-inference-attack-với-mu">a. Membership Inference Attack với MU</h4>
-
-<h4 id="b-đánh-giá-mu-framework-thông-qua-mia-based-metrics">b. Đánh giá MU Framework thông qua MIA-based metrics</h4>
-
-<h4 id="c-evaluating-mu-verification-framework-through-mia-based-metrics">c. Evaluating MU Verification framework through MIA-based metrics</h4>
-
-<h3 id="23-adversarial-attack">2.3. Adversarial Attack</h3>
-<h4 id="a-adversarial-attacks-với-machine-unlearning">a. Adversarial Attacks với Machine Unlearning</h4>
-<h4 id="b-defense-adversarial-attacks-dựa-trên-machine-unlearning">b. Defense Adversarial Attacks dựa trên Machine Unlearning</h4>
-
-<h3 id="24-inversion-attacks">2.4. Inversion Attacks</h3>
-<p>Inversion Attacks, hay còn gọi là Tấn công Đảo Ngược, là một trong những mối đe dọa đáng lo ngại đối với quyền riêng tư trong lĩnh vực Trí tuệ Nhân Tạo. Chúng ta có thể chia chúng thành hai loại chính:</p>
+<h2 id="2-inversion-attacks-và-machine-unlearning">2. Inversion Attacks và Machine Unlearning</h2>
+<h3 id="21-inversion-attacks">2.1. Inversion Attacks</h3>
+<p>Inversion Attacks, hay còn gọi là Tấn công Đảo Ngược, là một trong những mối đe dọa đáng lo ngại đối với quyền riêng tư trong lĩnh vực Trí tuệ Nhân Tạo. Ta có thể chia chúng thành hai loại chính:</p>
 
 <ul>
   <li><strong>Model Inversion Attacks:</strong> Những cuộc tấn công “lật mặt” mô hình.</li>
@@ -154,20 +147,27 @@
   <li>Machine Unlearning được sử dụng như một biện pháp phòng thủ chống lại Gradient Inversion Attack</li>
 </ul>
 
-<pre><code class="language-mermaid">graph TD
-    A[MU and Inversion Attack] --&gt; B[Model Inversion Attack];
-    A --&gt; C[Gradient Inversion Attack];
-    B --&gt; D[MU Framework Evaluation&lt;/font&gt;];
-    B --&gt; E[Attack to MU];
-    C --&gt; F[MU Defense based on MU];
+<div align="center">
+    <figure>
+        <img src="/Hoang-Trung-Le-Pham/images/machine-unlearning/mu-vs-inversion-attacks.png" alt="MU and Inversion Attacks" width="700" />
+        <figcaption><b>Phân loại Machine Unlearning và Inversion Attacks.</b></figcaption>
+    </figure>
+</div>
 
-</code></pre>
-
+<h3 id="22-inversion-attacks-với-machine-unlearning">2.2. Inversion Attacks với Machine Unlearning</h3>
 <h4 id="a-model-inversion-attack-với-machine-unlearning">a. Model Inversion Attack với Machine Unlearning</h4>
+<p>Trong công trình nghiên cứu <a href="#hu2024">[Hu et al., 2024]</a>, nhóm tác giả trình bày một cơ chế unlearning inversion attacks như một mối đe doạ quyền riêng tư mới nhắm vào Machine Unlearning trong DNN. Các cuộc tấn công này tiết lộ những thông tin nhạy cảm về dữ liệu unlearned thông qua hai phương pháp chính: rò rỉ đặc trưng (feature leakage) và rò rỉ nhãn (label leakage). Trong feature leakage, kẻ tấn công có quyền truy cập white-box vào cả mô hình gốc và mô hình unlearned sử dụng các kỹ thuật đảo ngược gradient để tái tạo các đặc trưng của mẫu unlearned từ những thay đổi trong tham số mô hình. Ngược lại, trong label leakage, kẻ tấn công có quyền truy cập black-box tạo ra các mẫu thăm dò để đánh giá sự khác biệt trong dự đoán giữa mô hình gốc và mô hình unlearned, cho phép chúng suy ra nhãn của dữ liệu unlearned. Thông qua các thực nghiệm, họ đã chứng minh được các lỗ hổng này bằng phương pháp Machine Unlearning.</p>
+
 <h4 id="b-model-inversion-attack-as-an-evaluation-metric-for-mu">b. Model Inversion Attack as an evaluation metric for MU</h4>
-<h4 id="c-mu-as-a-defense-against-gradient-inversion-attack">c. MU as a defense against Gradient inversion attack</h4>
+<p>Nghiên cứu của <a href="#graves2020">[Graves et al., 2020]</a> đã tập trung vào việc “thử thách” khả năng chống chịu của các phương pháp “quên đi” thông tin (unlearning) trước những cuộc tấn công “lật mặt” mô hình (Model Inversion Attacks). Thay vì chỉ sử dụng các cuộc tấn công “lật mặt” thông thường, họ đã “nâng cấp” nó một chút để kiểm tra kỹ lưỡng hơn. Đặc biệt, Graves et al. đưa ra khái niệm “unlearning mất trí nhớ” (amnesiac unlearning), trong đó AI được dạy quên đi một số thông tin, nhưng kẻ tấn công lại không biết chính xác thông tin đó là gì. Nghiên cứu này coi như một cuộc tấn công “lật mặt” là thành công nếu kẻ tấn công có thể “mò mẫm” và suy ra được ý nghĩa của các nhóm dữ liệu khác nhau (các “lớp”) từ mô hình AI.</p>
+
+<h4 id="c-mu-as-a-defense-against-gradient-inversion-attack">c. MU as a defense against Gradient Inversion Attack</h4>
+<p>Công trình của <a href="#GAO2024">[Gao et al., 2024]</a> tập trung vào việc sử dụng các phương pháp “quên đi” thông tin dựa trên thống kê (statistical Machine Unlearning) trong môi trường học liên kết (Federated Learning). Mục tiêu chính là tạo ra một “chiến thuật” phòng thủ chống lại các cuộc tấn công “lật mặt” độ dốc (gradient inversion attacks), lấy cảm hứng từ các nguyên tắc của statistical Machine Unlearning. Để làm được điều này, các tác giả đề xuất “chuyển hướng” từ việc xử lý dữ liệu cá nhân sang xử lý các “bản tóm tắt” thống kê của dữ liệu. Cách tiếp cận này tạo ra một “tầng trừu tượng” giúp bảo vệ quyền riêng tư và cho phép “quên” đi dữ liệu một cách chọn lọc. Cụ thể, phương pháp này “phá vỡ” quá trình biến đổi từ dữ liệu thô thành “hướng dẫn học tập” (gradients) bằng cách thay thế chúng bằng các “hướng dẫn học tập” được tính toán từ thông tin thống kê. Đồng thời, họ sử dụng các mô hình “thầy-trò” được huấn luyện với các hàm mất mát kép để “đánh lạc hướng” những kẻ tấn công (trong trường hợp các máy chủ tò mò nhưng trung thực).</p>
 
 <h2 id="3-kết-luận">3. Kết luận</h2>
+<p>Cuộc hành trình khám phá mối quan hệ giữa Machine Unlearning và Inversion Attacks đã đưa chúng ta đến những góc khuất đầy thách thức của thế giới AI. Chúng ta đã thấy rằng, việc “tẩy xóa” thông tin trong các mô hình học máy không đơn giản như việc nhấn nút “delete”. Machine Unlearning, dù là một công cụ mạnh mẽ và cần thiết cho quyền riêng tư dữ liệu và “quyền được lãng quên”, lại phải đối mặt với những kẻ thù “thông minh” như Inversion Attacks. Mối quan hệ giữa Machine Unlearning và Inversion Attacks là một mối quan hệ hai chiều, phức tạp và đầy nghịch lý. Unlearning vừa là mục tiêu tấn công, vừa có thể là công cụ phòng thủ. Cuộc chiến “mèo vờn chuột” giữa việc bảo vệ quyền riêng tư thông qua “quên đi” và nỗ lực “lật mặt” những gì đã bị che giấu vẫn đang tiếp diễn và ngày càng trở nên gay gắt.</p>
+
+<p>Điều này nhấn mạnh sự cần thiết phải tiếp tục nghiên cứu và phát triển các phương pháp Machine Unlearning mạnh mẽ hơn, hiệu quả hơn và có thể <em>kiểm chứng</em> được. Chúng ta cần những kỹ thuật không chỉ “quên” dữ liệu một cách hiệu quả mà còn phải đảm bảo rằng quá trình “quên” đó không tạo ra những lỗ hổng mới cho kẻ tấn công khai thác. Tương lai của quyền riêng tư trong kỷ nguyên AI phụ thuộc rất nhiều vào việc chúng ta có thể làm chủ được nghệ thuật “quên đi” một cách an toàn và đáng tin cậy hay không.</p>
 
 <p><br /></p>
 <hr />
@@ -189,9 +189,18 @@
     <p><a id="wang2024"></a> <strong>Wang, W., Tian, Z., Zhang, C., &amp; Yu, S. (2024).</strong> “Machine Unlearning: A Comprehensive Survey.” 
 arXiv preprint arXiv:2405.07406. <a href="https://arxiv.org/abs/2405.07406">https://arxiv.org/abs/2405.07406</a></p>
   </li>
+  <li>
+    <p><a id="hu2024"></a> <strong>Hu, H., Wang, S., Dong, T., &amp; Xue, M. (2024).</strong> “Learn What You Want to Unlearn: Unlearning Inversion Attacks against Machine Unlearning.” arXiv preprint arXiv:2404.03233. <a href="https://arxiv.org/abs/2404.03233">https://arxiv.org/abs/2404.03233</a></p>
+  </li>
+  <li>
+    <p><a id="graves2020"></a> <strong>Graves, L., Nagisetty, V., &amp; Ganesh, V. (2020).</strong> “Amnesiac Machine Learning.” arXiv preprint arXiv:2010.10981. <a href="https://arxiv.org/abs/2010.10981">https://arxiv.org/abs/2010.10981</a></p>
+  </li>
+  <li>
+    <p><a id="GAO2024"></a> <strong>Gao, K., Zhu, T., Ye, D., &amp; Zhou, W. (2024).</strong> Defending against gradient inversion attacks in federated learning via statistical machine unlearning. <em>Knowledge-Based Systems</em>, <em>299</em>, 111983. <a href="https://doi.org/10.1016/j.knosys.2024.111983">https://doi.org/10.1016/j.knosys.2024.111983</a></p>
+  </li>
 </ul>
 
-  </div><a class="u-url" href="/Hoang-Trung-Le-Pham/jekyll/update/2025/04/02/linking-mu-to-ml-attacks.html" hidden></a>
+  </div><a class="u-url" href="/Hoang-Trung-Le-Pham/jekyll/update/2025/04/02/machine-unlearning-vs-inversion-attacks.html" hidden></a>
 </article>
 
       </div>
@@ -220,8 +229,6 @@ arXiv preprint arXiv:2405.07406. <a href="https://arxiv.org/abs/2405.07406">http
 
 </footer>
 
-  
-    <script src="https://unpkg.com/mermaid@10.6.1/dist/mermaid.min.js"></script>
-    <script>mermaid.initialize({ startOnLoad: true });</script>
+    
   </body>
 </html>
