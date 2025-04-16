@@ -28,7 +28,7 @@ Nghe có vẻ đây là một giải pháp hoàn hảo cho quyền riêng tư? N
 
 - **Người dùng cuối (Malicious User):**
   - **Giả định:** Một người dùng thông thường của dịch vụ MLaaS nhưng có ý đồ xấu.
-  - **Khả năng:** Chỉ có quyền truy cập **Black-box* thông qua API được cung cấp. Người dùng có thể gửi truy vấn đến mô hình và nhận lại kết quả dự đoán. Quan trọng là, người dùng có thể tương tác với mô hình $M$ trước khi nó bị thay thế và tương tác với mô hình $M_u$ sau khi nó được cập nhật.
+  - **Khả năng:** Chỉ có quyền truy cập *Black-box* thông qua API được cung cấp. Người dùng có thể gửi truy vấn đến mô hình và nhận lại kết quả dự đoán. Quan trọng là, người dùng có thể tương tác với mô hình $M$ trước khi nó bị thay thế và tương tác với mô hình $M_u$ sau khi nó được cập nhật.
   - **Hạn chế:** Không thể thấy tham số nội bộ của mô hình
 
 ### 2.2. Mục tiêu Tấn công và Tiêu chí Thành công (Attack Goals and Success Criteria)
