@@ -41,10 +41,10 @@ Nghe có vẻ đây là một giải pháp hoàn hảo cho quyền riêng tư? N
 ### 2.2. Mục tiêu Tấn công và Tiêu chí Thành công (Attack Goals and Success Criteria)
 Mục tiêu tổng quát của kẻ tấn công là trích xuất thông tin nhạy cảm về dữ liệu đã bị xóa $(D_u)$, làm vô hiệu hóa mục đích bảo vệ quyền riêng tư của việc xóa học. Mục tiêu cụ thể và cách đánh giá thành công phụ thuộc vào loại kẻ tấn công và quyền truy cập của họ:
 - **Đối với Kẻ tấn công White-box (Server):**
-  - **Mục tiêu:** Khôi phục Đặc trưng - Feature Recovery. Cố gắng tái tạo lại một mẫu dữ liệu $x'$ sao cho nó càng giống với mẫu dữ liệu gốc đã bị xoá $x^*$ càng tốt về mặt hình ảnh hoặc cấu trúc.
+  - **Mục tiêu:** Khôi phục Đặc trưng - Feature Recovery. Cố gắng tái tạo lại một mẫu dữ liệu $x'$ sao cho nó càng giống với mẫu dữ liệu gốc đã bị xoá $x^\ast$ càng tốt về mặt hình ảnh hoặc cấu trúc.
   - **Tiêu chí thành công:**
     - Đạt điểm cao trên các chỉ số như MSE, LPIPS thấp, PSNR cao
-    - Quan trọng hơn, tạo ra được $x'$ mà **con người có thể nhận dạng được đối tượng hoặc thông tin nhạy cảm** chứa trong $x^*$ ban đầu, ngay cả khi $x'$ có nhiễu hoặc không hoàn hảo.
+    - Quan trọng hơn, tạo ra được $x'$ mà **con người có thể nhận dạng được đối tượng hoặc thông tin nhạy cảm** chứa trong $x^\ast$ ban đầu, ngay cả khi $x'$ có nhiễu hoặc không hoàn hảo.
 - **Đối với Kẻ tấn công Black-box (User):**
   - **Mục tiêu:** Suy luận Nhãn (Label Inference). Xác định chính xác các label (class) $C_u$ của dữ liệu đã bị xoá khỏi mô hình.
   - **Tiêu chí thành công:**
@@ -58,9 +58,9 @@ Mục tiêu tổng quát của kẻ tấn công là trích xuất thông tin nh�
 Bài báo giới thiệu **Unlearning Inversion Attacks** như một phương pháp mới để chứng minh và khai thác lỗ hổng bảo mật trong quá trình unlearning. Ý tưởng trung tâm là tận dụng thông tin có được từ việc so sánh hai phiên bản mô hình: mô hình gốc $M$ (với tham số $\theta$) và mô hình đã xoá học $M_u$ (với tham số $\theta_u$). Sự khác biệt giữa chúng ẩn chứa "dấu vết" của dữ liệu đã bị xoá $(D_u)$. Phương pháp tấn công được chia thành hai kịch bản chính, tuỳ thuộc vào quyền truy cập của kẻ tấn công:
 
 ### 3.1. Khôi phục Đặc trưng (Feature Recovery - White-box)
-Kịch bản này giả định kẻ tấn công là **Server MLaaS** (hoặc bất kỳ ai có quyền truy cập **white-box**), nghĩa là họ có thể xem và thao tác trực tiếp trên các tham số $\theta$ và $\theta_u$ của cả hai mô hình. Mục tiêu là tái tạo lại đặc trưng (ví dụ: hình ảnh) của một mẫu dữ liệu $x^* \in D_u$ đã bị xoá. Quá trình gồm hai bước chính:
+Kịch bản này giả định kẻ tấn công là **Server MLaaS** (hoặc bất kỳ ai có quyền truy cập **white-box**), nghĩa là họ có thể xem và thao tác trực tiếp trên các tham số $\theta$ và $\theta_u$ của cả hai mô hình. Mục tiêu là tái tạo lại đặc trưng (ví dụ: hình ảnh) của một mẫu dữ liệu $x^\ast \in D_u$ đã bị xoá. Quá trình gồm hai bước chính:
 
-- **Bước 1:** Ước lượng Gradient của Dữ liệu đã xoá $(\nabla^*)$
+- **Bước 1:** Ước lượng Gradient của Dữ liệu đã xoá $(\nabla^\ast)$
 
   - **Ý tưởng:** Trong quá trình huấn luyện ML thông thường, tham số mô hình được cập nhật dựa trên gradient của hàm mất mát tính trên dữ liệu huấn luyện. Công thức cập nhật cơ bản (như Stochastic Gradient Descent - SGD) là:
 
@@ -70,16 +70,16 @@ Kịch bản này giả định kẻ tấn công là **Server MLaaS** (hoặc b�
 
   - **Áp dụng vào Unlearning:** Tương tự, sự khác biệt giữa mô hình gốc $\theta$ (đã "học" $D_u$) và mô hình đã unlearn $\theta_u$ (đã "quên" $D_u$) phải chứa thông tin gradient liên quan đến $D_u$. Kẻ tấn công ước lượng thông tin gradient này bằng cách tính hiệu đơn giản:
 
-    $$\nabla^* = \theta - \theta_u$$
+    $$\nabla^\ast = \theta - \theta_u$$
 
-  - **Lưu ý:** $\nabla^*$ chỉ là một ước lượng cho thông tin gradient của $D_u$. Nó không phải là một gradient chính xác vì kẻ tấn công không biết chi tiết về thuật toán bỏ học cụ thể mà nhà phát triển đã sử dụng (ví dụ: tốc độ học, số epoch, các kỹ thuật xấp xỉ...).
+  - **Lưu ý:** $\nabla^\ast$ chỉ là một ước lượng cho thông tin gradient của $D_u$. Nó không phải là một gradient chính xác vì kẻ tấn công không biết chi tiết về thuật toán bỏ học cụ thể mà nhà phát triển đã sử dụng (ví dụ: tốc độ học, số epoch, các kỹ thuật xấp xỉ...).
 
 - **Bước 2:** Đảo ngược Gradient Ước lượng (Gradient Inversion)
-  - **Thách thức:** Làm thế nào để khôi phục lại dữ liệu gốc $x^*$ từ gradient ước lượng $\nabla^*$
+  - **Thách thức:** Làm thế nào để khôi phục lại dữ liệu gốc $x^\ast$ từ gradient ước lượng $\nabla^\ast$
 
   - **Giải pháp:** Lấy cảm hứng từ các kỹ thuật tấn công đảo ngược gradient đã được chứng minh là hiệu quả trong Học liên kết (Federated Learning), nơi server có thể khôi phục dữ liệu huấn luyện riêng tư của client từ gradient mà client gửi lên
 
-  - **Điều chỉnh cho Unlearning:** Các kỹ thuật đảo ngược gradient chuẩn thường yêu cầu gradient chính xác và đôi khi cần thêm thông tin (như phân phối dữ liệu huấn luyện). Do kẻ tấn công ở đây chỉ có $\nabla^*$ (gradient ước lượng) và không có thông tin phụ trợ, bài báo sử dụng một phương pháp tối ưu hoá tập trung vào việc khớp *hướng* của gradient thay vì độ lớn.
+  - **Điều chỉnh cho Unlearning:** Các kỹ thuật đảo ngược gradient chuẩn thường yêu cầu gradient chính xác và đôi khi cần thêm thông tin (như phân phối dữ liệu huấn luyện). Do kẻ tấn công ở đây chỉ có $\nabla^\ast$ (gradient ước lượng) và không có thông tin phụ trợ, bài báo sử dụng một phương pháp tối ưu hoá tập trung vào việc khớp *hướng* của gradient thay vì độ lớn.
 
   - **Quy trình tối ưu hoá:**
 
@@ -91,16 +91,16 @@ Kịch bản này giả định kẻ tấn công là **Server MLaaS** (hoặc b�
 
     3. Tìm $x'$ tối ưu bằng cách giải bài toán tối ưu sau:
 
-        $$\text{argmin}_{x'} -l(\nabla', \nabla^*) + \alpha TV(x')$$
+        $$\text{argmin}_{x'} -l(\nabla', \nabla^\ast) + \alpha TV(x')$$
         trong đó:
         
-        - $l(\nabla', \nabla^*)$ là độ tương đồng cosine (cosine similarity) giữa gradient giả lập $\nabla'$ và gradient ước lượng $\nabla^*$:
+        - $l(\nabla', \nabla^\ast)$ là độ tương đồng cosine (cosine similarity) giữa gradient giả lập $\nabla'$ và gradient ước lượng $\nabla^\ast$:
 
           $$
-          l(\nabla', \nabla^*) = \frac{\langle \nabla', \nabla^* \rangle}{\| \nabla' \|_2 \| \nabla^* \|_2}
+          l(\nabla', \nabla^\ast) = \frac{\langle \nabla', \nabla^\ast \rangle}{\| \nabla' \|_2 \| \nabla^\ast \|_2}
           $$
 
-          việc tối ưu hoá để *cực đại hoá* độ tương đồng cosine (tương đương cực tiểu hoá $-l$) giúp đảm bảo $\nabla'$ và $\nabla^*$ có cùng hướng, phù hợp với việc ước lượng hướng của $\nabla^*$.
+          việc tối ưu hoá để *cực đại hoá* độ tương đồng cosine (tương đương cực tiểu hoá $-l$) giúp đảm bảo $\nabla'$ và $\nabla^\ast$ có cùng hướng, phù hợp với việc ước lượng hướng của $\nabla^\ast$.
 
         - $TV(x')$ là hàm **Tổng biến thiên (Total Variation)**, một hàm chính quy hoá (regularizer) thường dùng trong xử lý ảnh:
 
@@ -110,7 +110,7 @@ Kịch bản này giả định kẻ tấn công là **Server MLaaS** (hoặc b�
 
         - $\alpha$ là một siêu tham số để cân bằng giữa việc khớp hướng gradient và tính mượt của ảnh tái tạo.
 
-    - **Kết quả:** Quá trình tối ưu hoá sẽ tìm ra $x'$ mà khi đưa qua mô hình gốc $M$ sẽ tạo ra gradient $\nabla'$ có hướng gần nhất với $\nabla^*$. $x'$ này chính là đặc trưng được khôi phục của dữ liệu đã xoá $x^*$. Bài báo cho thấy phương pháp này vẫn hoạt động tốt ngay cả khi nhãn $y^*$ không được biết trước (coi $y'$ là một biến cần tối ưu)
+    - **Kết quả:** Quá trình tối ưu hoá sẽ tìm ra $x'$ mà khi đưa qua mô hình gốc $M$ sẽ tạo ra gradient $\nabla'$ có hướng gần nhất với $\nabla^\ast$. $x'$ này chính là đặc trưng được khôi phục của dữ liệu đã xoá $x^\ast$. Bài báo cho thấy phương pháp này vẫn hoạt động tốt ngay cả khi nhãn $y^\ast$ không được biết trước (coi $y'$ là một biến cần tối ưu)
 
 ### 3.2. Suy luận Nhãn (Label Inference - Black-box)
 
