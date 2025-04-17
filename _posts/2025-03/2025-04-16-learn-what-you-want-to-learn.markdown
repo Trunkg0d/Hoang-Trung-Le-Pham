@@ -55,11 +55,68 @@ Mục tiêu tổng quát của kẻ tấn công là trích xuất thông tin nh�
 Điểm yếu cơ bản nằm ở chỗ kẻ tấn công (dù là server hay người dùng) có khả năng tiếp cận và so sánh trạng thái hoặc hành vi của mô hình trước $(M)$ và sau $(M_u)$ khi quá trình unlearning diễn ra. Chính sự khác biệt phát sinh từ việc loại bỏ dữ liệu $D_u$ là bề mặt tấn công, cho phép kẻ tấn công cô lập và suy luận thông tin về dữ liệu đã bị xoá.
 
 ## 3. Phương pháp Tấn công: Unlearning Inversion Attacks
+Bài báo giới thiệu **Unlearning Inversion Attacks** như một phương pháp mới để chứng minh và khai thác lỗ hổng bảo mật trong quá trình unlearning. Ý tưởng trung tâm là tận dụng thông tin có được từ việc so sánh hai phiên bản mô hình: mô hình gốc $M$ (với tham số $\theta$) và mô hình đã xoá học $M_u$ (với tham số $\theta_u$). Sự khác biệt giữa chúng ẩn chứa "dấu vết" của dữ liệu đã bị xoá $(D_u)$. Phương pháp tấn công được chia thành hai kịch bản chính, tuỳ thuộc vào quyền truy cập của kẻ tấn công:
 
 ### 3.1. Khôi phục Đặc trưng (Feature Recovery - White-box)
+Kịch bản này giả định kẻ tấn công là **Server MLaaS** (hoặc bất kỳ ai có quyền truy cập **white-box**), nghĩa là họ có thể xem và thao tác trực tiếp trên các tham số $\theta$ và $\theta_u$ của cả hai mô hình. Mục tiêu là tái tạo lại đặc trưng (ví dụ: hình ảnh) của một mẫu dữ liệu $x^* \in D_u$ đã bị xoá. Quá trình gồm hai bước chính:
+
+- **Bước 1:** Ước lượng Gradient của Dữ liệu đã xoá $(\nabla^*)$
+  - **Ý tưởng:** Trong quá trình huấn luyện ML thông thường, tham số mô hình được cập nhật dựa trên gradient của hàm mất mát tính trên dữ liệu huấn luyện. Công thức cập nhật cơ bản (như Stochastic Gradient Descent - SGD) là:
+    $$\theta_{k+1} = \theta_k - \alpha \nabla_\theta L (\theta_k)$$
+    Trong đó $\theta_k$ là tham số ở bước $k$, $\alpha$ là tốc độ học, và $\nabla_\theta L (\theta_k)$ là gradient tính trên một batch dữ liệu. Điều này có nghĩa là sự thay đổi tham số $(\theta_{k+1} - \theta_k)$ xấp xỉ với thông tin gradient (âm) của batch dữ liệu đó
+  - **Áp dụng vào Unlearning:** Tương tự, sự khác biệt giữa mô hình gốc $\theta$ (đã "học" $D_u$) và mô hình đã unlearn $\theta_u$ (đã "quên" $D_u$) phải chứa thông tin gradient liên quan đến $D_u$. Kẻ tấn công ước lượng thông tin gradient này bằng cách tính hiệu đơn giản:
+    $$\nabla^* = \theta - \theta_u$$
+  - **Lưu ý:** $\nabla^*$ chỉ là một ước lượng cho thông tin gradient của $D_u$. Nó không phải là một gradient chính xác vì kẻ tấn công không biết chi tiết về thuật toán bỏ học cụ thể mà nhà phát triển đã sử dụng (ví dụ: tốc độ học, số epoch, các kỹ thuật xấp xỉ...).
+
+- **Bước 2:** Đảo ngược Gradient Ước lượng (Gradient Inversion)
+  - **Thách thức:** Làm thế nào để khôi phục lại dữ liệu gốc $x^*$ từ gradient ước lượng $\nabla^*$
+  - **Giải pháp:** Lấy cảm hứng từ các kỹ thuật tấn công đảo ngược gradient đã được chứng minh là hiệu quả trong Học liên kết (Federated Learning), nơi server có thể khôi phục dữ liệu huấn luyện riêng tư của client từ gradient mà client gửi lên
+  - **Điều chỉnh cho Unlearning:** Các kỹ thuật đảo ngược gradient chuẩn thường yêu cầu gradient chính xác và đôi khi cần thêm thông tin (như phân phối dữ liệu huấn luyện). Do kẻ tấn công ở đây chỉ có $\nabla^*$ (gradient ước lượng) và không có thông tin phụ trợ, bài báo sử dụng một phương pháp tối ưu hoá tập trung vào việc khớp *hướng* của gradient thay vì độ lớn.
+  - **Quy trình tối ưu hoá:**
+    1. Khởi tạo một dữ liệu giả lập (dummy input) $x'$ và nhãn giả lập (dummy label) $y'$
+    2. Tính gradient $\nabla'$ của hàm mất mát $L$ đối với tham số $\theta$ của mô hình gốc $M$ dựa trên $x'$ và $y'$:
+      $$\nabla' = \frac{\partial L (f_\theta (x'), y')}{\partial \theta}$$
+    3. Tìm $x'$ tối ưu bằng cách giải bài toán tối ưu sau:
+        $$\text{argmin}_{x'} -l(\nabla', \nabla^*) + \alpha TV(x')$$
+        trong đó:
+        
+        - $l(\nabla', \nabla^*)$ là độ tương đồng cosine (cosine similarity) giữa gradient giả lập $\nabla'$ và gradient ước lượng $\nabla^*$:
+          $$
+          l(\nabla', \nabla^*) = \frac{\langle \nabla', \nabla^* \rangle}{\| \nabla' \|_2 \| \nabla^* \|_2}
+          $$
+          việc tối ưu hoá để *cực đại hoá* độ tương đồng cosine (tương đương cực tiểu hoá $-l$) giúp đảm bảo $\nabla'$ và $\nabla^*$ có cùng hướng, phù hợp với việc ước lượng hướng của $\nabla^*$.
+        - $TV(x')$ là hàm **Tổng biến thiên (Total Variation)**, một hàm chính quy hoá (regularizer) thường dùng trong xử lý ảnh:
+          $$TV(x') = \sum_{i, j \in N} ||c_i - c_j||_1$$
+          $N$ là các cặp pixel hàng xóm, $c_i$ và $c_j$ là các giá trị pixel. Hàm này khuyến khích $x'$ được tái tạo mượt mà hơn, giống ảnh tự nhiên và giảm nhiễu.
+        - $\alpha$ là một siêu tham số để cân bằng giữa việc khớp hướng gradient và tính mượt của ảnh tái tạo.
+    - **Kết quả:** Quá trình tối ưu hoá sẽ tìm ra $x'$ mà khi đưa qua mô hình gốc $M$ sẽ tạo ra gradient $\nabla'$ có hướng gần nhất với $\nabla^*$. $x'$ này chính là đặc trưng được khôi phục của dữ liệu đã xoá $x^*$. Bài báo cho thấy phương pháp này vẫn hoạt động tốt ngay cả khi nhãn $y^*$ không được biết trước (coi $y'$ là một biến cần tối ưu)
 
 ### 3.2. Suy luận Nhãn (Label Inference - Black-box)
+Kịch bản này giả định kẻ tấn công là Người dùng cuối (End-user) với quyền truy cập **black-box** thông qua API. Họ không thể xem tham số mô hình mà chỉ có thể gửi đầu vào và nhận đầu ra (thường là vector xác suất dự đoán cho các lớp). Mục tiêu là xác định (các) nhãn $C_u$ của dữ liệu $D_u$ đã bị xoá.
 
+Cách thức:
+- **Bước 1: Tạo các Mẫu thăm dò (Probing Samples)**
+  - **Ý tưởng:** Sự thay đổi trong hành vi dự đoán của mô hình (từ $M$ sang $M_u$) trên cùng một đầu vào có thể tiết lộ thông tin về dữ liệu đã bị xoá. Để khuếch đại và đo lường sự thay đổi này một cách hiệu quả, kẻ tấn công cần tạo ra các mẫu đầu vào đặc biệt.
+  - **Quy trình:**
+    1. Kẻ tấn công chuẩn bị một tập dữ liệu nhỏ $D_p$ (có thể là dữ liệu ngẫu nhiên hoặc từ một nguồn khác, không nhất thiết cùng phân phối với dữ liệu huấn luyện gốc).
+    2. Với mỗi lớp $y_t$ trong bài toán phân loại, kẻ tấn công chọn một mẫu $x \in D_p$ và tối ưu hoá nó thành $x'$ sao cho mô hình gốc $M$ dự đoán $x'$ thuộc lớp $y_t$ với **độ tin cậy (confidence) cực cao** (gần bằng 1)
+    3. Việc tối ưu hoá này được thực hiện bằng các kỹ thuật tấn công black-box như **Zeroth Order Optimization (ZOO)**. Về mặt toán học, mục tiêu là tìm $x'$ để cực tiểu hoá hàm:
+        $$g(x', y_t) = \max_{i \neq y_t} [Z(x')]_i - [Z(x')]_{y_t}$$
+        Trong đó $Z(x')$ là vector logits (đầu ra trước hàm softmax) của mô hình gốc $M$. Việc cực tiểu hoá $g(x', y_t)$ buộc logit của lớp $y_t$ phải lớn hơn đáng kể so với tất cả các lớp khác, dẫn đến xác suất dự đoán cho $y_t$ rất cao.
+    4. Kẻ tấn công tạo ra một số lượng nhỏ (ví dụ: $m=10$) mẫu thăm dò như vật cho mỗi lớp $y_t$. Tập hợp các mẫu $x'$ này cùng với vector dự đoán $\hat{Y}$ tương ứng từ mô hình $M$ được lưu lại thành **bộ dữ liệu thăm dò (probing dataset)** $D_p$.
+- **Bước 2: Thăm dò Mô hình Đã bỏ học $(M_u)$**
+  - Sau khi nhà phát triển thay thế $M$ bằng $M_u$ trên server, kẻ tấn công sử dụng chính bộ dữ liệu thăm dò $D_p$ đã tạo ở Bước 1 để truy vấn mô hình $M_u$
+  - Với mỗi mẫu thăm dò $x'_i \in D_p$ (vốn được thiết kế để $M$ dự đoán là lớp $y_t$ với độ tin cậy cao), kẻ tấn công ghi lại vector dự đoán $Y_i = f_{\theta_u} (x'_i)$ từ mô hình $M_u$
+- **Bước 3: Tính toán Độ thay đổi Tin cậy và Suy luận Nhãn**
+  - **Ý tưởng:** Nếu dữ liệu thuốc lớp $C_\text{unlearn}$ bị xoá đi, mô hình $M_u$ sẽ trở nên "kém chắc chắn" hơn khi dự đoán các mẫu liên quan đến lớp đó. Do đó, khi truy vấn $M_u$ bằng các mẫu thăm dò vốn được $M$ dự đoán là $C_\text{unlearn}$ với độ tin cậy cao, thì độ tin cậy của $M_u$ cho lớp $C_\text{unlearn}$ sẽ giảm xuống đáng kể so với $M$.
+  - **Tính toán:** Với mỗi lớp mục tiêu $y_t$ của các mẫu thăm dò, kẻ tấn công tính toán vector chênh lệch trung bình giữa dự đoán của $M$ và $M_u$:
+    $$\Delta_p = \frac{1}{m} \sum_{i=1}^m (\hat{Y}_i - Y_i)$$
+    Sau đó, trích xuất giá trị chênh lệch tại chỉ số tương ứng với lớp $y_t$:
+    $$\beta_{y_t} = \Delta_p[y_t]$$
+    Giá trị $\beta_{y_t}$ này thể hiện mức độ thay đổi (tăng hoặc giảm) trung bình về độ tin cậy của mô hình đối với lớp $y_t$ sau khi bỏ học, được đo trên các mẫu thăm dò được thiết kế cho lớp $y_t$.
+  - **Suy luận:** Kẻ tấn công tìm lớp $y_t$ có giá trị $\beta_{y_t}$ **âm nhất** (tức là độ tin cậy giảm nhiều nhất). Lớp này được suy luận là nhãn $C_u$ của dữ liệu đã bị xoá:
+    $$C_u = \text{argmin}_{y_t} \beta_{y_t}$$
+  - **Trường hợp nhiều lớp:** Nếu nghi ngờ nhiều lớp bị xoá cùng lúc (ví dụ $K$ lớp), kẻ tấn công có thể chọn ra $K$ lớp có giá trị $\beta_{y_t}$ âm nhất (top $K$) làm các nhãn bị suy luận.
 
 ## 4. Kết quả thực nghiệm của bài báo
 
