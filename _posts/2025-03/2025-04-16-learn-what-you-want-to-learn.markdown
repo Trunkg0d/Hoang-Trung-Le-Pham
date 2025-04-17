@@ -53,7 +53,6 @@ Mục tiêu tổng quát của kẻ tấn công là trích xuất thông tin nh�
 
 ### 2.3. Lỗ hổng cốt lõi
 Điểm yếu cơ bản nằm ở chỗ kẻ tấn công (dù là server hay người dùng) có khả năng tiếp cận và so sánh trạng thái hoặc hành vi của mô hình trước $(M)$ và sau $(M_u)$ khi quá trình unlearning diễn ra. Chính sự khác biệt phát sinh từ việc loại bỏ dữ liệu $D_u$ là bề mặt tấn công, cho phép kẻ tấn công cô lập và suy luận thông tin về dữ liệu đã bị xoá.
-
 ## 3. Phương pháp Tấn công: Unlearning Inversion Attacks
 Bài báo giới thiệu **Unlearning Inversion Attacks** như một phương pháp mới để chứng minh và khai thác lỗ hổng bảo mật trong quá trình unlearning. Ý tưởng trung tâm là tận dụng thông tin có được từ việc so sánh hai phiên bản mô hình: mô hình gốc $M$ (với tham số $\theta$) và mô hình đã xoá học $M_u$ (với tham số $\theta_u$). Sự khác biệt giữa chúng ẩn chứa "dấu vết" của dữ liệu đã bị xoá $(D_u)$. Phương pháp tấn công được chia thành hai kịch bản chính, tuỳ thuộc vào quyền truy cập của kẻ tấn công:
 
@@ -84,7 +83,6 @@ Kịch bản này giả định kẻ tấn công là **Server MLaaS** (hoặc b�
   - **Quy trình tối ưu hóa:**
 
     1. Khởi tạo một dữ liệu giả lập (dummy input) $x'$ và nhãn giả lập (dummy label) $y'$.
-
     2. Tính gradient $\nabla'$ của hàm mất mát $\mathcal{L}$ đối với tham số $\theta$ của **mô hình gốc M** dựa trên $x'$ và $y'$ (Eq. 3 trong paper):
 
        $$\nabla' = \frac{\partial \mathcal{L} (f_\theta (x'), y')}{\partial \theta}$$
@@ -113,6 +111,14 @@ Kịch bản này giả định kẻ tấn công là **Server MLaaS** (hoặc b�
 
   - **Kết quả:** Quá trình tối ưu hóa sẽ tìm ra $x'$ mà khi đưa qua mô hình gốc $M$ sẽ tạo ra gradient $\nabla'$ có hướng gần nhất với $\nabla^\ast$. $x'$ này chính là đặc trưng được khôi phục của dữ liệu đã xóa $x^\ast$.
 
+> **Ví dụ minh họa (Feature Recovery):**
+>
+> Giả sử nhà phát triển đã xóa một ảnh **con mèo** ($x^*$) khỏi mô hình M để tạo ra mô hình Mu. Server MLaaS (kẻ tấn công) không có ảnh gốc $x^*$ nhưng có $\theta$ và $\theta_u$.
+> 1. Server tính $\nabla^* = \theta - \theta_u$. Vector $\nabla^*$ này giờ chứa thông tin gradient ước lượng liên quan đến ảnh con mèo đã bị xóa.
+> 2. Server khởi tạo một ảnh nhiễu ngẫu nhiên $x'$ và giả sử nhãn là "mèo" ($y'=3$). Server dùng mô hình gốc M để tính gradient $\nabla'$ cho cặp $(x', y'=3)$.
+> 3. Server chạy thuật toán tối ưu hóa (Eq. 4) để điều chỉnh ảnh $x'$. Mục tiêu là làm cho gradient $\nabla'$ (tính từ $x'$ hiện tại) ngày càng giống với $\nabla^*$ về mặt hướng (cosine similarity cao), đồng thời giữ cho $x'$ không quá nhiễu (nhờ TV).
+> 4. **Kết quả:** Sau khi tối ưu, ảnh $x'$ sẽ trông giống ảnh con mèo $x^*$ ban đầu đã bị xóa, mặc dù có thể hơi mờ hoặc có nhiễu (như các ví dụ trong Hình 3 của bài báo). Server đã khôi phục được đặc trưng của dữ liệu bị xóa.
+
 ### 3.2. Suy luận Nhãn (Label Inference - Black-box)
 
 Kịch bản này giả định kẻ tấn công là Người dùng cuối (End-user) với quyền truy cập **black-box** thông qua API. Mục tiêu là xác định (các) nhãn $C_u$ của dữ liệu $D_u$ đã bị xóa.
@@ -126,20 +132,17 @@ Cách thức:
   - **Quy trình:**
 
     1. Chuẩn bị một tập dữ liệu nhỏ $D_p$.
-
-    2. Với mỗi lớp $y_t$, tối ưu hóa một mẫu $x \in D_p$ thành $x'$ sao cho **mô hình gốc M** dự đoán $x'$ thuộc lớp $y_t$ với **độ tin cậy cực cao**.
-
+    2. Với **mỗi lớp** $y_t$ (ví dụ: 0 đến 9 cho CIFAR-10), tối ưu hóa một số mẫu (ví dụ: $m=10$) từ $D_p$ thành $x'$ sao cho **mô hình gốc M** dự đoán $x'$ thuộc lớp $y_t$ với **độ tin cậy cực cao**.
     3. Sử dụng kỹ thuật tấn công black-box như **ZOO**. Mục tiêu là cực tiểu hóa hàm (Eq. 8 trong paper):
 
        $$g(x', y_t) = \max_{i \neq y_t} [Z(x')]_i - [Z(x')]_{y_t}$$
 
        (Trong đó $Z(x')$ là vector logits của mô hình gốc M).
-
-    4. Tạo một số lượng nhỏ (ví dụ: $m=10$) mẫu thăm dò $x'$ cho mỗi lớp $y_t$. Lưu các mẫu $x'$ này và vector dự đoán **$\hat{\mathcal{Y}}$** (kết quả từ mô hình gốc M) vào bộ dữ liệu thăm dò $D_p$.
+    4. Lưu các mẫu thăm dò $x'$ đã tối ưu hóa cho từng lớp $y_t$ và vector dự đoán **$\hat{\mathcal{Y}}$** (kết quả từ mô hình gốc M) tương ứng vào bộ dữ liệu thăm dò $D_p$.
 
 - **Bước 2: Thăm dò Mô hình Đã xóa học $(M_u)$**
 
-  - Kẻ tấn công dùng bộ dữ liệu thăm dò $D_p$ để truy vấn mô hình $M_u$.
+  - Kẻ tấn công dùng **toàn bộ** bộ dữ liệu thăm dò $D_p$ (chứa các mẫu $x'$ đã tối ưu cho tất cả các lớp) để truy vấn mô hình $M_u$.
 
   - Với mỗi mẫu thăm dò $x'_i \in D_p$, ghi lại vector dự đoán $\mathcal{Y}_i$ từ mô hình $M_u$.
 
@@ -147,7 +150,7 @@ Cách thức:
 
   - **Ý tưởng:** Nếu lớp $C_{unlearn}$ bị xóa, mô hình $M_u$ sẽ kém tin cậy hơn khi dự đoán các mẫu liên quan đến lớp đó.
 
-  - **Tính toán:** Với mỗi lớp mục tiêu $y_t$, tính vector chênh lệch trung bình giữa dự đoán của M và $M_u$ (Eq. 9 trong paper):
+  - **Tính toán:** Với mỗi lớp mục tiêu $y_t$ (lớp mà các mẫu thăm dò $x'_i$ được thiết kế để nhắm tới), tính vector chênh lệch trung bình giữa dự đoán của M và $M_u$ (Eq. 9 trong paper):
 
     $$\Delta_p = \frac{1}{m} \sum_{i=1}^m (\hat{\mathcal{Y}}_i - \mathcal{Y}_i)$$
 
@@ -155,13 +158,28 @@ Cách thức:
 
     $$\beta_{y_t} = \Delta_p[y_t]$$
 
-    (Giá trị $\beta_{y_t}$ thể hiện mức độ thay đổi tin cậy trung bình cho lớp $y_t$ sau khi xóa học).
+    (Giá trị $\beta_{y_t}$ thể hiện mức độ thay đổi tin cậy trung bình cho lớp $y_t$ sau khi xóa học, được đo trên các mẫu thăm dò được thiết kế cho lớp $y_t$).
 
   - **Suy luận:** Tìm lớp $y_t$ có giá trị $\beta_{y_t}$ **âm nhất** (độ tin cậy giảm nhiều nhất). Lớp này được suy luận là nhãn $C_u$. Công thức trong bài báo là (Eq. 11):
 
     $$C_u = \arg \max_{y_t} (-\beta_{y_t})$$
 
   - **Trường hợp nhiều lớp:** Chọn ra K lớp có giá trị $\beta_{y_t}$ âm nhất (Top-K).
+
+> **Ví dụ minh họa (Label Inference):**
+>
+> Vẫn giả sử một ảnh **con mèo** ($x^*$, nhãn $y^*=3$) đã bị xóa khỏi M để tạo ra Mu. Người dùng cuối (kẻ tấn công) *không biết* dữ liệu nào bị xóa.
+> 1. **Tạo mẫu thăm dò:** Kẻ tấn công tạo các mẫu $x'_{airplane}$, $x'_{car}$, $x'_{bird}$, $x'_{cat}$, $x'_{deer}$,..., $x'_{truck}$ sao cho mô hình **gốc M** dự đoán chúng thuộc lớp tương ứng (0, 1, 2, 3, 4,..., 9) với độ tin cậy >99.9%. Họ lưu các mẫu này và kết quả $\hat{\mathcal{Y}}$ từ M.
+> 2. **Thăm dò Mu:** Sau khi Mu được triển khai, kẻ tấn công gửi *tất cả* các mẫu thăm dò ($x'_{airplane}, ..., x'_{truck}$) đến Mu và nhận về các kết quả dự đoán mới $\mathcal{Y}$.
+> 3. **Tính toán & Suy luận:**
+>    - Kẻ tấn công tính $\beta_{airplane} = \Delta_p[0]$ (sự thay đổi tin cậy cho lớp "airplane" khi dùng mẫu thăm dò "airplane").
+>    - Tính $\beta_{car} = \Delta_p[1]$ (sự thay đổi tin cậy cho lớp "car" khi dùng mẫu thăm dò "car").
+>    - ...
+>    - Tính $\beta_{cat} = \Delta_p[3]$ (sự thay đổi tin cậy cho lớp "cat" khi dùng mẫu thăm dò "cat").
+>    - ...
+>    - Tính $\beta_{truck} = \Delta_p[9]$ (sự thay đổi tin cậy cho lớp "truck" khi dùng mẫu thăm dò "truck").
+>    - **So sánh:** Kẻ tấn công nhận thấy $\beta_{cat}$ có giá trị **âm lớn nhất** (ví dụ: -0.0008) so với các giá trị $\beta$ khác (thường gần 0 hoặc ít âm hơn).
+>    - **Kết luận:** Kẻ tấn công suy luận rằng lớp có độ tin cậy giảm nhiều nhất chính là lớp đã bị xóa dữ liệu. Do đó, họ kết luận $C_u = 3$ (lớp "cat"). Họ đã thành công suy luận ra nhãn của dữ liệu bị xóa mà không cần biết dữ liệu đó trông như thế nào.
 
 ## 4. Kết quả thực nghiệm của bài báo
 
