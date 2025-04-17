@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Giải mã Learn What You Want to Unlearn: Tấn công Đảo ngược Bỏ học"
+title: "Learn What You Want to Unlearn: Tấn công Đảo ngược Bỏ học"
 date: 2025-04-16
 categories: jekyll update
 ---
