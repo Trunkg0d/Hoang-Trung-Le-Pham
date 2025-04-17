@@ -75,7 +75,6 @@ Kịch bản này giả định kẻ tấn công là **Server MLaaS** (hoặc b�
   - **Lưu ý:** $\nabla^*$ chỉ là một ước lượng cho thông tin gradient của $D_u$. Nó không phải là một gradient chính xác vì kẻ tấn công không biết chi tiết về thuật toán bỏ học cụ thể mà nhà phát triển đã sử dụng (ví dụ: tốc độ học, số epoch, các kỹ thuật xấp xỉ...).
 
 - **Bước 2:** Đảo ngược Gradient Ước lượng (Gradient Inversion)
-
   - **Thách thức:** Làm thế nào để khôi phục lại dữ liệu gốc $x^*$ từ gradient ước lượng $\nabla^*$
 
   - **Giải pháp:** Lấy cảm hứng từ các kỹ thuật tấn công đảo ngược gradient đã được chứng minh là hiệu quả trong Học liên kết (Federated Learning), nơi server có thể khôi phục dữ liệu huấn luyện riêng tư của client từ gradient mà client gửi lên
