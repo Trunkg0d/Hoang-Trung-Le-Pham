@@ -113,11 +113,11 @@ Kịch bản này giả định kẻ tấn công là **Server MLaaS** (hoặc b�
 
 > **Ví dụ minh họa (Feature Recovery):**
 >
-> Giả sử nhà phát triển đã xóa một ảnh **con mèo** ($x^*$) khỏi mô hình M để tạo ra mô hình Mu. Server MLaaS (kẻ tấn công) không có ảnh gốc $x^*$ nhưng có $\theta$ và $\theta_u$.
-> 1. Server tính $\nabla^* = \theta - \theta_u$. Vector $\nabla^*$ này giờ chứa thông tin gradient ước lượng liên quan đến ảnh con mèo đã bị xóa.
+> Giả sử nhà phát triển đã xóa một ảnh **con mèo** ($x^\ast$) khỏi mô hình M để tạo ra mô hình Mu. Server MLaaS (kẻ tấn công) không có ảnh gốc $x^\ast$ nhưng có $\theta$ và $\theta_u$.
+> 1. Server tính $\nabla^\ast = \theta - \theta_u$. Vector $\nabla^\ast$ này giờ chứa thông tin gradient ước lượng liên quan đến ảnh con mèo đã bị xóa.
 > 2. Server khởi tạo một ảnh nhiễu ngẫu nhiên $x'$ và giả sử nhãn là "mèo" ($y'=3$). Server dùng mô hình gốc M để tính gradient $\nabla'$ cho cặp $(x', y'=3)$.
-> 3. Server chạy thuật toán tối ưu hóa (Eq. 4) để điều chỉnh ảnh $x'$. Mục tiêu là làm cho gradient $\nabla'$ (tính từ $x'$ hiện tại) ngày càng giống với $\nabla^*$ về mặt hướng (cosine similarity cao), đồng thời giữ cho $x'$ không quá nhiễu (nhờ TV).
-> 4. **Kết quả:** Sau khi tối ưu, ảnh $x'$ sẽ trông giống ảnh con mèo $x^*$ ban đầu đã bị xóa, mặc dù có thể hơi mờ hoặc có nhiễu (như các ví dụ trong Hình 3 của bài báo). Server đã khôi phục được đặc trưng của dữ liệu bị xóa.
+> 3. Server chạy thuật toán tối ưu hóa (Eq. 4) để điều chỉnh ảnh $x'$. Mục tiêu là làm cho gradient $\nabla'$ (tính từ $x'$ hiện tại) ngày càng giống với $\nabla^\ast$ về mặt hướng (cosine similarity cao), đồng thời giữ cho $x'$ không quá nhiễu (nhờ TV).
+> 4. **Kết quả:** Sau khi tối ưu, ảnh $x'$ sẽ trông giống ảnh con mèo $x^\ast$ ban đầu đã bị xóa, mặc dù có thể hơi mờ hoặc có nhiễu (như các ví dụ trong Hình 3 của bài báo). Server đã khôi phục được đặc trưng của dữ liệu bị xóa.
 
 ### 3.2. Suy luận Nhãn (Label Inference - Black-box)
 
@@ -168,7 +168,7 @@ Cách thức:
 
 > **Ví dụ minh họa (Label Inference):**
 >
-> Vẫn giả sử một ảnh **con mèo** ($x^*$, nhãn $y^*=3$) đã bị xóa khỏi M để tạo ra Mu. Người dùng cuối (kẻ tấn công) *không biết* dữ liệu nào bị xóa.
+> Vẫn giả sử một ảnh **con mèo** ($x^\ast$, nhãn $y^\ast=3$) đã bị xóa khỏi M để tạo ra Mu. Người dùng cuối (kẻ tấn công) *không biết* dữ liệu nào bị xóa.
 > 1. **Tạo mẫu thăm dò:** Kẻ tấn công tạo các mẫu $x'_{airplane}$, $x'_{car}$, $x'_{bird}$, $x'_{cat}$, $x'_{deer}$,..., $x'_{truck}$ sao cho mô hình **gốc M** dự đoán chúng thuộc lớp tương ứng (0, 1, 2, 3, 4,..., 9) với độ tin cậy >99.9%. Họ lưu các mẫu này và kết quả $\hat{\mathcal{Y}}$ từ M.
 > 2. **Thăm dò Mu:** Sau khi Mu được triển khai, kẻ tấn công gửi *tất cả* các mẫu thăm dò ($x'_{airplane}, ..., x'_{truck}$) đến Mu và nhận về các kết quả dự đoán mới $\mathcal{Y}$.
 > 3. **Tính toán & Suy luận:**
