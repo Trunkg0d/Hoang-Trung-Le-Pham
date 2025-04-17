@@ -169,7 +169,7 @@ Cách thức:
 > **Ví dụ minh họa (Label Inference):**
 >
 > Vẫn giả sử một ảnh **con mèo** ($x^\ast$, nhãn $y^\ast=3$) đã bị xóa khỏi $M$ để tạo ra $M_u$. Người dùng cuối (kẻ tấn công) *không biết* dữ liệu nào bị xóa.
-> 1. **Tạo mẫu thăm dò:** Kẻ tấn công tạo các mẫu $x_{airplane}'$, $x_{car}'$, $x_{bird}'$, $x_{cat}'$, $x_{deer}'$,..., $x_{truck}'$ sao cho mô hình **gốc $M$** dự đoán chúng thuộc lớp tương ứng (0, 1, 2, 3, 4,..., 9) với độ tin cậy >99.9%. Họ lưu các mẫu này và kết quả $\hat{\mathcal{Y}}$ từ M.
+> 1. **Tạo mẫu thăm dò:** Kẻ tấn công tạo các mẫu $x_{airplane}'$, $x_{car}'$, $x_{bird}'$, $x_{cat}'$, $x_{deer}'$, ... , $x_{truck}'$ sao cho mô hình **gốc $M$** dự đoán chúng thuộc lớp tương ứng (0, 1, 2, 3, 4,..., 9) với độ tin cậy >99.9%. Họ lưu các mẫu này và kết quả $\hat{\mathcal{Y}}$ từ M.
 > 2. **Thăm dò $M_u$:** Sau khi Mu được triển khai, kẻ tấn công gửi *tất cả* các mẫu thăm dò ($x_{airplane}', ..., x_{truck}'$) đến $M_u$ và nhận về các kết quả dự đoán mới $\mathcal{Y}$.
 > 3. **Tính toán & Suy luận:**
 >    - Kẻ tấn công tính $\beta_{airplane} = \Delta_p[0]$ (sự thay đổi tin cậy cho lớp "airplane" khi dùng mẫu thăm dò "airplane").
