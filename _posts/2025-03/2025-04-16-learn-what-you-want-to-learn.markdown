@@ -117,7 +117,7 @@ Kịch bản này giả định kẻ tấn công là **Server MLaaS** (hoặc b�
 > 1. Server tính $\nabla^\ast = \theta - \theta_u$. Vector $\nabla^\ast$ này giờ chứa thông tin gradient ước lượng liên quan đến ảnh con mèo đã bị xóa.
 > 2. Server khởi tạo một ảnh nhiễu ngẫu nhiên $x'$ và giả sử nhãn là "mèo" ($y'=3$). Server dùng mô hình gốc M để tính gradient $\nabla'$ cho cặp $(x', y'=3)$.
 > 3. Server chạy thuật toán tối ưu hóa (Eq. 4) để điều chỉnh ảnh $x'$. Mục tiêu là làm cho gradient $\nabla'$ (tính từ $x'$ hiện tại) ngày càng giống với $\nabla^\ast$ về mặt hướng (cosine similarity cao), đồng thời giữ cho $x'$ không quá nhiễu (nhờ TV).
-> 4. **Kết quả:** Sau khi tối ưu, ảnh $x'$ sẽ trông giống ảnh con mèo $x^\ast$ ban đầu đã bị xóa, mặc dù có thể hơi mờ hoặc có nhiễu (như các ví dụ trong Hình 3 của bài báo). Server đã khôi phục được đặc trưng của dữ liệu bị xóa.
+> 4. **Kết quả:** Sau khi tối ưu, ảnh $x'$ sẽ trông giống ảnh con mèo $x^\ast$ ban đầu đã bị xóa, mặc dù có thể hơi mờ hoặc có nhiễu. Server đã khôi phục được đặc trưng của dữ liệu bị xóa.
 
 ### 3.2. Suy luận Nhãn (Label Inference - Black-box)
 
