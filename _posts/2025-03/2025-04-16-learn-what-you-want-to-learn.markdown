@@ -140,7 +140,7 @@ Cách thức:
 
   - Sau khi nhà phát triển thay thế $M$ bằng $M_u$ trên server, kẻ tấn công sử dụng chính bộ dữ liệu thăm dò $D_p$ đã tạo ở Bước 1 để truy vấn mô hình $M_u$
 
-  - Với mỗi mẫu thăm dò $x'_i \in D_p$ (vốn được thiết kế để $M$ dự đoán là lớp $y_t$ với độ tin cậy cao), kẻ tấn công ghi lại vector dự đoán $Y_i = f_{\theta_u} (x'_i)$
+  - Với mỗi mẫu thăm dò $x'_i \in D_p$ (vốn được thiết kế để $M$ dự đoán là lớp $y_t$ với độ tin cậy cao), kẻ tấn công ghi lại vector dự đoán $Y_i = f_{\theta_u}$
 
 - **Bước 3: Tính toán Độ thay đổi Tin cậy và Suy luận Nhãn**
 
