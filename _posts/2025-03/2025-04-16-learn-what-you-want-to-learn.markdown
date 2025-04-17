@@ -88,11 +88,10 @@ Kịch bản này giả định kẻ tấn công là **Server MLaaS** (hoặc b�
     2. Tính gradient $\nabla'$ của hàm mất mát $L$ đối với tham số $\theta$ của mô hình gốc $M$ dựa trên $x'$ và $y'$:
 
       $$\nabla' = \frac{\partial L (f_\theta (x'), y')}{\partial \theta}$$
-
     3. Tìm $x'$ tối ưu bằng cách giải bài toán tối ưu sau:
 
         $$\text{argmin}_{x'} -l(\nabla', \nabla^\ast) + \alpha TV(x')$$
-        
+
         trong đó:
         
         - $l(\nabla', \nabla^\ast)$ là độ tương đồng cosine (cosine similarity) giữa gradient giả lập $\nabla'$ và gradient ước lượng $\nabla^\ast$:
