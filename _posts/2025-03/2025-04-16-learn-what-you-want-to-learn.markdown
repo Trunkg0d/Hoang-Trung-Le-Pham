@@ -92,6 +92,7 @@ Kịch bản này giả định kẻ tấn công là **Server MLaaS** (hoặc b�
     3. Tìm $x'$ tối ưu bằng cách giải bài toán tối ưu sau:
 
         $$\text{argmin}_{x'} -l(\nabla', \nabla^\ast) + \alpha TV(x')$$
+        
         trong đó:
         
         - $l(\nabla', \nabla^\ast)$ là độ tương đồng cosine (cosine similarity) giữa gradient giả lập $\nabla'$ và gradient ước lượng $\nabla^\ast$:
