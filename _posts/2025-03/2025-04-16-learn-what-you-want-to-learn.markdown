@@ -76,7 +76,7 @@ Kịch bản này giả định kẻ tấn công là **Server MLaaS** (hoặc b�
 
 - **Bước 2:** Đảo ngược Gradient Ước lượng (Gradient Inversion)
 
-  - **Thách thức:** Làm thế nào để khôi phục lại dữ liệu gốc $x^*$ từ gradient ước lượng $\nabla^*$
+  - **Thách thức:** Làm thế nào để khôi phục lại dữ liệu gốc $x^d$ từ gradient ước lượng $\nabla^*$
 
   - **Giải pháp:** Lấy cảm hứng từ các kỹ thuật tấn công đảo ngược gradient đã được chứng minh là hiệu quả trong Học liên kết (Federated Learning), nơi server có thể khôi phục dữ liệu huấn luyện riêng tư của client từ gradient mà client gửi lên
 
@@ -160,7 +160,7 @@ Cách thức:
   - **Suy luận:** Kẻ tấn công tìm lớp $y_t$ có giá trị $\beta_{y_t}$ **âm nhất** (tức là độ tin cậy giảm nhiều nhất). Lớp này được suy luận là nhãn $C_u$ của dữ liệu đã bị xoá:
 
     $$C_u = \text{argmin}_{y_t} \beta_{y_t}$$
-    
+
   - **Trường hợp nhiều lớp:** Nếu nghi ngờ nhiều lớp bị xoá cùng lúc (ví dụ $K$ lớp), kẻ tấn công có thể chọn ra $K$ lớp có giá trị $\beta_{y_t}$ âm nhất (top $K$) làm các nhãn bị suy luận.
 
 ## 4. Kết quả thực nghiệm của bài báo
