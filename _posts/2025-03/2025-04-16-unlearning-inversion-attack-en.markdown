@@ -4,6 +4,8 @@ title: "Unlearning Inversion Attack"
 date: 2025-04-16
 description: "A unified guide to machine unlearning, inversion attacks, the attack surface created by forgetting, and how to evaluate privacy beyond accuracy."
 reading_time: "18 min read"
+writing_order: 1
+status: published
 content_origin: slop
 content_origin_label: "Slop"
 content_origin_note: "AI-drafted and translated"

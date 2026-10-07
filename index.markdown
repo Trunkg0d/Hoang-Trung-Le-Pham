@@ -114,7 +114,8 @@ description: AI researcher working on trustworthy AI, machine unlearning, model 
       <p class="section-intro">A single, focused guide to the privacy gap between machine unlearning and inversion attacks.</p>
     </div>
 
-    {%- assign featured_post = site.posts | first -%}
+    {%- assign writing_posts = site.posts | sort: "writing_order" -%}
+    {%- assign featured_post = writing_posts | first -%}
     {%- assign featured_origin = featured_post.content_origin | default: "human" -%}
     {%- assign featured_origin_label = featured_post.content_origin_label | default: "Human" -%}
     <article class="article-preview">

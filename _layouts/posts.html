@@ -17,7 +17,8 @@ layout: default
     </div>
   </header>
 
-  <div class="article-shell">
+  <div class="article-shell{% if page.show_toc == false %} article-shell--solo{% endif %}">
+    {%- if page.show_toc != false -%}
     <aside class="article-rail" aria-label="Article topics">
       <span>In this article</span>
       <a href="#machine-unlearning">Machine unlearning</a>
@@ -25,6 +26,7 @@ layout: default
       <a href="#threat-model">Threat model</a>
       <a href="#defense">Evaluation & defense</a>
     </aside>
+    {%- endif -%}
     <div class="post-content e-content" itemprop="articleBody">
       {{ content }}
     </div>
