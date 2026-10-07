@@ -1,6 +1,7 @@
 ---
-layout: default
+layout: projects
 title: Projects
+description: Selected AI, data science, and web development projects by Hoang-Trung Le-Pham.
 permalink: /projects/
 ---
 

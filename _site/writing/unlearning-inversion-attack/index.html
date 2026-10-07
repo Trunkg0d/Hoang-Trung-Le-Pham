@@ -1,0 +1,393 @@
+<!doctype html>
+<html lang="en" data-theme="light">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#f6f8fc"><!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>Unlearning Inversion Attack | Hoang-Trung Le-Pham</title>
+<meta name="generator" content="Jekyll v4.4.1" />
+<meta property="og:title" content="Unlearning Inversion Attack" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Một hướng dẫn tổng hợp về Machine Unlearning, Inversion Attacks, bề mặt tấn công mới sinh ra trong quá trình quên dữ liệu, và cách đánh giá an toàn thực chất." />
+<meta property="og:description" content="Một hướng dẫn tổng hợp về Machine Unlearning, Inversion Attacks, bề mặt tấn công mới sinh ra trong quá trình quên dữ liệu, và cách đánh giá an toàn thực chất." />
+<link rel="canonical" href="https://trunkg0d.github.io/Hoang-Trung-Le-Pham/writing/unlearning-inversion-attack/" />
+<meta property="og:url" content="https://trunkg0d.github.io/Hoang-Trung-Le-Pham/writing/unlearning-inversion-attack/" />
+<meta property="og:site_name" content="Hoang-Trung Le-Pham" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2025-04-16T00:00:00+00:00" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="Unlearning Inversion Attack" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BlogPosting","dateModified":"2025-04-16T00:00:00+00:00","datePublished":"2025-04-16T00:00:00+00:00","description":"Một hướng dẫn tổng hợp về Machine Unlearning, Inversion Attacks, bề mặt tấn công mới sinh ra trong quá trình quên dữ liệu, và cách đánh giá an toàn thực chất.","headline":"Unlearning Inversion Attack","mainEntityOfPage":{"@type":"WebPage","@id":"https://trunkg0d.github.io/Hoang-Trung-Le-Pham/writing/unlearning-inversion-attack/"},"url":"https://trunkg0d.github.io/Hoang-Trung-Le-Pham/writing/unlearning-inversion-attack/"}</script>
+<!-- End Jekyll SEO tag -->
+<link rel="stylesheet" href="/Hoang-Trung-Le-Pham/assets/custom.css"><link type="application/atom+xml" rel="alternate" href="https://trunkg0d.github.io/Hoang-Trung-Le-Pham/feed.xml" title="Hoang-Trung Le-Pham" /><script>
+      (function () {
+        var savedTheme = localStorage.getItem('theme');
+        var systemDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+        document.documentElement.dataset.theme = savedTheme || (systemDark ? 'dark' : 'light');
+      }());
+    </script>
+    <script>
+      MathJax = {
+        tex: { inlineMath: [['$', '$'], ['\\(', '\\)']] },
+        svg: { fontCache: 'global' }
+      };
+    </script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"></script>
+  </head>
+  <body>
+    <a class="skip-link" href="#main-content">Skip to content</a>
+
+    <header class="site-header">
+      <div class="shell header-inner">
+        <a class="brand" href="/Hoang-Trung-Le-Pham/" aria-label="Hoang-Trung Le-Pham, home">
+          <span class="brand-mark" aria-hidden="true">HT</span>
+          <span class="brand-copy">
+            <strong>Hoang-Trung</strong>
+            <small>AI Researcher</small>
+          </span>
+        </a>
+
+        <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav">
+          <span></span><span></span><span></span>
+          <span class="sr-only">Toggle navigation</span>
+        </button>
+
+        <nav class="site-nav" id="site-nav" aria-label="Primary navigation">
+          <a href="/Hoang-Trung-Le-Pham/">About</a>
+          <a href="/Hoang-Trung-Le-Pham/papers/">Publications</a>
+          <a href="/Hoang-Trung-Le-Pham/projects/">Projects</a>
+          <a href="/Hoang-Trung-Le-Pham/writing/" class="active" aria-current="page">Writing</a>
+          <a class="nav-cv" href="/Hoang-Trung-Le-Pham/Resume/">CV <span aria-hidden="true">↗</span></a>
+          <button class="theme-toggle" type="button" aria-label="Toggle color theme">
+            <svg class="sun-icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4"></circle><path d="M12 2v2M12 20v2M4.93 4.93l1.42 1.42M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.42-1.42M17.66 6.34l1.41-1.41"></path></svg>
+            <svg class="moon-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
+          </button>
+        </nav>
+      </div>
+    </header>
+
+    <main id="main-content" class="page-content">
+      <article class="post h-entry" itemscope itemtype="https://schema.org/BlogPosting">
+  <header class="post-hero shell">
+    <a class="eyebrow back-link" href="/Hoang-Trung-Le-Pham/writing/">← Back to writing</a>
+    <h1 class="p-name" itemprop="name headline">Unlearning Inversion Attack</h1>
+    <p class="post-deck">Một hướng dẫn tổng hợp về Machine Unlearning, Inversion Attacks, bề mặt tấn công mới sinh ra trong quá trình quên dữ liệu, và cách đánh giá an toàn thực chất.</p>
+    <div class="post-meta">
+      <time class="dt-published" datetime="2025-04-16T00:00:00+00:00" itemprop="datePublished">April 16, 2025</time>
+      <span aria-hidden="true">·</span>
+      <span>18 min read</span>
+    </div>
+  </header>
+
+  <div class="article-shell">
+    <aside class="article-rail" aria-label="Article topics">
+      <span>In this article</span>
+      <a href="#machine-unlearning">Machine unlearning</a>
+      <a href="#inversion-attacks">Inversion attacks</a>
+      <a href="#threat-model">Threat model</a>
+      <a href="#defense">Evaluation & defense</a>
+    </aside>
+    <div class="post-content e-content" itemprop="articleBody">
+      <p>Machine Unlearning thường được mô tả như một “cục tẩy” cho mô hình học máy: khi một người dùng yêu cầu xóa dữ liệu, ta không chỉ xóa bản ghi khỏi cơ sở dữ liệu mà còn phải loại bỏ ảnh hưởng của bản ghi đó khỏi mô hình đã huấn luyện. Đây là một yêu cầu quan trọng đối với quyền riêng tư, nhưng nó dẫn đến một câu hỏi khó hơn:</p>
+
+<blockquote>
+  <p>Một mô hình đã “quên” dữ liệu có thực sự ngừng tiết lộ thông tin về dữ liệu đó hay không?</p>
+</blockquote>
+
+<p>Unlearning Inversion Attack khai thác chính sự thay đổi giữa mô hình trước và sau unlearning. Thay vì coi mô hình sau unlearning là một phiên bản an toàn hơn một cách mặc định, kẻ tấn công xem <strong>quá trình chuyển trạng thái</strong> như một nguồn tín hiệu mới.</p>
+
+<p>Bài viết này gộp ba chủ đề vốn liên kết chặt chẽ—Machine Unlearning, Inversion Attacks và Unlearning Inversion Attacks—thành một bức tranh thống nhất.</p>
+
+<h2 id="machine-unlearning">Machine Unlearning: mô hình “quên” như thế nào?</h2>
+
+<h3 id="bài-toán-cơ-bản">Bài toán cơ bản</h3>
+
+<p>Giả sử:</p>
+
+<ul>
+  <li>$D$ là tập dữ liệu huấn luyện ban đầu;</li>
+  <li>$D_{forget}$ là phần dữ liệu cần loại bỏ;</li>
+  <li>$D_{retain} = D \setminus D_{forget}$ là phần dữ liệu được giữ lại;</li>
+  <li>$A$ là thuật toán huấn luyện;</li>
+  <li>$M = A(D)$ là mô hình ban đầu.</li>
+</ul>
+
+<p>Mục tiêu của thuật toán unlearning $U$ là tạo ra mô hình $M_u$ sao cho ảnh hưởng của $D_{forget}$ được loại bỏ, nhưng hiệu suất trên $D_{retain}$ vẫn được duy trì:</p>
+
+\[M_u = U(M, D, D_{forget})\]
+
+<p>Chuẩn tham chiếu mạnh nhất là mô hình được huấn luyện lại hoàn toàn trên dữ liệu giữ lại:</p>
+
+\[M_{retrain} = A(D_{retain})\]
+
+<p>Nếu phân phối đầu ra của $M_u$ gần với $M_{retrain}$, ta có cơ sở để nói quá trình unlearning đang tiến gần đến hành vi mong muốn. Tuy nhiên, “gần” về độ chính xác chưa đồng nghĩa với “an toàn” trước các cuộc tấn công suy luận.</p>
+
+<figure>
+  <img src="/Hoang-Trung-Le-Pham/images/machine-unlearning/naive_retraining_and_machine_unlearning.png" alt="So sánh huấn luyện lại từ đầu và machine unlearning" />
+  <figcaption>Huấn luyện lại trên tập retain là chuẩn tham chiếu tự nhiên, nhưng thường tốn kém hơn unlearning.</figcaption>
+</figure>
+
+<h3 id="exact-và-approximate-unlearning">Exact và Approximate Unlearning</h3>
+
+<p><strong>Exact Unlearning</strong> hướng đến việc tạo ra một mô hình có phân phối tương đương với mô hình được huấn luyện lại từ đầu trên $D_{retain}$. Đây là mục tiêu chặt chẽ, nhưng thường đòi hỏi chi phí tính toán và lưu trữ lớn.</p>
+
+<p><strong>Approximate Unlearning</strong> chấp nhận một sai số nhỏ để đổi lấy tốc độ và khả năng triển khai. Mục tiêu có thể được mô tả bằng một khoảng cách phân phối:</p>
+
+\[d(P_{M_u}, P_{M_{retrain}}) \leq \epsilon\]
+
+<p>Trong thực tế, các phương pháp như fine-tuning trên tập retain, cập nhật dựa trên influence function, hoặc SISA thường nằm trong nhóm xấp xỉ. SISA chia dữ liệu thành nhiều shard, huấn luyện các mô hình con độc lập, rồi chỉ huấn luyện lại shard bị ảnh hưởng bởi yêu cầu xóa.</p>
+
+<figure>
+  <img src="/Hoang-Trung-Le-Pham/images/machine-unlearning/sisa.png" alt="Kiến trúc SISA cho machine unlearning" />
+  <figcaption>SISA giới hạn phạm vi phải huấn luyện lại bằng cách chia dữ liệu thành các shard độc lập.</figcaption>
+</figure>
+
+<h3 id="đánh-giá-unlearning-không-chỉ-bằng-accuracy">Đánh giá unlearning không chỉ bằng accuracy</h3>
+
+<p>Một đánh giá có ý nghĩa cần xem xét đồng thời:</p>
+
+<ol>
+  <li><strong>Removal quality:</strong> hành vi trên $D_{forget}$ có gần với $M_{retrain}$ không?</li>
+  <li><strong>Retained utility:</strong> hiệu suất trên $D_{retain}$ và tập test có được bảo toàn không?</li>
+  <li><strong>Efficiency:</strong> thời gian, bộ nhớ và tài nguyên cần cho mỗi yêu cầu xóa.</li>
+  <li><strong>Privacy leakage:</strong> membership inference, model inversion hoặc gradient inversion còn khai thác được gì?</li>
+</ol>
+
+<p>Điểm thứ tư là nơi Inversion Attacks trở thành một công cụ đánh giá quan trọng—và cũng là nơi xuất hiện một bề mặt tấn công mới.</p>
+
+<h2 id="inversion-attacks">Inversion Attacks: đọc ngược dấu vết của mô hình</h2>
+
+<p>Inversion Attack là nhóm kỹ thuật dùng thông tin quan sát được từ mô hình để suy ngược về dữ liệu huấn luyện. Hai nhánh thường gặp là:</p>
+
+<ul>
+  <li><strong>Model Inversion Attack:</strong> khai thác đầu ra, confidence score, logits hoặc quyền truy cập tham số để suy ra thuộc tính hay mẫu đại diện của dữ liệu huấn luyện.</li>
+  <li><strong>Gradient Inversion Attack:</strong> dùng gradient hoặc thay đổi tham số để tái tạo đầu vào và nhãn đã tạo ra gradient đó.</li>
+</ul>
+
+<p>Với một mô hình tuyến tính đơn giản</p>
+
+\[f(x) = w_1x_1 + w_2x_2 + \dots + w_tx_t + b,\]
+
+<p>nếu kẻ tấn công biết đầu ra $y$, tham số mô hình và tất cả đặc trưng trừ $x_1$, đặc trưng riêng tư có thể được suy ra trực tiếp:</p>
+
+\[\hat{x}_1 = \frac{y - (w_2x_2 + \dots + w_tx_t + b)}{w_1}.\]
+
+<p>Với mạng nơ-ron sâu, phép đảo không còn đơn giản, nhưng cùng một trực giác vẫn tồn tại: tối ưu một đầu vào giả sao cho hành vi hoặc gradient của nó khớp với tín hiệu quan sát được.</p>
+
+<figure>
+  <img src="/Hoang-Trung-Le-Pham/images/machine-unlearning/mu-vs-inversion-attacks.png" alt="Mối liên hệ giữa machine unlearning và inversion attacks" />
+  <figcaption>Inversion attacks vừa là mối đe dọa, vừa là công cụ để kiểm tra mức độ unlearning thực sự.</figcaption>
+</figure>
+
+<h3 id="ba-mối-liên-hệ-quan-trọng">Ba mối liên hệ quan trọng</h3>
+
+<p>Machine Unlearning và Inversion Attacks giao nhau theo ba cách:</p>
+
+<ol>
+  <li>Inversion attacks có thể làm lộ thông tin mà unlearning được kỳ vọng phải loại bỏ.</li>
+  <li>Khả năng chống inversion có thể dùng như một tín hiệu đánh giá chất lượng unlearning.</li>
+  <li>Một số kỹ thuật unlearning lại được dùng như cơ chế giảm thiểu rò rỉ gradient trong hệ thống phân tán.</li>
+</ol>
+
+<p>Điểm nghịch lý nằm ở chỗ: quá trình xóa có thể giảm một loại rò rỉ, nhưng sự khác biệt giữa hai phiên bản mô hình lại tạo ra một tín hiệu mới cho kẻ tấn công.</p>
+
+<h2 id="threat-model">Threat model của Unlearning Inversion Attack</h2>
+
+<p>Hãy xét một hệ thống Machine Learning as a Service (MLaaS): nhà cung cấp huấn luyện mô hình $M$ trên $D$, sau đó nhận yêu cầu xóa $D_{forget}$ và triển khai mô hình $M_u$.</p>
+
+<p>Kẻ tấn công có thể đứng ở hai vị trí:</p>
+
+<ul>
+  <li><strong>White-box attacker:</strong> truy cập được tham số của cả $M$ và $M_u$—ví dụ máy chủ hoặc một bên nội bộ.</li>
+  <li><strong>Black-box attacker:</strong> chỉ truy vấn hai mô hình qua API và nhận confidence score hoặc logits.</li>
+</ul>
+
+<p>Lỗ hổng cốt lõi không nhất thiết nằm trong riêng $M$ hay $M_u$, mà nằm trong <strong>chênh lệch</strong> giữa chúng. Nếu sự thay đổi này chủ yếu được tạo ra để loại bỏ $D_{forget}$, nó có thể cô lập dấu vết của chính dữ liệu cần quên.</p>
+
+<h3 id="white-box-khôi-phục-đặc-trưng">White-box: khôi phục đặc trưng</h3>
+
+<p>Trong huấn luyện bằng gradient descent, một bước cập nhật có dạng:</p>
+
+\[\theta_{k+1} = \theta_k - \alpha \nabla_\theta \mathcal{L}(\theta_k).\]
+
+<p>Kẻ tấn công white-box sử dụng chênh lệch tham số giữa mô hình gốc và mô hình đã unlearn như một ước lượng cho tín hiệu gradient liên quan đến dữ liệu bị xóa:</p>
+
+\[\nabla^\ast \approx \theta - \theta_u.\]
+
+<p>Sau đó, họ khởi tạo một đầu vào giả $x’$ và tối ưu nó sao cho gradient $\nabla’$ sinh ra bởi $x’$ có hướng gần với $\nabla^\ast$:</p>
+
+\[\arg\min_{x'} -\operatorname{cos}(\nabla', \nabla^\ast) + \lambda TV(x').\]
+
+<p>Trong đó $TV(x’)$ là regularizer Total Variation giúp ảnh tái tạo mượt và tự nhiên hơn. Kết quả tối ưu có thể phục hồi cấu trúc hoặc thuộc tính nhận diện được của mẫu đã bị xóa—even khi mẫu gốc không còn được cung cấp trực tiếp.</p>
+
+<blockquote>
+  <p>Ý nghĩa bảo mật: việc giữ đồng thời checkpoint trước và sau unlearning có thể tạo ra nhiều thông tin hơn việc chỉ lộ một checkpoint.</p>
+</blockquote>
+
+<h3 id="black-box-suy-luận-nhãn-đã-bị-quên">Black-box: suy luận nhãn đã bị quên</h3>
+
+<p>Kẻ tấn công black-box không cần truy cập tham số. Thay vào đó, họ tạo các <strong>probing samples</strong> cho từng lớp mục tiêu và so sánh phản hồi của hai mô hình.</p>
+
+<p>Quy trình khái quát:</p>
+
+<ol>
+  <li>Tạo một nhóm mẫu $x’$ mà mô hình gốc $M$ dự đoán thuộc lớp $y_t$ với confidence cao.</li>
+  <li>Lưu vector dự đoán của $M$ trên các mẫu này.</li>
+  <li>Gửi cùng các mẫu đến $M_u$.</li>
+  <li>Tính mức thay đổi confidence theo từng lớp.</li>
+</ol>
+
+<p>Với $m$ probing samples của một lớp, chênh lệch trung bình có thể viết là:</p>
+
+\[\Delta_p = \frac{1}{m}\sum_{i=1}^{m}\left(\hat{\mathcal{Y}}_i - \mathcal{Y}_i\right).\]
+
+<p>Nếu confidence của một lớp giảm nổi bật sau unlearning, lớp đó trở thành ứng viên cho nhãn của dữ liệu đã bị xóa. Khi cần suy ra nhiều lớp, attacker xếp hạng các lớp theo độ giảm confidence và chọn Top-$K$.</p>
+
+<p>Điều đáng chú ý là attacker không cần tái tạo được ảnh gốc. Chỉ riêng nhãn—bệnh lý, vị trí, nhóm nhân khẩu học hoặc loại hành vi—đã có thể là thông tin nhạy cảm.</p>
+
+<h2 id="vì-sao-đã-quên-vẫn-chưa-đủ">Vì sao “đã quên” vẫn chưa đủ?</h2>
+
+<p>Unlearning thường được tối ưu để đưa mô hình đến một trạng thái mong muốn. Nhưng bảo mật không chỉ phụ thuộc vào trạng thái cuối; nó còn phụ thuộc vào thông tin lộ ra trong quá trình chuyển trạng thái.</p>
+
+<p>Có ba nguyên nhân chính:</p>
+
+<ul>
+  <li><strong>Difference amplification:</strong> lấy hiệu hai mô hình có thể loại bỏ nhiều tín hiệu chung và làm nổi bật đúng phần liên quan đến dữ liệu bị xóa.</li>
+  <li><strong>Overexposed outputs:</strong> logits hoặc confidence score chi tiết cung cấp nhiều tín hiệu hơn nhãn top-1.</li>
+  <li><strong>Weak evaluation:</strong> accuracy trên forget set giảm không chứng minh rằng thông tin nhận dạng hoặc nhãn đã biến mất.</li>
+</ul>
+
+<p>Do đó, privacy claim của một thuật toán unlearning nên được kiểm tra trong threat model cụ thể, thay vì suy ra trực tiếp từ performance metric.</p>
+
+<h2 id="defense">Đánh giá và phòng thủ</h2>
+
+<p>Không có một biện pháp đơn lẻ giải quyết toàn bộ bề mặt tấn công. Một thiết kế phòng thủ tốt nên kết hợp nhiều lớp.</p>
+
+<h3 id="1-đánh-giá-theo-chuẩn-retraining">1. Đánh giá theo chuẩn retraining</h3>
+
+<p>So sánh $M_u$ với $M_{retrain}$ trên cả utility và leakage. Nếu chỉ so với mô hình gốc, ta không biết mức chênh lệch nào là hành vi “quên đúng” và mức nào là dấu vết bất thường.</p>
+
+<h3 id="2-hạn-chế-quan-sát-cặp-mô-hình">2. Hạn chế quan sát cặp mô hình</h3>
+
+<ul>
+  <li>Không để cùng một người dùng truy cập lâu dài cả phiên bản trước và sau unlearning.</li>
+  <li>Hạn chế lưu hoặc chia sẻ checkpoint lịch sử không cần thiết.</li>
+  <li>Phân tách quyền truy cập vận hành, audit và nghiên cứu.</li>
+</ul>
+
+<h3 id="3-giảm-độ-chi-tiết-của-api">3. Giảm độ chi tiết của API</h3>
+
+<p>Chỉ trả về thông tin cần thiết cho tác vụ. Nhãn top-1, confidence đã hiệu chỉnh, rate limiting và phát hiện truy vấn bất thường có thể làm probing attack khó hơn. Đây là biện pháp giảm thiểu, không phải bằng chứng unlearning đã an toàn.</p>
+
+<h3 id="4-thêm-cơ-chế-bảo-vệ-ở-mức-cập-nhật">4. Thêm cơ chế bảo vệ ở mức cập nhật</h3>
+
+<p>Clipping, noise có kiểm soát, regularization, differential privacy hoặc cập nhật theo cụm có thể giảm khả năng cô lập tín hiệu của một mẫu. Mỗi cơ chế đều tạo trade-off giữa privacy, utility và chi phí.</p>
+
+<h3 id="5-dùng-attack-based-evaluation">5. Dùng attack-based evaluation</h3>
+
+<p>Một bộ đánh giá nên bao gồm ít nhất:</p>
+
+<ul>
+  <li>Membership Inference Attack;</li>
+  <li>Model/Gradient Inversion Attack;</li>
+  <li>Forgotten-label inference;</li>
+  <li>kiểm tra với cả white-box và black-box access;</li>
+  <li>nhiều kích thước và cấu trúc của $D_{forget}$.</li>
+</ul>
+
+<p>Nếu một phương pháp chỉ vượt qua một attacker yếu, kết luận phù hợp là “an toàn trong thiết lập đã kiểm tra”, không phải “đã xóa hoàn toàn thông tin”.</p>
+
+<h2 id="checklist-triển-khai-thực-tế">Checklist triển khai thực tế</h2>
+
+<p>Trước khi công bố một pipeline unlearning, có thể rà lại năm câu hỏi:</p>
+
+<ol>
+  <li>Ai có thể truy cập mô hình trước và sau khi unlearn?</li>
+  <li>API trả về nhãn, confidence hay toàn bộ logits?</li>
+  <li>Mô hình sau unlearning gần retraining baseline đến mức nào?</li>
+  <li>Những attack-based metrics nào đã được chạy trên forget set?</li>
+  <li>Hệ thống có audit log, rate limit và chính sách checkpoint rõ ràng không?</li>
+</ol>
+
+<p>Machine Unlearning không chỉ là một bài toán tối ưu hóa; nó là một bài toán hệ thống. Thuật toán, API, quyền truy cập, lưu trữ phiên bản và quy trình đánh giá đều cùng quyết định dữ liệu có thực sự được “quên” hay không.</p>
+
+<h2 id="kết-luận">Kết luận</h2>
+
+<p>Unlearning Inversion Attack cho thấy một trực giác quan trọng: <strong>xóa ảnh hưởng khỏi mô hình và ngăn mô hình tiết lộ thông tin là hai mục tiêu liên quan nhưng không đồng nhất</strong>.</p>
+
+<p>Một mô hình có thể đạt accuracy tốt, gần với retraining baseline, và vẫn để lộ tín hiệu về dữ liệu bị xóa khi attacker so sánh hai phiên bản. Vì vậy, đánh giá unlearning cần dịch chuyển từ câu hỏi “mô hình còn dự đoán đúng trên forget set không?” sang câu hỏi mạnh hơn: “với quyền truy cập thực tế, attacker còn suy ra được gì?”</p>
+
+<hr />
+
+<h2 id="tài-liệu-tham-khảo">Tài liệu tham khảo</h2>
+
+<ul>
+  <li>Hu, H., Wang, S., Dong, T., &amp; Xue, M. (2024). <a href="https://arxiv.org/abs/2404.03233">Learn What You Want to Unlearn: Unlearning Inversion Attacks against Machine Unlearning</a>.</li>
+  <li>Xu, J., Wu, Z., Wang, C., &amp; Jia, X. (2024). <a href="https://doi.org/10.1109/TETCI.2024.3379240">Machine Unlearning: Solutions and Challenges</a>. <em>IEEE Transactions on Emerging Topics in Computational Intelligence</em>, 8(3), 2150–2168.</li>
+  <li>Wang, W., Tian, Z., Zhang, C., &amp; Yu, S. (2024). <a href="https://arxiv.org/abs/2405.07406">Machine Unlearning: A Comprehensive Survey</a>.</li>
+  <li>Graves, L., Nagisetty, V., &amp; Ganesh, V. (2020). <a href="https://arxiv.org/abs/2010.10981">Amnesiac Machine Learning</a>.</li>
+  <li><a href="https://unlearning-challenge.github.io/">NeurIPS 2023 Machine Unlearning Challenge — Starting Kit</a>.</li>
+</ul>
+
+    </div>
+  </div>
+
+  <footer class="post-footer shell">
+    <p class="eyebrow">Continue exploring</p>
+    <div>
+      <h2>Research at the intersection of privacy and model security.</h2>
+      <a class="button button-primary" href="/Hoang-Trung-Le-Pham/papers/">View publications <span aria-hidden="true">→</span></a>
+    </div>
+  </footer>
+  <a class="u-url" href="/Hoang-Trung-Le-Pham/writing/unlearning-inversion-attack/" hidden></a>
+</article>
+
+    </main>
+
+    <footer class="site-footer">
+      <div class="shell footer-grid">
+        <div>
+          <a class="footer-name" href="/Hoang-Trung-Le-Pham/">Hoang-Trung Le-Pham</a>
+          <p>Building trustworthy and robust AI systems.</p>
+        </div>
+        <div class="footer-links" aria-label="Social links">
+          <a href="mailto:trunglph@uit.edu.vn">Email</a>
+          <a href="https://github.com/Trunkg0d" target="_blank" rel="noreferrer">GitHub</a>
+          <a href="https://orcid.org/0009-0004-2490-7923" target="_blank" rel="noreferrer">ORCID</a>
+        </div>
+        <p class="footer-note">© <span id="current-year">2026</span> Hoang-Trung Le-Pham</p>
+      </div>
+    </footer>
+
+    <script>
+      (function () {
+        var root = document.documentElement;
+        var themeButton = document.querySelector('.theme-toggle');
+        var navButton = document.querySelector('.nav-toggle');
+        var nav = document.getElementById('site-nav');
+
+        themeButton.addEventListener('click', function () {
+          var nextTheme = root.dataset.theme === 'dark' ? 'light' : 'dark';
+          root.dataset.theme = nextTheme;
+          localStorage.setItem('theme', nextTheme);
+        });
+
+        navButton.addEventListener('click', function () {
+          var isOpen = navButton.getAttribute('aria-expanded') === 'true';
+          navButton.setAttribute('aria-expanded', String(!isOpen));
+          nav.classList.toggle('is-open', !isOpen);
+        });
+
+        nav.querySelectorAll('a').forEach(function (link) {
+          link.addEventListener('click', function () {
+            navButton.setAttribute('aria-expanded', 'false');
+            nav.classList.remove('is-open');
+          });
+        });
+
+        document.getElementById('current-year').textContent = new Date().getFullYear();
+      }());
+    </script>
+  </body>
+</html>

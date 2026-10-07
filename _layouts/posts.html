@@ -1,39 +1,37 @@
 ---
 layout: default
 ---
-<article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
-
-    <header class="post-header">
-        <!-- <h1 class="post-title p-name" itemprop="name headline">{{ page.title | escape }}</h1> -->
-        <p class="post-meta">
-            <time class="dt-published" datetime="{{ page.date | date_to_xmlschema }}" itemprop="datePublished">
-                {%- assign date_format = site.minima.date_format | default: "%b %-d, %Y" -%}
-                {{ page.date | date: date_format }}
-            </time>
-            {%- if page.author -%}
-            • <span itemprop="author" itemscope itemtype="http://schema.org/Person"><span class="p-author h-card"
-                    itemprop="name">{{ page.author }}</span></span>
-            {%- endif -%}
-        </p>
-    </header>
-
-    <div class="post-content e-content" itemprop="articleBody">
-        {{ content }}
+<article class="post h-entry" itemscope itemtype="https://schema.org/BlogPosting">
+  <header class="post-hero shell">
+    <a class="eyebrow back-link" href="{{ '/writing/' | relative_url }}">← Back to writing</a>
+    <h1 class="p-name" itemprop="name headline">{{ page.title | escape }}</h1>
+    {% if page.description %}<p class="post-deck">{{ page.description }}</p>{% endif %}
+    <div class="post-meta">
+      <time class="dt-published" datetime="{{ page.date | date_to_xmlschema }}" itemprop="datePublished">{{ page.date | date: "%B %-d, %Y" }}</time>
+      <span aria-hidden="true">·</span>
+      <span>{{ page.reading_time | default: "15 min read" }}</span>
     </div>
+  </header>
 
-    {%- if site.disqus.shortname -%}
-    {%- include disqus_comments.html -%}
-    {%- endif -%}
+  <div class="article-shell">
+    <aside class="article-rail" aria-label="Article topics">
+      <span>In this article</span>
+      <a href="#machine-unlearning">Machine unlearning</a>
+      <a href="#inversion-attacks">Inversion attacks</a>
+      <a href="#threat-model">Threat model</a>
+      <a href="#defense">Evaluation & defense</a>
+    </aside>
+    <div class="post-content e-content" itemprop="articleBody">
+      {{ content }}
+    </div>
+  </div>
 
-    <a class="u-url" href="{{ page.url | relative_url }}" hidden></a>
+  <footer class="post-footer shell">
+    <p class="eyebrow">Continue exploring</p>
+    <div>
+      <h2>Research at the intersection of privacy and model security.</h2>
+      <a class="button button-primary" href="{{ '/papers/' | relative_url }}">View publications <span aria-hidden="true">→</span></a>
+    </div>
+  </footer>
+  <a class="u-url" href="{{ page.url | relative_url }}" hidden></a>
 </article>
-
-<script>
-    MathJax = {
-        tex: {
-            inlineMath: [['$', '$'], ['\\(', '\\)']]
-        }
-    };
-</script>
-<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
-<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>

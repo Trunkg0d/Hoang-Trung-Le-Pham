@@ -3,6 +3,7 @@ layout: post
 title: "Learn What You Want to Unlearn: Tấn công Đảo ngược Bỏ học"
 date: 2025-04-16
 categories: jekyll update
+published: false
 ---
 ## 1. Giới thiệu
 Trong kỷ nguyên số, dữ liệu cá nhân ngày càng được thu thập và xử lý nhiều hơn bao giờ hết. Đi kèm với đó là những lo ngại về quyền riêng tư và nhu cầu kiểm soát thông tin cá nhân. Các quy định như GDPR ở Châu Âu và CCPA ở California đã ra đời, trao cho người dùng "Quyền được Lãng quên" (Right to be Forgotten) - quyền yêu cầu các tổ chức xóa dữ liệu của họ.   

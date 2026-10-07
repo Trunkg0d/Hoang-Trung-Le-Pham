@@ -1,0 +1,33 @@
+---
+layout: default
+---
+<header class="page-hero">
+  <div class="shell page-hero-grid">
+    <div>
+      <p class="eyebrow">Profile & experience</p>
+      <h1>Curriculum<br>Vitae</h1>
+    </div>
+    <p class="page-summary">Research, education, publications, experience, and selected recognition. Last updated September 2026.</p>
+  </div>
+</header>
+
+<section class="cv-section">
+  <div class="shell">
+    <div class="cv-toolbar">
+      <p>The full CV is displayed below.</p>
+      <div class="cv-actions">
+        <a class="button" href="{{ '/2.Latest_AI_Resume.pdf' | relative_url }}" target="_blank" rel="noreferrer">Open in new tab <span aria-hidden="true">↗</span></a>
+        <a class="button button-primary" href="{{ '/2.Latest_AI_Resume.pdf' | relative_url }}" download>Download PDF <span aria-hidden="true">↓</span></a>
+      </div>
+    </div>
+
+    <div class="pdf-frame">
+      <object data="{{ '/2.Latest_AI_Resume.pdf' | relative_url }}#view=FitH" type="application/pdf">
+        <div class="pdf-fallback">
+          <p>Your browser cannot display the embedded PDF.</p>
+          <a class="button button-primary" href="{{ '/2.Latest_AI_Resume.pdf' | relative_url }}">Open the CV</a>
+        </div>
+      </object>
+    </div>
+  </div>
+</section>

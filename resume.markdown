@@ -1,6 +1,7 @@
 ---
-layout: default
-title: Resume
+layout: cv
+title: Curriculum Vitae
+description: Curriculum vitae of Hoang-Trung Le-Pham.
 permalink: /Resume/
 ---
 

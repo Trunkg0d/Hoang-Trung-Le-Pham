@@ -1,47 +1,106 @@
-<!DOCTYPE html>
-<html lang="{{ page.lang | default: site.lang | default: "en" }}">
+<!doctype html>
+<html lang="{{ page.lang | default: site.lang | default: 'en' }}" data-theme="light">
   <head>
     <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    {%- seo %}
-    <link rel="stylesheet" href="{{ "/assets/main.css" | relative_url }}">
-    <!-- <link rel="stylesheet" href="href="{{ "/assets/custom.css" | relative_url }}"> -->
-    {%- feed_meta %}
-    {%- if site.google_analytics %}
-      <script>
-        window.dataLayer = window.parent.dataLayer || [];
-        function gtag(){dataLayer.push(arguments);}
-        gtag('js', new Date());
-
-        gtag('config', '{{ site.google_analytics }}', { 'anonymize_ip': true });
-      </script>
-    {%- endif %}
+    <meta name="theme-color" content="#f6f8fc">
+    {%- seo -%}
+    <link rel="stylesheet" href="{{ '/assets/custom.css' | relative_url }}">
+    {%- feed_meta -%}
+    <script>
+      (function () {
+        var savedTheme = localStorage.getItem('theme');
+        var systemDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+        document.documentElement.dataset.theme = savedTheme || (systemDark ? 'dark' : 'light');
+      }());
+    </script>
     <script>
       MathJax = {
-        tex: {
-          inlineMath: [['$', '$'], ['\\(', '\\)']]
-        },
-        svg: {
-          fontCache: 'global'
-        }
+        tex: { inlineMath: [['$', '$'], ['\\(', '\\)']] },
+        svg: { fontCache: 'global' }
       };
     </script>
-    <script type="text/javascript" id="MathJax-script" async
-      src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js">
-    </script>
-    <!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"> -->
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"></script>
   </head>
   <body>
-    {%- include header.html %}
+    <a class="skip-link" href="#main-content">Skip to content</a>
 
-    <main class="page-content" aria-label="Content">
-      <div class="wrapper">
-        {{ content }}
+    <header class="site-header">
+      <div class="shell header-inner">
+        <a class="brand" href="{{ '/' | relative_url }}" aria-label="Hoang-Trung Le-Pham, home">
+          <span class="brand-mark" aria-hidden="true">HT</span>
+          <span class="brand-copy">
+            <strong>Hoang-Trung</strong>
+            <small>AI Researcher</small>
+          </span>
+        </a>
+
+        <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav">
+          <span></span><span></span><span></span>
+          <span class="sr-only">Toggle navigation</span>
+        </button>
+
+        <nav class="site-nav" id="site-nav" aria-label="Primary navigation">
+          <a href="{{ '/' | relative_url }}"{% if page.url == '/' %} class="active" aria-current="page"{% endif %}>About</a>
+          <a href="{{ '/papers/' | relative_url }}"{% if page.url == '/papers/' %} class="active" aria-current="page"{% endif %}>Publications</a>
+          <a href="{{ '/projects/' | relative_url }}"{% if page.url == '/projects/' %} class="active" aria-current="page"{% endif %}>Projects</a>
+          <a href="{{ '/writing/' | relative_url }}"{% if page.url == '/writing/' or page.layout == 'posts' %} class="active" aria-current="page"{% endif %}>Writing</a>
+          <a class="nav-cv{% if page.url == '/Resume/' %} active{% endif %}" href="{{ '/Resume/' | relative_url }}"{% if page.url == '/Resume/' %} aria-current="page"{% endif %}>CV <span aria-hidden="true">↗</span></a>
+          <button class="theme-toggle" type="button" aria-label="Toggle color theme">
+            <svg class="sun-icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4"></circle><path d="M12 2v2M12 20v2M4.93 4.93l1.42 1.42M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.42-1.42M17.66 6.34l1.41-1.41"></path></svg>
+            <svg class="moon-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
+          </button>
+        </nav>
       </div>
+    </header>
+
+    <main id="main-content" class="page-content">
+      {{ content }}
     </main>
 
-    {%- include footer.html %}
-    
+    <footer class="site-footer">
+      <div class="shell footer-grid">
+        <div>
+          <a class="footer-name" href="{{ '/' | relative_url }}">Hoang-Trung Le-Pham</a>
+          <p>Building trustworthy and robust AI systems.</p>
+        </div>
+        <div class="footer-links" aria-label="Social links">
+          <a href="mailto:trunglph@uit.edu.vn">Email</a>
+          <a href="https://github.com/Trunkg0d" target="_blank" rel="noreferrer">GitHub</a>
+          <a href="https://orcid.org/0009-0004-2490-7923" target="_blank" rel="noreferrer">ORCID</a>
+        </div>
+        <p class="footer-note">© <span id="current-year">2026</span> Hoang-Trung Le-Pham</p>
+      </div>
+    </footer>
+
+    <script>
+      (function () {
+        var root = document.documentElement;
+        var themeButton = document.querySelector('.theme-toggle');
+        var navButton = document.querySelector('.nav-toggle');
+        var nav = document.getElementById('site-nav');
+
+        themeButton.addEventListener('click', function () {
+          var nextTheme = root.dataset.theme === 'dark' ? 'light' : 'dark';
+          root.dataset.theme = nextTheme;
+          localStorage.setItem('theme', nextTheme);
+        });
+
+        navButton.addEventListener('click', function () {
+          var isOpen = navButton.getAttribute('aria-expanded') === 'true';
+          navButton.setAttribute('aria-expanded', String(!isOpen));
+          nav.classList.toggle('is-open', !isOpen);
+        });
+
+        nav.querySelectorAll('a').forEach(function (link) {
+          link.addEventListener('click', function () {
+            navButton.setAttribute('aria-expanded', 'false');
+            nav.classList.remove('is-open');
+          });
+        });
+
+        document.getElementById('current-year').textContent = new Date().getFullYear();
+      }());
+    </script>
   </body>
 </html>

@@ -3,6 +3,7 @@ layout: post
 title: Machine Unlearning trong ngữ cảnh Inversion Attacks
 date: 2025-04-02
 categories: jekyll update
+published: false
 ---
 ## 1. Giới thiệu
 Chào mừng bạn đến với một cuộc phiêu lưu thú vị vào "thế giới ngầm" của Trí tuệ Nhân tạo! Hôm nay, chúng ta sẽ cùng nhau khám phá một cuộc chiến đầy cam go, nơi những bộ não AI cố gắng "quên đi" quá khứ, còn những kẻ tấn công lại rình rập để "lật mặt" những bí mật mà chúng đã "chôn giấu".
