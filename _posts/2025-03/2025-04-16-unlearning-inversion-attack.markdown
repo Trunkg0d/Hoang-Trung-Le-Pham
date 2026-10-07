@@ -2,6 +2,7 @@
 layout: posts
 title: "Unlearning Inversion Attack"
 date: 2025-04-16
+published: false
 description: "Một hướng dẫn tổng hợp về Machine Unlearning, Inversion Attacks, bề mặt tấn công mới sinh ra trong quá trình quên dữ liệu, và cách đánh giá an toàn thực chất."
 reading_time: "18 min read"
 categories: research security

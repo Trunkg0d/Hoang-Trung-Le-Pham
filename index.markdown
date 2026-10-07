@@ -115,12 +115,14 @@ description: AI researcher working on trustworthy AI, machine unlearning, model 
     </div>
 
     {%- assign featured_post = site.posts | first -%}
+    {%- assign featured_origin = featured_post.content_origin | default: "human" -%}
+    {%- assign featured_origin_label = featured_post.content_origin_label | default: "Human" -%}
     <article class="article-preview">
-      <div class="article-visual">
-        <img src="{{ '/images/machine-unlearning/mu-vs-inversion-attacks.png' | relative_url }}" alt="Diagram connecting machine unlearning and inversion attacks">
-      </div>
       <div class="article-preview-content">
-        <span class="article-date">{{ featured_post.date | date: "%B %Y" }} · 18 min read</span>
+        <div class="article-meta-row">
+          <span class="article-date">{{ featured_post.date | date: "%B %Y" }} · {{ featured_post.reading_time }}</span>
+          <span class="content-label content-label--{{ featured_origin }}" title="{{ featured_post.content_origin_note | default: 'Written without generative AI' }}">{{ featured_origin_label }}</span>
+        </div>
         <h3>{{ featured_post.title }}</h3>
         <p>{{ featured_post.description }}</p>
         <a class="text-link" href="{{ featured_post.url | relative_url }}">Read article <span aria-hidden="true">→</span></a>

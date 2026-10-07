@@ -1,6 +1,8 @@
 ---
 layout: default
 ---
+{%- assign post_origin = page.content_origin | default: "human" -%}
+{%- assign post_origin_label = page.content_origin_label | default: "Human" -%}
 <article class="post h-entry" itemscope itemtype="https://schema.org/BlogPosting">
   <header class="post-hero shell">
     <a class="eyebrow back-link" href="{{ '/writing/' | relative_url }}">← Back to writing</a>
@@ -10,6 +12,8 @@ layout: default
       <time class="dt-published" datetime="{{ page.date | date_to_xmlschema }}" itemprop="datePublished">{{ page.date | date: "%B %-d, %Y" }}</time>
       <span aria-hidden="true">·</span>
       <span>{{ page.reading_time | default: "15 min read" }}</span>
+      <span aria-hidden="true">·</span>
+      <span class="content-label content-label--{{ post_origin }}" title="{{ page.content_origin_note | default: 'Written without generative AI' }}">{{ post_origin_label }}</span>
     </div>
   </header>
 
