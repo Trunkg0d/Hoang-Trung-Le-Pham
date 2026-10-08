@@ -38,7 +38,6 @@ description: AI researcher working on trustworthy AI, machine unlearning, model 
     <div class="stat"><strong>06</strong><span>Published & accepted papers</span></div>
     <div class="stat"><strong>02</strong><span>Q1 journal articles</span></div>
     <div class="stat"><strong>01</strong><span>First-author Q1 paper</span></div>
-    <div class="stat"><strong>9.13</strong><span>Current MSc GPA / 10</span></div>
   </div>
 </section>
 
