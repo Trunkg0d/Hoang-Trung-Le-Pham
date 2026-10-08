@@ -5,6 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="theme-color" content="#f6f8fc">
     {%- seo -%}
+    <link rel="icon" type="image/png" href="{{ '/assets/site-logo.png' | relative_url }}?v={{ site.time | date: '%s' }}">
+    <link rel="apple-touch-icon" href="{{ '/assets/site-logo.png' | relative_url }}?v={{ site.time | date: '%s' }}">
     <link rel="stylesheet" href="{{ '/assets/custom.css' | relative_url }}?v={{ site.time | date: '%s' }}">
     {%- feed_meta -%}
     <script>
@@ -28,7 +30,9 @@
     <header class="site-header">
       <div class="shell header-inner">
         <a class="brand" href="{{ '/' | relative_url }}" aria-label="Hoang-Trung Le-Pham, home">
-          <span class="brand-mark" aria-hidden="true">HT</span>
+          <span class="brand-mark" aria-hidden="true">
+            <img src="{{ '/assets/site-logo.png' | relative_url }}?v={{ site.time | date: '%s' }}" alt="">
+          </span>
           <span class="brand-copy">
             <strong>Hoang-Trung</strong>
             <small>AI Researcher</small>
