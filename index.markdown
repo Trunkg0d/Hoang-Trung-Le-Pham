@@ -11,8 +11,8 @@ description: AI researcher working on trustworthy AI, machine unlearning, model 
       <h1 class="display-title">Building AI that<br><span class="accent">earns trust.</span></h1>
       <p class="hero-lead">
         I'm <strong>Hoang-Trung Le-Pham</strong>, a teaching assistant at the University of
-        Information Technology, VNU-HCM, and an AI researcher with the IEC Research Group.
-        My work explores model security, machine unlearning, and multimodal learning.
+        Information Technology, VNU-HCM, and an AI researcher with the IEC Research Group (led by
+        Associate Professor Kim-Hung Le). My work explores model security, machine unlearning, and multimodal learning.
       </p>
       <div class="hero-actions">
         <a class="button button-primary" href="{{ '/papers/' | relative_url }}">Explore my research <span aria-hidden="true">→</span></a>
@@ -37,7 +37,7 @@ description: AI researcher working on trustworthy AI, machine unlearning, model 
   <div class="shell stats-grid">
     <div class="stat"><strong>06</strong><span>Published & accepted papers</span></div>
     <div class="stat"><strong>02</strong><span>Q1 journal articles</span></div>
-    <div class="stat"><strong>01</strong><span>First-author Q1 paper</span></div>
+    <div class="stat"><strong>03</strong><span>First-author papers</span></div>
   </div>
 </section>
 
@@ -53,17 +53,17 @@ description: AI researcher working on trustworthy AI, machine unlearning, model 
 
     <div class="focus-grid">
       <article class="focus-card">
-        <span class="focus-index">01</span>
+        <!-- <span class="focus-index">01</span> -->
         <h3>Machine Unlearning</h3>
         <p>Removing the influence of selected training data while preserving model utility and measuring what the model still reveals.</p>
       </article>
       <article class="focus-card">
-        <span class="focus-index">02</span>
+        <!-- <span class="focus-index">02</span> -->
         <h3>AI Model Security</h3>
         <p>Investigating inversion, dropout, and bit-flip attacks—and designing stronger evaluation and defense mechanisms.</p>
       </article>
       <article class="focus-card">
-        <span class="focus-index">03</span>
+        <!-- <span class="focus-index">03</span> -->
         <h3>Multimodal Learning</h3>
         <p>Combining semantic, graph, interaction, and temporal signals for robust early rumor detection on social media.</p>
       </article>
