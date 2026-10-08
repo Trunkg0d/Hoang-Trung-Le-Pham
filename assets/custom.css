@@ -244,8 +244,8 @@ button, input { font: inherit; }
 .availability::before { flex: 0 0 auto; width: 9px; height: 9px; border-radius: 50%; background: #2ec98f; box-shadow: 0 0 0 5px rgba(46,201,143,.14); content: ""; }
 
 .stats { padding: 20px 0 90px; }
-.stats-grid { display: grid; grid-template-columns: repeat(3, 1fr); overflow: hidden; border: 1px solid var(--line); border-radius: var(--radius-md); background: var(--surface); box-shadow: 0 12px 36px rgba(19,41,63,.05); }
-.stat { padding: 28px; border-right: 1px solid var(--line); }
+.stats-grid { display: grid; width: 100%; grid-template-columns: repeat(3, minmax(0, 1fr)); overflow: hidden; border: 1px solid var(--line); border-radius: var(--radius-md); background: var(--surface); box-shadow: 0 12px 36px rgba(19,41,63,.05); }
+.stat { min-width: 0; padding: 28px; border-right: 1px solid var(--line); }
 .stat:last-child { border-right: 0; }
 .stat strong { display: block; font-size: 32px; line-height: 1; letter-spacing: -.04em; }
 .stat span { display: block; margin-top: 9px; color: var(--muted); font-size: 13px; }
