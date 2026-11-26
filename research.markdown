@@ -4,49 +4,18 @@ title: Research
 permalink: /research/
 ---
 
-<header class="page-intro site-container">
-  <p class="eyebrow">Research</p>
-  <h1>Trustworthy learning through security, privacy, and reliable forgetting.</h1>
-  <p class="page-lead">My research studies what machine learning systems retain, what they can safely forget, and how those properties can be evaluated under realistic attacks.</p>
-</header>
+<section class="site-container template-page" id="research-data">
+  <h1 class="template-title">Research</h1>
+  <p>My research focuses on machine unlearning, model security, and multimodal learning. I am particularly interested in how information can remain recoverable after a model has been updated to forget selected training data.</p>
 
-<section class="site-container research-layout">
-  <div class="research-topic">
-    <span class="topic-number">01</span>
-    <div>
-      <h2>Machine Unlearning</h2>
-      <p>I work on methods that remove the influence of selected training data without requiring complete retraining. A central part of this work is evaluation: a model should not only preserve utility, but also demonstrate that forgotten information cannot be recovered.</p>
-      <ul class="plain-list">
-        <li>Feature-space and optimization-based unlearning</li>
-        <li>Removal quality beyond predictive accuracy</li>
-        <li>Auditing and reproducible evaluation protocols</li>
-      </ul>
-    </div>
-  </div>
+  <h2>Machine unlearning</h2>
+  <p>I study methods for removing the influence of selected data from trained models. My work also examines how removal quality should be evaluated beyond predictive accuracy, including privacy tests and attacks against unlearned models.</p>
 
-  <div class="research-topic">
-    <span class="topic-number">02</span>
-    <div>
-      <h2>Model Security & Privacy</h2>
-      <p>I investigate how model updates can create new attack surfaces. My current focus includes inversion attacks against unlearned models and the security implications of knowledge editing.</p>
-      <ul class="plain-list">
-        <li>Model inversion and information recovery</li>
-        <li>Adversarial attacks on forgetting mechanisms</li>
-        <li>Security analysis of knowledge editing</li>
-      </ul>
-    </div>
-  </div>
+  <h2>Model security</h2>
+  <p>I investigate attacks on machine learning systems, including inversion, dropout, and bit-flip attacks. My current work considers inversion attacks against machine unlearning and security issues introduced by knowledge editing.</p>
 
-  <div class="research-topic">
-    <span class="topic-number">03</span>
-    <div>
-      <h2>Multimodal Learning</h2>
-      <p>I also explore robust multimodal systems that combine visual, linguistic, and structured information, with an emphasis on practical applications and dependable behavior.</p>
-    </div>
-  </div>
-</section>
+  <h2>Multimodal learning</h2>
+  <p>I work with textual, graph, interaction, and temporal information for early rumor detection. This line of research studies how complementary information sources can improve detection performance.</p>
 
-<section class="site-container research-cta">
-  <p>For papers, venues, and DOI links, visit the complete publication record.</p>
-  <a class="button" href="{{ '/papers/' | relative_url }}">Browse publications</a>
+  <p class="research-publications-link"><a href="{{ '/papers/' | relative_url }}">View publications</a></p>
 </section>

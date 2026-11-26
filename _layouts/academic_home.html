@@ -5,9 +5,9 @@ layout: academic
 <section class="academic-home site-container">
   <aside class="profile-column" aria-label="Profile">
     <img class="profile-photo" src="{{ '/images/0F0A6763.jpg' | relative_url }}" alt="Portrait of Hoang-Trung Le-Pham">
-    <h1>Hoang-Trung<br>Le-Pham</h1>
-    <p class="profile-role">Researcher in Trustworthy Machine Learning</p>
-    <p class="profile-affiliation">University of Information Technology<br>VNU-HCM</p>
+    <h1>Hoang-Trung Le-Pham</h1>
+    <h2>AI Researcher</h2>
+    <p class="profile-affiliation">University of Information Technology, VNU-HCM</p>
 
     <div class="profile-links" aria-label="Profile links">
       <a href="mailto:trunglph@uit.edu.vn">Email</a>
@@ -17,48 +17,28 @@ layout: academic
     </div>
   </aside>
 
-  <div class="home-content">
-    <section class="intro-section">
-      <p class="eyebrow">About me</p>
-      <h2>Building machine learning systems that remain trustworthy when models learn, forget, and change.</h2>
-      <p>I am a researcher and teaching assistant at the <strong>University of Information Technology, VNU-HCM</strong>, and a member of the IEC Research Group. My work focuses on the security and privacy of machine learning systems, especially machine unlearning and attacks that reveal what a model was meant to forget.</p>
-      <p>I am currently completing an M.Sc. in Artificial Intelligence at the University of Science, VNU-HCM. I also explore multimodal learning and practical AI systems.</p>
+  <div class="home-content template-home-content">
+    <section>
+      <h2 class="template-title">About me</h2>
+      <p>I am a teaching assistant at the <strong>University of Information Technology, VNU-HCM</strong> and a researcher with the IEC Research Group. I am also completing an M.Sc. in Artificial Intelligence at the University of Science, VNU-HCM.</p>
+      <p>My research focuses on machine unlearning and model security. I study attacks against machine learning systems and methods for evaluating whether an unlearned model has removed the influence of selected data.</p>
     </section>
 
-    <section class="home-section">
-      <div class="section-heading">
-        <p class="eyebrow">Research interests</p>
-        <h2>Current directions</h2>
-      </div>
-      <div class="interest-grid">
-        <article>
-          <span>01</span>
-          <h3>Machine Unlearning</h3>
-          <p>Reliable forgetting, evaluation, and privacy after data removal.</p>
-        </article>
-        <article>
-          <span>02</span>
-          <h3>Model Security</h3>
-          <p>Inversion, extraction, and knowledge-editing attack surfaces.</p>
-        </article>
-        <article>
-          <span>03</span>
-          <h3>Multimodal Learning</h3>
-          <p>Robust learning across vision, language, and structured signals.</p>
-        </article>
-      </div>
+    <section>
+      <h2 class="template-title">Research interests</h2>
+      <ul class="template-list">
+        <li><strong>Machine unlearning:</strong> unlearning methods, removal quality, and privacy evaluation.</li>
+        <li><strong>Model security:</strong> inversion attacks, dropout attacks, bit-flip attacks, and knowledge editing.</li>
+        <li><strong>Multimodal learning:</strong> graph, textual, interaction, and temporal information for rumor detection.</li>
+      </ul>
     </section>
 
-    <section class="home-section selected-work">
-      <div class="section-heading heading-with-link">
-        <div>
-          <p class="eyebrow">Selected work</p>
-          <h2>Recent publications</h2>
-        </div>
-        <a class="text-link" href="{{ '/papers/' | relative_url }}">View all publications</a>
+    <section>
+      <div class="template-title-row">
+        <h2 class="template-title">Selected publications</h2>
+        <a class="text-link" href="{{ '/papers/' | relative_url }}">All publications</a>
       </div>
-
-      <ol class="selected-list">
+      <ol class="selected-list template-publications">
         <li>
           <span class="publication-year">2026</span>
           <div>
@@ -81,12 +61,6 @@ layout: academic
           </div>
         </li>
       </ol>
-    </section>
-
-    <section class="home-section compact-facts" aria-label="Research highlights">
-      <div><strong>06</strong><span>Published & accepted papers</span></div>
-      <div><strong>02</strong><span>Q1 journal articles</span></div>
-      <div><strong>03</strong><span>First-author papers</span></div>
     </section>
   </div>
 </section>
