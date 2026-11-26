@@ -315,7 +315,7 @@ main { min-height: calc(100vh - 135px); }
 .pub-content p { margin: .35rem 0; text-align: justify; }
 .pub-authors,
 .pub-venue { color: #495057; }
-.pub-link { display: inline-block; margin-top: .5rem; }
+.pub-link { display: inline-block; max-width: 100%; margin-top: .5rem; overflow-wrap: anywhere; }
 .pub-tags { display: flex; align-content: flex-start; flex-wrap: wrap; gap: 6px; }
 .tag,
 .content-label,
