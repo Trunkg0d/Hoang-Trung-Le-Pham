@@ -9,6 +9,17 @@
     <link rel="stylesheet" href="{{ '/assets/template.css' | relative_url }}">
     {% feed_meta %}
     {% seo %}
+    <script>
+      window.MathJax = {
+        tex: {
+          inlineMath: [['$', '$'], ['\\(', '\\)']],
+          displayMath: [['$$', '$$'], ['\\[', '\\]']],
+          processEscapes: true
+        },
+        svg: { fontCache: 'global' }
+      };
+    </script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"></script>
   </head>
   <body class="page-{{ page.layout | default: 'academic' }}">
     <a class="skip-link" href="#main-content">Skip to content</a>

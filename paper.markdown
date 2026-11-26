@@ -36,7 +36,7 @@ permalink: /papers/
       </div>
       <div class="publication-list">
         <article class="publication-card" data-tags="first-author multimodal-learning">
-          <span class="pub-code">J—01</span>
+          <span class="pub-code">J-1</span>
           <div class="pub-content">
             <h3>MTAS: A Temporal-Aware Multiview Graph Attention Framework for Early Rumor Detection on Social Media</h3>
             <p class="pub-authors"><strong>Hoang-Trung Le-Pham</strong>, The-Phong Nguyen, Anh-Duy Tran, and Kim-Hung Le</p>
@@ -47,7 +47,7 @@ permalink: /papers/
         </article>
 
         <article class="publication-card" data-tags="co-author machine-unlearning ai-model-security">
-          <span class="pub-code">J—02</span>
+          <span class="pub-code">J-2</span>
           <div class="pub-content">
             <h3>ODFU: Off-Diagonal Correlation-Aware Federated Unlearning for Dropout Attack Defense in Federated Learning</h3>
             <p class="pub-authors">Cao Qui, <strong>Hoang-Trung Le-Pham</strong>, and Kim-Hung Le</p>
@@ -62,11 +62,11 @@ permalink: /papers/
     <section class="publication-group" aria-labelledby="conferences-heading">
       <div class="group-heading">
         <h2 id="conferences-heading">Peer-reviewed conferences</h2>
-        <span class="group-count" data-singular="paper" data-plural="papers">4 papers</span>
+        <span class="group-count" data-singular="paper" data-plural="papers">5 papers</span>
       </div>
       <div class="publication-list">
         <article class="publication-card" data-tags="first-author ai-model-security">
-          <span class="pub-code">C—01</span>
+          <span class="pub-code">C-1</span>
           <div class="pub-content">
             <h3>A Dual-Layer Defense Mechanism for Dropout Attack in Wireless Link Estimation</h3>
             <p class="pub-authors">Huy-Cuong Nguyen, <strong>Hoang-Trung Le-Pham</strong> (co-first author), Xuan-Ha Nguyen, Khanh-Hoi Le-Minh, and Kim-Hung Le</p>
@@ -77,7 +77,7 @@ permalink: /papers/
         </article>
 
         <article class="publication-card" data-tags="co-author ai-model-security">
-          <span class="pub-code">C—02</span>
+          <span class="pub-code">C-2</span>
           <div class="pub-content">
             <h3>Investigating the Vulnerability of Deep Neural Network to Bit-Flip Attacks in Collaborative Inference Systems</h3>
             <p class="pub-authors">Nhu-Y Tran-Van, <strong>Hoang-Trung Le-Pham</strong>, Huy-Tan Thai, and Kim-Hung Le</p>
@@ -88,7 +88,7 @@ permalink: /papers/
         </article>
 
         <article class="publication-card" data-tags="co-author ai-model-security">
-          <span class="pub-code">C—03</span>
+          <span class="pub-code">C-3</span>
           <div class="pub-content">
             <h3>Dropout Attacks on Knowledge Distillation</h3>
             <p class="pub-authors">Duc-Tai Nguyen, Tra-My Le-Doan, <strong>Hoang-Trung Le-Pham</strong>, and Kim-Hung Le</p>
@@ -99,12 +99,22 @@ permalink: /papers/
         </article>
 
         <article class="publication-card" id="flia" data-tags="first-author machine-unlearning ai-model-security">
-          <span class="pub-code">C—04</span>
+          <span class="pub-code">C-4</span>
           <div class="pub-content">
             <h3>FLIA: Forgotten Label Inference Attacks Against Machine Unlearning in Smart City Systems</h3>
             <p class="pub-authors"><strong>Hoang-Trung Le-Pham</strong>, Hung Phuoc Truong, and Kim-Hung Le</p>
             <p class="pub-venue">2026 International Conference on Advanced Technologies for Communications (ATC), Special Session on Smart Transportation and Smart City Systems.</p>
             <a class="text-link pub-link" href="https://atc-conf.org/atc-2026" target="_blank" rel="noreferrer">Conference</a>
+          </div>
+          <div class="pub-tags"><span class="tag tag-highlight">First author</span><span class="tag">Machine unlearning</span><span class="tag">AI model security</span></div>
+        </article>
+
+        <article class="publication-card" id="signalunlearn" data-tags="first-author machine-unlearning ai-model-security">
+          <span class="pub-code">C-5</span>
+          <div class="pub-content">
+            <h3>SignalUnlearn: Privacy Auditing of Federated Unlearning for Collaborative Wireless Intelligence</h3>
+            <p class="pub-authors"><strong>Hoang-Trung Le-Pham</strong> and Kim-Hung Le</p>
+            <p class="pub-venue">2026 RIVF International Conference on Computing and Communication Technologies (RIVF), track on Communications, Networking, IoT, and Cloud Computing (accepted).</p>
           </div>
           <div class="pub-tags"><span class="tag tag-highlight">First author</span><span class="tag">Machine unlearning</span><span class="tag">AI model security</span></div>
         </article>
