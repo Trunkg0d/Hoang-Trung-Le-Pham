@@ -134,12 +134,11 @@ main { min-height: calc(100vh - 135px); }
 }
 
 .profile-photo {
-  width: 280px;
-  height: 280px;
-  object-fit: cover;
-  object-position: center 22%;
-  border: 5px solid #fff;
-  border-radius: 100%;
+  width: 220px;
+  height: auto;
+  object-fit: contain;
+  border: 0;
+  border-radius: 0;
 }
 
 .profile-column h1 {
@@ -255,6 +254,40 @@ main { min-height: calc(100vh - 135px); }
 .research-publications-link { padding-top: 1rem; border-top: 1px solid var(--line); }
 
 /* Publications use the template's simple academic list. */
+.publication-filter-bar {
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+  padding-top: .5rem;
+  padding-bottom: 2rem;
+  border-bottom: 1px solid var(--line);
+}
+.filter-label {
+  flex: 0 0 auto;
+  padding-top: .4rem;
+  color: var(--muted);
+  font-size: .875rem;
+  font-weight: 600;
+}
+.publication-filters { display: flex; flex-wrap: wrap; gap: .5rem; }
+.filter-button {
+  min-height: 36px;
+  padding: .35rem .7rem;
+  color: #495057;
+  background: #fff;
+  border: 1px solid #ced4da;
+  border-radius: 4px;
+  font-size: .875rem;
+  cursor: pointer;
+}
+.filter-button:hover { color: #212529; background: var(--soft); }
+.filter-button.is-active {
+  color: #fff;
+  background: #343a40;
+  border-color: #343a40;
+}
+.publication-card[hidden],
+.publication-group[hidden] { display: none !important; }
 .publication-section { padding: 1rem 0 5rem; }
 .publication-group + .publication-group { margin-top: 3rem; }
 .group-heading { margin-bottom: 1rem; }
@@ -404,10 +437,12 @@ main { min-height: calc(100vh - 135px); }
 @media (max-width: 767px) {
   .site-name { font-size: 1.05rem; }
   .academic-home { min-height: 0; padding-top: 2.5rem; padding-bottom: 4rem; }
-  .profile-photo { width: 230px; height: 230px; }
+  .profile-photo { width: 200px; height: auto; }
   .page-hero-grid { grid-template-columns: 1fr; gap: 1rem; }
   .publication-card { grid-template-columns: 1fr; margin-left: 1.5rem; }
   .publication-card::before { left: -1.5rem; }
+  .publication-filter-bar { display: block; }
+  .publication-filters { margin-top: .65rem; }
   .projects-grid,
   .writing-grid { grid-template-columns: 1fr; }
   .post-footer > div,
