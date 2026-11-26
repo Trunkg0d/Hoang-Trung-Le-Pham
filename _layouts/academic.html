@@ -6,7 +6,7 @@
     <meta name="color-scheme" content="light">
     <meta name="theme-color" content="#ffffff">
     <link rel="icon" type="image/png" href="{{ '/assets/site-logo.png' | relative_url }}">
-    <link rel="stylesheet" href="{{ '/assets/template.css' | relative_url }}">
+    <link rel="stylesheet" href="{{ '/assets/template.css' | relative_url }}?v={{ site.time | date: '%s' }}">
     {% feed_meta %}
     {% seo %}
     <script>
