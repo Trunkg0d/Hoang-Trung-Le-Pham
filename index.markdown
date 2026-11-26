@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: academic_home
 title: Hoang-Trung Le-Pham — AI Researcher
 description: AI researcher working on trustworthy AI, machine unlearning, model security, and multimodal learning.
 ---
@@ -26,7 +26,7 @@ description: AI researcher working on trustworthy AI, machine unlearning, model 
 
     <div class="portrait-card">
       <div class="portrait-frame">
-        <img src="{{ '/images/profile.jpg' | relative_url }}" alt="Portrait of Hoang-Trung Le-Pham" width="852" height="852">
+        <img src="{{ '/images/0F0A6763.jpg' | relative_url }}" alt="Portrait of Hoang-Trung Le-Pham" width="500" height="667">
       </div>
       <div class="availability">Open to PhD opportunities in trustworthy AI</div>
     </div>

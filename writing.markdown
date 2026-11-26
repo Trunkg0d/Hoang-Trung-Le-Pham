@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: academic
 title: Writing
 description: Research notes by Hoang-Trung Le-Pham.
 permalink: /writing/
@@ -40,7 +40,6 @@ permalink: /writing/
       </div>
       <a class="writing-card-link" href="{{ post.url | relative_url }}">
         {%- if post_status == "in-progress" -%}View progress{%- else -%}Read the article{%- endif -%}
-        <span aria-hidden="true">→</span>
       </a>
     </article>
     {%- endfor -%}
