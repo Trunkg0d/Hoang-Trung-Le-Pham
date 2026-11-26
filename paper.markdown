@@ -40,7 +40,7 @@ permalink: /papers/
           <div class="pub-content">
             <h3>MTAS: A Temporal-Aware Multiview Graph Attention Framework for Early Rumor Detection on Social Media</h3>
             <p class="pub-authors"><strong>Hoang-Trung Le-Pham</strong>, The-Phong Nguyen, Anh-Duy Tran, and Kim-Hung Le</p>
-            <p class="pub-venue"><em>Information Fusion</em>, vol. 126, article 103598, 2026.</p>
+            <p class="pub-venue"><em>Information Fusion</em> (Q1; Impact Factor: 17.4), vol. 126, article 103598, 2026.</p>
             <a class="text-link pub-link" href="https://doi.org/10.1016/j.inffus.2025.103598" target="_blank" rel="noreferrer">DOI</a>
           </div>
           <div class="pub-tags"><span class="tag tag-highlight">First author</span><span class="tag">Multimodal learning</span></div>
@@ -51,7 +51,7 @@ permalink: /papers/
           <div class="pub-content">
             <h3>ODFU: Off-Diagonal Correlation-Aware Federated Unlearning for Dropout Attack Defense in Federated Learning</h3>
             <p class="pub-authors">Cao Qui, <strong>Hoang-Trung Le-Pham</strong>, and Kim-Hung Le</p>
-            <p class="pub-venue"><em>Array</em>, vol. 31, article 101065, 2026.</p>
+            <p class="pub-venue"><em>Array</em> (Q1; Impact Factor: 5.3), vol. 31, article 101065, 2026.</p>
             <a class="text-link pub-link" href="https://doi.org/10.1016/j.array.2026.101065" target="_blank" rel="noreferrer">DOI</a>
           </div>
           <div class="pub-tags"><span class="tag tag-highlight">Co-author</span><span class="tag">Machine unlearning</span><span class="tag">AI model security</span></div>
@@ -70,7 +70,7 @@ permalink: /papers/
           <div class="pub-content">
             <h3>A Dual-Layer Defense Mechanism for Dropout Attack in Wireless Link Estimation</h3>
             <p class="pub-authors">Huy-Cuong Nguyen, <strong>Hoang-Trung Le-Pham</strong> (co-first author), Xuan-Ha Nguyen, Khanh-Hoi Le-Minh, and Kim-Hung Le</p>
-            <p class="pub-venue">17th International Conference on Computational Collective Intelligence (ICCCI 2025), pp. 169–183, Springer, 2026.</p>
+            <p class="pub-venue">17th International Conference on Computational Collective Intelligence (ICCCI 2025; CORE 2021 Rank B), pp. 169–183, Springer, 2026.</p>
             <a class="text-link pub-link" href="https://doi.org/10.1007/978-3-032-09321-9_12" target="_blank" rel="noreferrer">DOI</a>
           </div>
           <div class="pub-tags"><span class="tag tag-highlight">First author</span><span class="tag">AI model security</span></div>
