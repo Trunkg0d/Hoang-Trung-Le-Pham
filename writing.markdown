@@ -8,11 +8,9 @@ permalink: /writing/
 <header class="page-hero">
   <div class="shell page-hero-grid">
     <div>
-      <p class="eyebrow">Research notes</p>
       <h1>Writing</h1>
     </div>
     <div>
-      <p class="page-summary">Long-form technical writing that connects research concepts, threat models, and practical implications.</p>
       <p class="content-label-guide"><strong>Label key:</strong> Slop = AI-written · Near Slop = AI-assisted and human-edited · Human = written without generative AI</p>
     </div>
   </div>
