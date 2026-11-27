@@ -8,10 +8,8 @@ permalink: /papers/
 <header class="page-hero">
   <div class="shell page-hero-grid">
     <div>
-      <p class="eyebrow">Research output</p>
       <h1>Publications</h1>
     </div>
-    <p class="page-summary">My work spans trustworthy AI, machine unlearning, model security, federated learning, and multimodal rumor detection.</p>
   </div>
 </header>
 
